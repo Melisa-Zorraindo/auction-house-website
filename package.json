@@ -1,0 +1,23 @@
+{
+  "name": "biddable",
+  "version": "0.0.1",
+  "description": "Auction house website",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Melisa-Zorraindo/auction-house-website.git"
+  },
+  "keywords": [
+    "auction-house",
+    "bids"
+  ],
+  "author": "Melisa Zorraindo <melisa.zorraindo@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Melisa-Zorraindo/auction-house-website/issues"
+  },
+  "homepage": "https://github.com/Melisa-Zorraindo/auction-house-website#readme"
+}
