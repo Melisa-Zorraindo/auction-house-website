@@ -4,7 +4,8 @@
   "description": "Auction house website",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/Melisa-Zorraindo/auction-house-website/issues"
   },
-  "homepage": "https://github.com/Melisa-Zorraindo/auction-house-website#readme"
+  "homepage": "https://github.com/Melisa-Zorraindo/auction-house-website#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.0"
+  },
+  "devDependencies": {
+    "sass": "^1.56.1"
+  }
 }
