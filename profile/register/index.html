@@ -22,5 +22,100 @@
     />
     <link rel="stylesheet" href="/dist/css/styles.css" />
   </head>
-  <body></body>
+  <body>
+    <header></header>
+    <main>
+      <div class="container">
+        <h1>Register a new user</h1>
+        <form id="sign-up-form">
+          <div class="container">
+            <!--name-->
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="name-addon">@</span>
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                placeholder="Name"
+                aria-label="Name"
+                aria-describedby="name-addon"
+                required
+                pattern="^[\w]+$"
+                title="Must not contain punctuation symbols other than underscores (_). Example: 1_sour_piggy"
+              />
+            </div>
+            <!--email-->
+            <div class="input-group mb-3">
+              <span
+                class="input-group-text material-symbols-outlined"
+                id="email-addon"
+                >mail</span
+              >
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="Email"
+                aria-label="Email"
+                aria-describedby="email-addon"
+                required
+                pattern="^[\w\-.]+@(stud.)?noroff.no$"
+                title="Only users with a Noroff email account may sign up. Email must end in (stud.)noroff.no"
+              />
+            </div>
+            <!--avatar-->
+            <div class="input-group mb-3">
+              <span
+                class="input-group-text material-symbols-outlined"
+                id="avatar-addon"
+                >account_circle</span
+              >
+              <input
+                type="url"
+                name="avatar"
+                class="form-control"
+                placeholder="Avatar"
+                aria-label="Avatar"
+                aria-describedby="avatar-addon"
+              />
+            </div>
+            <!--password-->
+            <div class="input-group mb-3">
+              <span
+                class="input-group-text material-symbols-outlined"
+                id="key-addon"
+                >key</span
+              >
+              <input
+                type="password"
+                name="password"
+                class="form-control"
+                placeholder="Password"
+                aria-label="Password"
+                aria-describedby="key-addon"
+              />
+            </div>
+            <!--repeat password-->
+            <div class="input-group mb-3">
+              <span
+                class="input-group-text material-symbols-outlined"
+                id="key-addon-repeat"
+                >key</span
+              >
+              <input
+                type="password"
+                name="repeat-password"
+                class="form-control"
+                placeholder="Repeat password"
+                aria-label="Repeat password"
+                aria-describedby="key-addon-repeat"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Sign up</button>
+            <p>Already registered? <a href="">Log in</a></p>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
 </html>
