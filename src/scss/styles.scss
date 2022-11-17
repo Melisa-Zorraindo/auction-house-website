@@ -5,3 +5,21 @@
 .fs-7 {
   font-size: 0.8rem;
 }
+
+.custom-dropdown {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.profile-img-small {
+  width: 3rem;
+  height: 3rem;
+}
