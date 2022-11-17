@@ -1,7 +1,10 @@
 @import "variables";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
-//my custom font size
+//my custom font sizes
+.fs-0 {
+  font-size: 2.75rem;
+}
 .fs-7 {
   font-size: 0.8rem;
 }
@@ -20,6 +23,7 @@
   user-select: none;
 }
 
+//custom profile image size
 .profile-img-small {
   width: 2.75rem;
   height: 2.75rem;
