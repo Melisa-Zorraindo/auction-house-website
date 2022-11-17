@@ -25,7 +25,7 @@
   <body class="bg-light">
     <header>
       <!--navbar mobile when user is logged in-->
-      <nav class="navbar d-none d-sm-block d-md-none">
+      <nav class="navbar d-sm-block d-md-none">
         <div class="container-fluid">
           <a class="navbar-brand" href="/feed/homepage/"
             ><img src="/src/assets/logo.png" alt="logo"
@@ -112,7 +112,7 @@
       </nav>
 
       <!--navbar mobile when user is logged out-->
-      <nav class="navbar d-none d-sm-block d-md-none">
+      <nav class="navbar d-sm-block d-md-none">
         <div class="container-fluid">
           <a class="navbar-brand" href="/feed/homepage/"
             ><img src="/src/assets/logo.png" alt="logo"
@@ -154,6 +154,28 @@
           </div>
         </div>
       </nav>
+
+      <!--navbar desktop when user is logged out-->
+      <div
+        class="container-fluid d-flex justify-content-between mt-3 d-none d-md-flex"
+        role="navigation"
+      >
+        <a class="navbar-brand" href="/feed/homepage/"
+          ><img src="/src/assets/logo.png" alt="logo"
+        /></a>
+        <div class="d-flex gap-3">
+          <div class="d-flex flex-column align-items-center text-primary me-5">
+            <span class="material-symbols-outlined"> currency_exchange </span>
+            <span class="fs-7">NOK</span>
+          </div>
+          <div>
+            <button class="btn btn-primary">Log in</button>
+          </div>
+          <div>
+            <button class="btn btn-outline-primary">Sign up</button>
+          </div>
+        </div>
+      </div>
     </header>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
