@@ -296,25 +296,27 @@
     </header>
     <main>
       <!--banner and search bar-->
-      <div class="container-fluid position-relative">
+      <div class="card bg-dark text-white">
         <img
           src="/src/assets/compressed-hero-banner.jpg"
+          class="card-img"
           alt="comic style drawing of people searching for listings online"
-          class="img-fluid"
         />
-        <div
-          class="container-sm position-absolute top-50 start-50 translate-middle-x input-group input-group-lg"
-        >
-          <span class="input-group-text" id="inputGroup-sizing-lg"
-            ><span class="material-symbols-outlined"> search </span></span
+        <div class="card-img-overlay">
+          <div
+            class="container-sm position-absolute top-50 start-50 translate-middle-x input-group input-group-lg"
           >
-          <input
-            type="search"
-            placeholder="What are you looking for?"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-lg"
-          />
+            <span class="input-group-text" id="inputGroup-sizing-lg"
+              ><span class="material-symbols-outlined"> search </span></span
+            >
+            <input
+              type="search"
+              placeholder="What are you looking for?"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg"
+            />
+          </div>
         </div>
       </div>
     </main>
