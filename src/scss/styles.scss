@@ -35,3 +35,9 @@
     /* Many shadows blur out the area around the text */ 3px 0 3px #1c111f,
     0 3px 3px #1c111f, -3px 0 3px #1c111f, 0 -3px 3px #1c111f;
 }
+
+.card:hover {
+  box-shadow: -3px 3px 3px #e6e6e6;
+  transform: scale(1.01);
+  transition: 0.5s;
+}
