@@ -19,7 +19,7 @@
     />
     <link rel="stylesheet" href="/dist/css/styles.css" />
   </head>
-  <body>
+  <body class="container-xxl bg-light">
     <header>
       <!--navbar mobile when user is logged in-->
       <nav class="navbar d-sm-block d-md-none">
@@ -291,6 +291,55 @@
         </li>
       </ul>
     </header>
+    <main>
+      <div class="container-fluid bg-dark py-5">
+        <div class="row">
+          <div
+            class="col col-6 col-sm-3 col-md-2 order-2 order-sm-1 pt-4 pt-sm-0"
+          >
+            <img
+              src="../src/assets/compressed-girl-avatar.jpg"
+              alt="profile picture"
+              class="img-fluid rounded-circle"
+            />
+          </div>
+          <div class="col order-3 order-sm-2 py-3 py-sm-0">
+            <div class="row">
+              <div class="col col-sm-8 col-md-12">
+                <h1 class="h4">Sham_Q</h1>
+                <span>sham.q@stud.noroff.no</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-sm-8 col-md-12 pt-5">
+                <div class="d-flex gap-5">
+                  <div class="d-flex flex-column">
+                    <span>Listings</span>
+                    <span>2</span>
+                  </div>
+                  <div class="d-flex flex-column">
+                    <span>Credits</span>
+                    <span>1000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col col-12 col-sm-3 col-md-2 d-flex flex-column gap-3 order-1 order-sm-3 align-items-end"
+          >
+            <div>
+              <button type="button" class="btn btn-primary">New listing</button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-outline-primary">
+                Edit profile
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
