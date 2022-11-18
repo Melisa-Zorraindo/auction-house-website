@@ -22,7 +22,7 @@
     />
     <link rel="stylesheet" href="/dist/css/styles.css" />
   </head>
-  <body class="bg-light">
+  <body class="container-xxl bg-light">
     <header>
       <!--navbar mobile when user is logged in-->
       <nav class="navbar d-sm-block d-md-none">
@@ -293,16 +293,31 @@
           </a>
         </li>
       </ul>
-
+    </header>
+    <main>
       <!--banner and search bar-->
-      <div class="container-fluid">
+      <div class="container-fluid position-relative">
         <img
           src="/src/assets/compressed-hero-banner.jpg"
-          alt=""
+          alt="comic style drawing of people searching for listings online"
           class="img-fluid"
         />
+        <div
+          class="container-sm position-absolute top-50 start-50 translate-middle-x input-group input-group-lg"
+        >
+          <span class="input-group-text" id="inputGroup-sizing-lg"
+            ><span class="material-symbols-outlined"> search </span></span
+          >
+          <input
+            type="search"
+            placeholder="What are you looking for?"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-lg"
+          />
+        </div>
       </div>
-    </header>
+    </main>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
