@@ -340,6 +340,7 @@
                     placeholder="Title"
                     aria-label="Title"
                     aria-describedby="basic-addon1"
+                    required
                   />
                 </div>
 
@@ -394,8 +395,8 @@
                   <span class="input-group-text material-symbols-outlined">
                     calendar_month
                   </span>
-                  <select class="form-select">
-                    <option selected>Date</option>
+                  <select class="form-select" required>
+                    <option value="">Date</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -429,8 +430,8 @@
                     <option value="31">31</option>
                   </select>
 
-                  <select class="form-select">
-                    <option selected>Month</option>
+                  <select class="form-select" required>
+                    <option value="">Month</option>
                     <option value="January">January</option>
                     <option value="February">February</option>
                     <option value="March">March</option>
@@ -445,24 +446,25 @@
                     <option value="December">December</option>
                   </select>
 
-                  <select class="form-select">
-                    <option selected>Year</option>
+                  <select class="form-select" required>
+                    <option value="">Year</option>
                     <option value="this-year">2022</option>
                     <option value="next-year">2023</option>
                   </select>
                 </div>
                 <!--ends-->
+
+                <div class="modal-footer mt-5">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" class="btn btn-primary">Create</button>
+                </div>
               </form>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-outline-primary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">Create</button>
             </div>
           </div>
         </div>
