@@ -94,21 +94,27 @@
                 >
               </li>
               <li class="nav-item">
-                <a
-                  class="nav-link d-flex align-items-center text-primary"
-                  href="#"
-                  ><span class="material-symbols-outlined ms-1">
-                    edit_square </span
-                  ><span class="ms-2">Edit profile </span></a
+                <button
+                  type="button"
+                  class="nav-link d-flex align-items-center text-primary border-0 bg-transparent"
+                  data-bs-toggle="modal"
+                  data-bs-target="#edit-profile-modal"
                 >
+                  <span class="material-symbols-outlined ms-1">
+                    edit_square </span
+                  ><span class="ms-2">Edit profile </span>
+                </button>
               </li>
               <li class="nav-item">
-                <a
-                  class="nav-link d-flex align-items-center text-primary"
-                  href="#"
-                  ><span class="material-symbols-outlined ms-1"> add_box </span
-                  ><span class="ms-2">New listing </span></a
+                <button
+                  type="button"
+                  class="nav-link d-flex align-items-center text-primary border-0 bg-transparent"
+                  data-bs-toggle="modal"
+                  data-bs-target="#new-listing-modal"
                 >
+                  <span class="material-symbols-outlined ms-1"> add_box </span
+                  ><span class="ms-2">New listing </span>
+                </button>
               </li>
               <hr class="table-group-divider" />
               <li class="nav-item">
@@ -170,19 +176,27 @@
                     >View profile</a
                   >
                 </li>
-                <li>
-                  <a class="dropdown-item d-flex my-2" href="#"
-                    ><span class="material-symbols-outlined me-2">
-                      edit_square </span
-                    >Edit profile</a
+                <li class="dropdown-item my-2">
+                  <button
+                    type="button"
+                    class="nav-link d-flex justify-content-start align-items-center text-primary border-0 bg-transparent"
+                    data-bs-toggle="modal"
+                    data-bs-target="#edit-profile-modal"
                   >
+                    <span class="material-symbols-outlined"> edit_square </span
+                    ><span class="ms-2">Edit profile </span>
+                  </button>
                 </li>
-                <li>
-                  <a class="dropdown-item d-flex my-2" href="#"
-                    ><span class="material-symbols-outlined me-2">
-                      add_box </span
-                    >New listing</a
+                <li class="dropdown-item my-2">
+                  <button
+                    type="button"
+                    class="nav-link d-flex justify-content-start align-items-center text-primary border-0 bg-transparent"
+                    data-bs-toggle="modal"
+                    data-bs-target="#new-listing-modal"
                   >
+                    <span class="material-symbols-outlined"> add_box </span
+                    ><span class="ms-2">New listing </span>
+                  </button>
                 </li>
                 <hr class="table-group-divider" />
                 <li>
@@ -300,6 +314,293 @@
       </ul>
     </header>
     <main>
+      <!--new listing modal-->
+      <div
+        class="modal fade"
+        id="new-listing-modal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-fullscreen-md-down">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">New listing</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <!--title-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    title
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Title"
+                    aria-label="Title"
+                    aria-describedby="basic-addon1"
+                    required
+                  />
+                </div>
+
+                <!--description-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    description
+                  </span>
+                  <textarea
+                    class="form-control"
+                    aria-label="With textarea"
+                    placeholder="add a detailed description of the item for sale"
+                  ></textarea>
+                </div>
+
+                <!--tags-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    sell
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Tags"
+                    aria-label="Tags"
+                    aria-describedby="basic-addon1"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    title="Separated by commas if more than one"
+                  />
+                </div>
+
+                <!--media-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    link
+                  </span>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="listing-url"
+                    aria-describedby="basic-addon3"
+                    placeholder="https://www.url.com/image.jpeg"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    title="Separated by commas if more than one"
+                  />
+                </div>
+
+                <!--end date-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    calendar_month
+                  </span>
+                  <select class="form-select" required>
+                    <option value="">Date</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                  </select>
+
+                  <select class="form-select" required>
+                    <option value="">Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                  </select>
+
+                  <select class="form-select" required>
+                    <option value="">Year</option>
+                    <option value="this-year">2022</option>
+                    <option value="next-year">2023</option>
+                  </select>
+                </div>
+                <!--ends-->
+
+                <div class="modal-footer mt-5">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--edit profile modal-->
+      <div
+        class="modal fade"
+        id="edit-profile-modal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-fullscreen-md-down">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit profile picture</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form action="">
+                <!--username-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text"> @ </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                    disabled
+                  />
+                </div>
+
+                <!--email-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    mail
+                  </span>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                    aria-label="Email"
+                    aria-describedby="basic-addon1"
+                    disabled
+                  />
+                </div>
+
+                <!--media-->
+                <label for="avatar-url">Enter a url...</label>
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    link
+                  </span>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="avatar-url"
+                    aria-describedby="basic-addon3"
+                    placeholder="https://www.url.com/image.jpeg"
+                    required
+                  />
+                </div>
+
+                <!--premade avatars-->
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col col-12">
+                      <p>... or select an avatar from below</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <img
+                        src="../../src/assets/compressed-girl-avatar.jpg"
+                        alt="girl avatar"
+                        class="img-fluid rounded-circle clickable"
+                      />
+                    </div>
+                    <div class="col">
+                      <img
+                        src="../../src/assets/compressed-guy-avatar.jpg"
+                        alt="guy avatar"
+                        class="img-fluid rounded-circle clickable"
+                      />
+                    </div>
+                    <div class="col">
+                      <img
+                        src="../../src/assets/compressed-squirrel-avatar.jpg"
+                        alt="squirrel avatar"
+                        class="img-fluid rounded-circle clickable"
+                      />
+                    </div>
+                    <div class="col">
+                      <img
+                        src="../../src/assets/compressed-flamingo-avatar.jpg"
+                        alt="squirrel avatar"
+                        class="img-fluid rounded-circle clickable"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal-footer mt-5">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
       <!--single item container-->
       <div class="container-fluid my-5 bg-white py-5">
         <div class="row">
