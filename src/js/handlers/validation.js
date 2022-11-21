@@ -1,4 +1,7 @@
+import { registerProfile } from "../api/auth/register.js";
 import * as validation from "../errorHandling/index.js";
+
+const AVATAR_FIELD = document.querySelector("#avatar");
 
 //select registration form and validate on submission
 const REGISTRATION_FORM = document.querySelector("#registration-form");
@@ -71,10 +74,12 @@ export function validateRegistrationForm(event) {
       PASSWORD_REPEAT_FIELD.value
     )
   ) {
-    const form = event.target;
-    const FORM_DATA = new FormData(form);
-    const profile = Object.fromEntries(FORM_DATA.entries());
-    console.log(profile);
+    registerProfile(
+      USERNAME_FIELD.value,
+      EMAIL_FIELD.value,
+      PASSWORD_FIELD.value,
+      AVATAR_FIELD.value
+    );
   } else {
     if (validation.checkUsername(USERNAME_FIELD.value)) {
       validation.removeError(USERNAME_FIELD, USERNAME_ERROR);
