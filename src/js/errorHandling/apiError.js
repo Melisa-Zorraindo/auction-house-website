@@ -1,3 +1,6 @@
+/**
+ * Displays an error
+ */
 export function displayApiError() {
   const USER_FEEDBACK = document.querySelector("#user-feedback");
   USER_FEEDBACK.classList.remove("d-none");

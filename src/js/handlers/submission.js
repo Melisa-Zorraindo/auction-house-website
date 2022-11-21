@@ -1,3 +1,8 @@
+/**
+ * Displays message after sign up
+ * process is successfully completed
+ * and redirects the user to the log in page
+ */
 export function handleSubmission() {
   const USER_FEEDBACK = document.querySelector("#user-feedback");
   USER_FEEDBACK.classList.remove("d-none");

@@ -59,8 +59,10 @@ PASSWORD_REPEAT_FIELD.addEventListener("keyup", () => {
 
 /**
  * If values entered pass validation,
- * it calls API to register new user
- * @param {*} event
+ * it calls API to register new user.
+ * If values don't pass validation
+ * it displays errors on submission
+ * @param {event} event
  */
 export function validateRegistrationForm(event) {
   event.preventDefault();

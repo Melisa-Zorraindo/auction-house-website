@@ -4,6 +4,14 @@ import { displayApiError } from "../../errorHandling/apiError.js";
 
 const REGISTER_PATH = "auth/register";
 
+/**
+ * Sends a POST request to the API
+ * to register a new user
+ * @param {string} name
+ * @param {email} email
+ * @param {string} password
+ * @param {URL} avatar
+ */
 export async function registerProfile(name, email, password, avatar) {
   const options = {
     method: "POST",
