@@ -38,10 +38,11 @@
     </header>
     <main>
       <div class="container">
-        <h1 class="text-center mb-5">Register a new user</h1>
+        <h1 class="text-center my-5">Register a new user</h1>
         <div class="container">
           <div class="row">
-            <form method="post" id="registration-form" class="col">
+            <p class="col-12 text-center d-none" id="user-feedback"></p>
+            <form id="registration-form" class="col mb-5">
               <div class="container-md">
                 <!--name-->
                 <div class="input-group mt-3">
@@ -93,6 +94,7 @@
                     placeholder="https://www.url.com/image.jpeg"
                     aria-label="Avatar"
                     aria-describedby="avatar-addon"
+                    id="avatar"
                   />
                 </div>
                 <p class="mt-1 ps-1 fs-7">
