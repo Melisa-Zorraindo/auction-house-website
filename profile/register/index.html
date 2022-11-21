@@ -30,7 +30,7 @@
     <header>
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"
+          <a class="navbar-brand" href="../../index.html"
             ><img src="../../src/assets/logo.png" alt="logo" class="img-fluid"
           /></a>
         </div>
@@ -41,45 +41,46 @@
         <h1 class="text-center mb-5">Register a new user</h1>
         <div class="container">
           <div class="row">
-            <form id="sign-up-form" class="col">
-              <div class="container">
+            <form method="post" id="registration-form" class="col">
+              <div class="container-md">
                 <!--name-->
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="name-addon">@</span>
+                <div class="input-group mt-3">
+                  <span class="input-group-text">@</span>
                   <input
                     type="text"
-                    name="name"
+                    name="username"
                     class="form-control"
-                    placeholder="Name"
-                    aria-label="Name"
-                    aria-describedby="name-addon"
-                    required
-                    pattern="^[\w]+$"
+                    id="username"
+                    placeholder="username"
+                    aria-label="username"
                     maxlength="20"
-                    title="Must not contain punctuation symbols other than underscores (_). Example: 1_sour_piggy"
                   />
                 </div>
+                <p class="mt-1 ps-1 fs-7" id="username-error">
+                  Must not contain punctuation symbols other than underscore (_)
+                </p>
+
                 <!--email-->
-                <div class="input-group mb-3">
-                  <span
-                    class="input-group-text material-symbols-outlined"
-                    id="email-addon"
-                    >mail</span
-                  >
+                <div class="input-group mt-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    mail
+                  </span>
                   <input
                     type="email"
                     name="email"
                     class="form-control"
-                    placeholder="Email"
-                    aria-label="Email"
-                    aria-describedby="email-addon"
-                    required
-                    pattern="^[\w\-.]+@(stud.)?noroff.no$"
-                    title="Only users with a Noroff email account may sign up. Email must end in (stud.)noroff.no"
+                    id="email"
+                    placeholder="email"
+                    aria-label="email"
                   />
                 </div>
+                <p class="mt-1 ps-1 fs-7" id="email-error">
+                  Only users with @noroff.no or @stud.noroff.no email may
+                  register profile
+                </p>
+
                 <!--avatar-->
-                <div class="input-group mb-3">
+                <div class="input-group mt-3">
                   <span
                     class="input-group-text material-symbols-outlined"
                     id="avatar-addon"
@@ -89,45 +90,53 @@
                     type="url"
                     name="avatar"
                     class="form-control"
-                    placeholder="Avatar"
+                    placeholder="https://www.url.com/image.jpeg"
                     aria-label="Avatar"
                     aria-describedby="avatar-addon"
                   />
                 </div>
+                <p class="mt-1 ps-1 fs-7">
+                  Optional. If filled in, it must be a valid URL
+                </p>
+
                 <!--password-->
-                <div class="input-group mb-3">
-                  <span
-                    class="input-group-text material-symbols-outlined"
-                    id="key-addon"
-                    >key</span
-                  >
+                <div class="input-group mt-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    key
+                  </span>
                   <input
                     type="password"
                     name="password"
                     class="form-control"
-                    placeholder="Password"
-                    aria-label="Password"
-                    aria-describedby="key-addon"
+                    id="password"
+                    placeholder="password"
+                    aria-label="password"
                   />
                 </div>
+                <p class="mt-1 ps-1 fs-7" id="pass-error">
+                  Must be at least 8 characters long
+                </p>
+
                 <!--repeat password-->
-                <div class="input-group mb-3">
-                  <span
-                    class="input-group-text material-symbols-outlined"
-                    id="key-addon-repeat"
-                    >key</span
-                  >
+                <div class="input-group my-1">
+                  <span class="input-group-text material-symbols-outlined">
+                    key
+                  </span>
                   <input
                     type="password"
-                    name="repeat-password"
                     class="form-control"
-                    placeholder="Repeat password"
-                    aria-label="Repeat password"
-                    aria-describedby="key-addon-repeat"
+                    id="password-repeat"
+                    placeholder="repeat password"
+                    aria-label="password"
                   />
                 </div>
-                <div class="d-grid">
-                  <button type="submit" class="btn btn-primary">Sign up</button>
+                <p class="mt-1 ps-1 fs-7 hidden" id="pass-match-error">
+                  Passwords don't match
+                </p>
+
+                <!--submit-->
+                <div class="d-grid mt-5 mb-1">
+                  <button type="submit" class="btn btn-primary">sign up</button>
                 </div>
                 <p class="m-2">
                   Already registered?
@@ -146,5 +155,6 @@
         </div>
       </div>
     </main>
+    <script src="../../src/js/handlers/validation.js" type="module"></script>
   </body>
 </html>
