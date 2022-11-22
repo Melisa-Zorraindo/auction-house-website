@@ -32,6 +32,7 @@ export async function login(email, password) {
     storage.saveToStorage("accessToken", accessToken);
     storage.saveToStorage("credits", credits);
     storage.saveToStorage("profile", profile);
+    window.location.assign("../../index.html");
   } else {
     const {
       errors: [{ message }],
