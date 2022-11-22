@@ -1,8 +1,8 @@
 /**
  * Displays an error
  */
-export function displayApiError(apiError) {
-  const USER_FEEDBACK = document.querySelector("#user-feedback");
+export function displayApiError(container, apiError) {
+  const USER_FEEDBACK = container;
   USER_FEEDBACK.classList.remove("d-none");
   USER_FEEDBACK.classList.add("bg-danger");
   USER_FEEDBACK.classList.add("text-light");
