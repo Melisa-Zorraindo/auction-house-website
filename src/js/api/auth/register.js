@@ -27,11 +27,14 @@ export async function registerProfile(name, email, password, avatar) {
   };
 
   const response = await fetch(`${API_AUCTION_URL}${REGISTER_PATH}`, options);
+  const result = await response.json();
 
   if (response.ok) {
-    await response.json();
     handleSubmission();
   } else {
-    displayApiError();
+    const {
+      errors: [{ message }],
+    } = result;
+    displayApiError(message);
   }
 }
