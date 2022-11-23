@@ -3,7 +3,7 @@ import { loadFromStorage } from "../../storage/load.js";
 const profile = loadFromStorage("profile");
 
 export function renderNavbarDesktop() {
-  const NAVBAR_DESKTOP_CONTAINER = document.querySelector("#DesktopNavbar");
+  const NAVBAR_DESKTOP_CONTAINER = document.querySelector("#desktopNavbar");
 
   if (profile) {
     NAVBAR_DESKTOP_CONTAINER.innerHTML = `   <a class="navbar-brand" href="./index.html">
