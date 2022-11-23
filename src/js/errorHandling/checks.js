@@ -17,7 +17,7 @@ export function checkUsername(username) {
  * @returns true if patterns match, false if don't
  */
 export function checkEmail(email) {
-  const pattern = /^[\w\-.]+@(stud.)?noroff.no$/;
+  const pattern = /^[\w\-.]+@stud.?noroff.no$/;
   const patternMatches = pattern.test(email);
   return patternMatches;
 }
