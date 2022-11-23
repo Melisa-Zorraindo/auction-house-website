@@ -70,11 +70,15 @@ export function renderNavbarDesktop() {
                                                         </button>
                                                     </li>
                                                     <hr class="table-group-divider" />
-                                                    <li>
-                                                        <a class="dropdown-item d-flex" href="#"
-                                                        ><span class="material-symbols-outlined me-2"> logout </span
-                                                        >Log out</a
+                                                    <li class="dropdown-item my-2">
+                                                        <button
+                                                        type="button"
+                                                        id="logout-desktop"
+                                                        class="nav-link d-flex justify-content-start align-items-center text-primary border-0 bg-transparent"
                                                         >
+                                                        <span class="material-symbols-outlined"> logout </span
+                                                        ><span class="ms-2"> Log out </span>
+                                                        </button>
                                                     </li>
                                                     </ul>
                                                 </div>

@@ -92,12 +92,14 @@ export function renderNavbarMobile() {
                                                 </li>
                                                 <hr class="table-group-divider" />
                                                 <li class="nav-item">
-                                                    <a
-                                                        class="nav-link d-flex align-items-center text-primary"
-                                                        href="#"
-                                                        ><span class="material-symbols-outlined ms-1"> logout </span
-                                                        ><span class="ms-2">Log out </span></a
+                                                    <button
+                                                        type="button"
+                                                        id="logout-mobile"
+                                                        class="nav-link d-flex align-items-center text-primary border-0 bg-transparent"
                                                     >
+                                                        <span class="material-symbols-outlined ms-1"> logout </span
+                                                        ><span class="ms-2"> Log out </span>
+                                                    </button>
                                                 </li>
                                             </ul>
                                         </div>
