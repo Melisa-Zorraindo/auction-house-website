@@ -25,267 +25,27 @@
   </head>
   <body class="container-xxl bg-light">
     <header>
-      <!--navbar mobile when user is logged in-->
-      <nav class="navbar d-sm-block d-md-none">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html"
-            ><img src="./src/assets/logo.png" alt="logo"
-          /></a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbar-mobile-user-logged-in"
-            aria-controls="navbar-mobile-user-logged-in"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse"
-            id="navbar-mobile-user-logged-in"
-          >
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link d-flex align-items-center text-primary"
-                  href="./index.html"
-                  ><span class="material-symbols-outlined ms-1"> home </span
-                  ><span class="ms-2">Home</span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link d-flex align-items-center text-primary"
-                  href="./feed.html"
-                  ><span class="material-symbols-outlined ms-1"> category </span
-                  ><span class="ms-2">All listings</span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link d-flex align-items-center text-primary"
-                  href="#"
-                  ><span class="material-symbols-outlined ms-1"> timer </span
-                  ><span class="ms-2">Finish soon </span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link d-flex align-items-center text-primary"
-                  href="#"
-                  ><span class="material-symbols-outlined ms-1">
-                    switch_access_shortcut </span
-                  ><span class="ms-2">Latest listings </span></a
-                >
-              </li>
-              <hr class="table-group-divider" />
-              <li class="nav-item">
-                <a
-                  class="nav-link d-flex align-items-center text-primary"
-                  href="./profile.html"
-                  ><span class="material-symbols-outlined ms-1">
-                    account_circle </span
-                  ><span class="ms-2">View profile </span></a
-                >
-              </li>
-              <li class="nav-item">
-                <button
-                  type="button"
-                  class="nav-link d-flex align-items-center text-primary border-0 bg-transparent"
-                  data-bs-toggle="modal"
-                  data-bs-target="#edit-profile-modal"
-                >
-                  <span class="material-symbols-outlined ms-1">
-                    edit_square </span
-                  ><span class="ms-2">Edit profile </span>
-                </button>
-              </li>
-              <li class="nav-item">
-                <button
-                  type="button"
-                  class="nav-link d-flex align-items-center text-primary border-0 bg-transparent"
-                  data-bs-toggle="modal"
-                  data-bs-target="#new-listing-modal"
-                >
-                  <span class="material-symbols-outlined ms-1"> add_box </span
-                  ><span class="ms-2">New listing </span>
-                </button>
-              </li>
-              <hr class="table-group-divider" />
-              <li class="nav-item">
-                <a
-                  class="nav-link d-flex align-items-center text-primary"
-                  href="#"
-                  ><span class="material-symbols-outlined ms-1"> logout </span
-                  ><span class="ms-2">Log out </span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <!--navbar mobile-->
+      <nav class="navbar d-sm-block d-md-none" id="mobileNavbar"></nav>
 
-      <!--navbar desktop when user is logged in-->
+      <!--navbar desktop-->
       <div
         class="container-fluid d-flex justify-content-between mt-3 d-none d-md-flex"
         role="navigation"
-      >
-        <a class="navbar-brand" href="./index.html"
-          ><img src="./src/assets/logo.png" alt="logo"
-        /></a>
-        <div class="d-flex gap-3">
-          <div class="d-flex flex-column align-items-center text-primary me-5">
-            <span class="material-symbols-outlined"> add_box </span>
-            <span class="fs-7">New listing</span>
-          </div>
-          <div class="d-flex flex-column align-items-center text-primary me-5">
-            <span class="material-symbols-outlined"> currency_exchange </span>
-            <span class="fs-7">NOK</span>
-          </div>
-          <div class="d-flex flex-column align-items-center text-primary me-5">
-            <span class="material-symbols-outlined"> payments </span>
-            <span class="fs-7">1000 credits</span>
-          </div>
-
-          <!--source: https://stackoverflow.com/questions/67136313/how-to-create-button-with-text-under-icon-using-bootstrap-5-or-css-->
-          <div>
-            <div class="custom-dropdown">
-              <img
-                src="./src/assets/compressed-girl-avatar.jpg"
-                class="m-auto mb-1 rounded-circle profile-img-small"
-                alt="profile picture"
-              />
-              <b
-                class="dropdown-toggle"
-                id="profile-dropdown"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Profile
-              </b>
-              <ul class="dropdown-menu" aria-labelledby="profile-dropdown">
-                <li>
-                  <a class="dropdown-item d-flex my-2" href="./profile.html"
-                    ><span class="material-symbols-outlined me-2">
-                      account_circle </span
-                    >View profile</a
-                  >
-                </li>
-                <li class="dropdown-item my-2">
-                  <button
-                    type="button"
-                    class="nav-link d-flex justify-content-start align-items-center text-primary border-0 bg-transparent"
-                    data-bs-toggle="modal"
-                    data-bs-target="#edit-profile-modal"
-                  >
-                    <span class="material-symbols-outlined"> edit_square </span
-                    ><span class="ms-2">Edit profile </span>
-                  </button>
-                </li>
-                <li class="dropdown-item my-2">
-                  <button
-                    type="button"
-                    class="nav-link d-flex justify-content-start align-items-center text-primary border-0 bg-transparent"
-                    data-bs-toggle="modal"
-                    data-bs-target="#new-listing-modal"
-                  >
-                    <span class="material-symbols-outlined"> add_box </span
-                    ><span class="ms-2">New listing </span>
-                  </button>
-                </li>
-                <hr class="table-group-divider" />
-                <li>
-                  <a class="dropdown-item d-flex" href="#"
-                    ><span class="material-symbols-outlined me-2"> logout </span
-                    >Log out</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!--ends-->
-        </div>
-      </div>
-
-      <!--navbar mobile when user is logged out-->
-      <nav class="navbar d-sm-block d-md-none">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html"
-            ><img src="./src/assets/logo.png" alt="logo"
-          /></a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbar-mobile-user-logged-out"
-            aria-controls="navbar-mobile-user-logged-out"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse"
-            id="navbar-mobile-user-logged-out"
-          >
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link d-flex align-items-center text-primary"
-                  href="./profile-login.html"
-                  ><span class="material-symbols-outlined ms-1"> login </span
-                  ><span class="ms-2">Log in </span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link d-flex align-items-center text-primary"
-                  href="./profile-signup.html"
-                  ><span class="material-symbols-outlined ms-1">
-                    app_registration </span
-                  ><span class="ms-2">Sign up </span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <!--navbar desktop when user is logged out-->
-      <div
-        class="container-fluid d-flex justify-content-between mt-3 d-none d-md-flex"
-        role="navigation"
-      >
-        <a class="navbar-brand" href="./index.html"
-          ><img src="./src/assets/logo.png" alt="logo"
-        /></a>
-        <div class="d-flex gap-3">
-          <div class="d-flex flex-column align-items-center text-primary me-5">
-            <span class="material-symbols-outlined"> currency_exchange </span>
-            <span class="fs-7">NOK</span>
-          </div>
-          <div>
-            <a href="./profile-login.html" class="btn btn-primary">Log in</a>
-          </div>
-          <div>
-            <a href="./profile-signup.html" class="btn btn-outline-primary"
-              >Sign up</a
-            >
-          </div>
-        </div>
-      </div>
+        id="DesktopNavbar"
+      ></div>
 
       <!--navbar secondary-->
-      <ul class="d-flex justify-content-end my-5 me-2 gap-4 d-none d-md-flex">
+      <ul
+        class="container-fluid d-flex justify-content-end mt-4 mb-5 ps-0 gap-4 d-none d-md-flex"
+      >
         <li class="list-unstyled">
           <a
             href="./feed.html"
             class="d-flex flex-column align-items-center text-decoration-none text-secondary"
           >
-            <span class="material-symbols-outlined fs-0 m-0"> category </span>
-            <span class="fs-7">All listings</span>
+            <span class="material-symbols-outlined fs-1 m-0"> category </span>
+            <span class="fs-7">All</span>
           </a>
         </li>
         <li class="list-unstyled">
@@ -293,10 +53,10 @@
             href=""
             class="d-flex flex-column align-items-center text-decoration-none text-secondary"
           >
-            <span class="material-symbols-outlined fs-0 m-0">
+            <span class="material-symbols-outlined fs-1 m-0">
               local_fire_department
             </span>
-            <span class="fs-7">Popular listings</span>
+            <span class="fs-7">Popular</span>
           </a>
         </li>
         <li class="list-unstyled">
@@ -304,8 +64,8 @@
             href=""
             class="d-flex flex-column align-items-center text-decoration-none text-secondary"
           >
-            <span class="material-symbols-outlined fs-0 m-0"> timer </span>
-            <span class="fs-7">Finish soon</span>
+            <span class="material-symbols-outlined fs-1 m-0"> timer </span>
+            <span class="fs-7">Hurry up!</span>
           </a>
         </li>
       </ul>
@@ -786,5 +546,6 @@
       </div>
     </footer>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./src/js/index.js" type="module"></script>
   </body>
 </html>
