@@ -59,13 +59,18 @@ export function createListingsHTML(container, title, items) {
     row.classList.add("row");
     cardBody.append(row);
 
+    let media = items[i].media[0];
+
     let description = document.createElement("p");
-    description.classList.add("card-text", "col", "col-sm-12", "col-md-6");
+    if (!media) {
+      description.classList.add("card-text", "col-12");
+    } else {
+      description.classList.add("card-text", "col", "col-sm-12", "col-md-6");
+    }
     description.innerHTML = `${items[i].description}`;
     row.append(description);
 
     let image = document.createElement("img");
-    let media = items[i].media[0];
     if (!media) {
       image.classList.add("d-none");
     } else {
