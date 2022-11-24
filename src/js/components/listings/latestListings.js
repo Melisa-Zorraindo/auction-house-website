@@ -88,4 +88,15 @@ export function createListingsHTML(container, title, items) {
     endDate.innerHTML = `Ends ${formattedDate}`;
     cardFooter.append(endDate);
   }
+
+  //add view more button
+  const buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("my-5", "d-flex", "justify-content-center");
+  container.append(buttonContainer);
+
+  const viewAllButton = document.createElement("a");
+  viewAllButton.setAttribute("href", "#");
+  viewAllButton.classList.add("btn", "btn-primary");
+  viewAllButton.innerHTML = "View all";
+  buttonContainer.append(viewAllButton);
 }
