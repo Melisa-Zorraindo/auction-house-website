@@ -65,9 +65,14 @@ export function createListingsHTML(container, title, items) {
     row.append(description);
 
     let image = document.createElement("img");
-    image.setAttribute("src", `${items[i].media[0]}`);
+    let media = items[i].media[0];
+    if (!media) {
+      image.classList.add("d-none");
+    } else {
+      image.classList.add("col", "col-sm-12", "col-md-6", "img-fluid");
+    }
+    image.setAttribute("src", media);
     image.setAttribute("alt", "object for bid");
-    image.classList.add("col", "col-sm-12", "col-md-6", "img-fluid");
     row.append(image);
 
     let cardFooter = document.createElement("div");
