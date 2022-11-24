@@ -120,6 +120,7 @@ export function renderNavbarDesktop() {
     const firstLi = document.createElement("li");
     ul.append(firstLi);
 
+    //THIS LINK ISN'T WORKING AT THE MOMENT
     const viewProfileAnchor = document.createElement("a");
     viewProfileAnchor.setAttribute("href", "profile.html");
     viewProfileAnchor.classList.add("dropdown-item", "d-flex", "my-2");
