@@ -6,6 +6,7 @@ import { fetchListings } from "../api/feed/read.js";
 import { sortByMostPopular } from "../components/listings/mostPopular.js";
 import { createCardGroups } from "../components/listings/latestListings.js";
 import { getFinishSoonItems } from "../components/listings/finishSoon.js";
+import { searchListings } from "../tools/search.js";
 import { createFooterHTML } from "../components/footer/footer.js";
 
 const profile = loadFromStorage("profile");
@@ -32,6 +33,22 @@ export async function renderHomepage() {
   const FINISH_SOON = await getFinishSoonItems();
   const FINISH_SOON_ITEMS = document.querySelector("#finish-soon");
   createCardGroups(FINISH_SOON_ITEMS, "Finish soon", FINISH_SOON);
+
+  //add search functionality
+  const FOUND_ITEMS_CONTAINER = document.querySelector("#found-items");
+  const SEARCH_BAR = document.querySelector("#search-bar");
+
+  SEARCH_BAR.addEventListener("keyup", () => {
+    FOUND_ITEMS_CONTAINER.classList.remove("d-none");
+    let query = SEARCH_BAR.value;
+    searchListings(LATEST_ITEMS, query, FOUND_ITEMS_CONTAINER);
+  });
+
+  //clear container when clear search button clicked
+  const CLEAR_SEARCH = document.querySelector("#clear-search");
+  CLEAR_SEARCH.addEventListener("click", () => {
+    FOUND_ITEMS_CONTAINER.classList.add("d-none");
+  });
 
   //render footer
   createFooterHTML();

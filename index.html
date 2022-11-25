@@ -372,7 +372,7 @@
         />
         <div class="card-img-overlay">
           <div
-            class="container-sm position-absolute top-50 start-50 translate-middle-x input-group input-group-lg"
+            class="container-sm position-absolute top-50 start-50 translate-middle-x input-group"
           >
             <span class="input-group-text" id="inputGroup-sizing-lg"
               ><span class="material-symbols-outlined"> search </span></span
@@ -383,10 +383,18 @@
               class="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-lg"
+              id="search-bar"
+              value=""
             />
+            <button class="btn btn-primary" type="button" id="clear-search">
+              Clear
+            </button>
           </div>
         </div>
       </div>
+
+      <!--found items container-->
+      <div class="container-fluid d-none" id="found-items"></div>
 
       <!--feedback paragraph-->
       <div class="d-none text-center py-3 my-5" id="listings-feedback"></div>
