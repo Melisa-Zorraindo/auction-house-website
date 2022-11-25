@@ -8,7 +8,7 @@ export function createListingsHTML(container, title, items) {
 
   const feedbackPara = document.createElement("p");
   feedbackPara.classList.add("d-none");
-  feedbackPara.setAttribute("id", "latest-listings-feedback");
+  feedbackPara.setAttribute("id", "listings-feedback");
   container.append(feedbackPara);
 
   const cardGroup = document.createElement("div");
@@ -59,7 +59,13 @@ export function createListingsHTML(container, title, items) {
     row.classList.add("row");
     cardBody.append(row);
 
+    //find if media is empty to add classes accordingly
     let media = items[i].media[0];
+
+    //shorten the description for nicer design
+    let userDescription = items[i].description;
+    let shorterDescription = userDescription.split(" ", 5);
+    let descriptionToDisplay = shorterDescription.join(" ");
 
     let description = document.createElement("p");
     if (!media) {
@@ -67,7 +73,7 @@ export function createListingsHTML(container, title, items) {
     } else {
       description.classList.add("card-text", "col", "col-sm-12", "col-md-6");
     }
-    description.innerHTML = `${items[i].description}`;
+    description.innerHTML = `${descriptionToDisplay}`;
     row.append(description);
 
     let image = document.createElement("img");
