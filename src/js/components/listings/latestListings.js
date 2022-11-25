@@ -58,17 +58,17 @@ export function createCardGroups(container, title, items) {
     let media = items[i].media[0];
 
     //shorten the description for nicer design
-    let userDescription = items[i].description;
+    //FIX THIS
+    /*let userDescription = items[i].description;
     let shorterDescription = userDescription.split(" ", 5);
-    let descriptionToDisplay = shorterDescription.join(" ");
-
+    let descriptionToDisplay = shorterDescription.join(" ");*/
     let description = document.createElement("p");
     if (!media) {
       description.classList.add("card-text", "col-12");
     } else {
       description.classList.add("card-text", "col", "col-sm-12", "col-md-6");
     }
-    description.innerHTML = `${descriptionToDisplay}`;
+    description.innerHTML = `${items[i].description}`;
     row.append(description);
 
     let image = document.createElement("img");
@@ -94,15 +94,4 @@ export function createCardGroups(container, title, items) {
     endDate.innerHTML = `Ends ${formattedDate}`;
     cardFooter.append(endDate);
   }
-
-  //add view more button
-  /*   const buttonContainer = document.createElement("div");
-  buttonContainer.classList.add("my-5", "d-flex", "justify-content-center");
-  container.append(buttonContainer);
-
-  const viewAllButton = document.createElement("a");
-  viewAllButton.setAttribute("href", "#");
-  viewAllButton.classList.add("btn", "btn-primary");
-  viewAllButton.innerHTML = "View all";
-  buttonContainer.append(viewAllButton); */
 }
