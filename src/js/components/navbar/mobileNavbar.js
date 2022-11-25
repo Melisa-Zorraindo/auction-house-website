@@ -43,18 +43,18 @@ export function renderNavbarMobile() {
                                                 <li class="nav-item">
                                                     <a
                                                         class="nav-link d-flex align-items-center text-primary"
-                                                        href="#"
-                                                        ><span class="material-symbols-outlined ms-1"> timer </span
-                                                        ><span class="ms-2">Finish soon </span></a
+                                                        href="./most-popular.html"
+                                                        ><span class="material-symbols-outlined ms-1">
+                                                        local_fire_department </span
+                                                        ><span class="ms-2">Most popular </span></a
                                                     >
                                                 </li>
                                                 <li class="nav-item">
                                                     <a
                                                         class="nav-link d-flex align-items-center text-primary"
                                                         href="#"
-                                                        ><span class="material-symbols-outlined ms-1">
-                                                        switch_access_shortcut </span
-                                                        ><span class="ms-2">Latest listings </span></a
+                                                        ><span class="material-symbols-outlined ms-1"> timer </span
+                                                        ><span class="ms-2">Hurry up! </span></a
                                                     >
                                                 </li>
                                                 <hr class="table-group-divider" />
