@@ -1,6 +1,14 @@
 import { formatDate } from "../../tools/dateStyler.js";
+import { fetchListings } from "../../api/feed/read.js";
 
-export function createCardGroups(container, title, items) {
+const listings = await fetchListings();
+
+export function createListingsHTML(container, title, items) {
+  const heading = document.createElement("h1");
+  heading.classList.add("my-5", "h3");
+  heading.innerHTML = title;
+  container.append(heading);
+
   const cardGroup = document.createElement("div");
   cardGroup.classList.add(
     "row",
@@ -10,14 +18,9 @@ export function createCardGroups(container, title, items) {
     "row-cols-lg-4",
     "g-4"
   );
-  container.prepend(cardGroup);
+  container.append(cardGroup);
 
-  const heading = document.createElement("h1");
-  heading.classList.add("my-5", "h3");
-  heading.innerHTML = title;
-  container.prepend(heading);
-
-  for (let i = 0; i < 4; i++) {
+  items.forEach((item) => {
     let card = document.createElement("div");
     card.classList.add("col");
     cardGroup.append(card);
@@ -36,14 +39,19 @@ export function createCardGroups(container, title, items) {
     );
     cardAnchor.append(cardHeaderDiv);
 
+    //shorten the title for nicer design
+    let userTitle = item.title;
+    let shorterTitle = userTitle.split(" ", 3);
+    let titleToDisplay = shorterTitle.join(" ");
+
     let cardTitle = document.createElement("h2");
     cardTitle.classList.add("h4");
-    cardTitle.innerHTML = `${items[i].title}`;
+    cardTitle.innerHTML = `${titleToDisplay}`;
     cardHeaderDiv.append(cardTitle);
 
     let bidsCount = document.createElement("span");
     bidsCount.classList.add("bg-info", "text-light", "p-2", "rounded-3");
-    bidsCount.innerHTML = `${items[i]._count.bids} bids`;
+    bidsCount.innerHTML = `${item._count.bids} bids`;
     cardHeaderDiv.append(bidsCount);
 
     let cardBody = document.createElement("div");
@@ -55,12 +63,13 @@ export function createCardGroups(container, title, items) {
     cardBody.append(row);
 
     //find if media is empty to add classes accordingly
-    let media = items[i].media[0];
+    let media = item.media[0];
 
     //shorten the description for nicer design
-    let userDescription = items[i].description;
+    //FIX THIS!
+    /* let userDescription = item.description;
     let shorterDescription = userDescription.split(" ", 5);
-    let descriptionToDisplay = shorterDescription.join(" ");
+    let descriptionToDisplay = shorterDescription.join(" "); */
 
     let description = document.createElement("p");
     if (!media) {
@@ -68,7 +77,7 @@ export function createCardGroups(container, title, items) {
     } else {
       description.classList.add("card-text", "col", "col-sm-12", "col-md-6");
     }
-    description.innerHTML = `${descriptionToDisplay}`;
+    description.innerHTML = `${item.description}`;
     row.append(description);
 
     let image = document.createElement("img");
@@ -86,23 +95,12 @@ export function createCardGroups(container, title, items) {
     cardAnchor.append(cardFooter);
 
     //format date before printing
-    const newDate = new Date(items[i].endsAt);
+    const newDate = new Date(item.endsAt);
     const formattedDate = formatDate(newDate);
 
     let endDate = document.createElement("p");
     endDate.classList.add("fst-italic", "fw-bold");
     endDate.innerHTML = `Ends ${formattedDate}`;
     cardFooter.append(endDate);
-  }
-
-  //add view more button
-  /*   const buttonContainer = document.createElement("div");
-  buttonContainer.classList.add("my-5", "d-flex", "justify-content-center");
-  container.append(buttonContainer);
-
-  const viewAllButton = document.createElement("a");
-  viewAllButton.setAttribute("href", "#");
-  viewAllButton.classList.add("btn", "btn-primary");
-  viewAllButton.innerHTML = "View all";
-  buttonContainer.append(viewAllButton); */
+  });
 }

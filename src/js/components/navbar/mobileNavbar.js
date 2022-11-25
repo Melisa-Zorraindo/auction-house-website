@@ -35,7 +35,7 @@ export function renderNavbarMobile() {
                                                 <li class="nav-item">
                                                     <a
                                                         class="nav-link d-flex align-items-center text-primary"
-                                                        href="./feed.html"
+                                                        href="./all-listings.html"
                                                         ><span class="material-symbols-outlined ms-1"> category </span
                                                         ><span class="ms-2">All listings</span></a
                                                     >
