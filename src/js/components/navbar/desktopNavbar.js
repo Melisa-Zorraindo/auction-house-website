@@ -24,25 +24,30 @@ export function renderNavbarDesktop() {
     dataContainer.classList.add("d-flex", "gap-3");
     NAVBAR_DESKTOP_CONTAINER.append(dataContainer);
 
-    const firstDatumContainer = document.createElement("div");
-    firstDatumContainer.classList.add(
+    const firstDatumButton = document.createElement("button");
+    firstDatumButton.setAttribute("type", "button");
+    firstDatumButton.setAttribute("data-bs-toggle", "modal");
+    firstDatumButton.setAttribute("data-bs-target", "#edit-profile-modal");
+    firstDatumButton.classList.add(
       "d-flex",
       "flex-column",
       "align-items-center",
       "text-primary",
-      "me-5"
+      "me-5",
+      "border-0",
+      "bg-transparent"
     );
-    dataContainer.append(firstDatumContainer);
+    dataContainer.append(firstDatumButton);
 
     const addListingIcon = document.createElement("span");
     addListingIcon.classList.add("material-symbols-outlined");
     addListingIcon.innerHTML = "add_box";
-    firstDatumContainer.append(addListingIcon);
+    firstDatumButton.append(addListingIcon);
 
     const addListingText = document.createElement("span");
     addListingText.classList.add("fs-7");
     addListingText.innerHTML = "New listing";
-    firstDatumContainer.append(addListingText);
+    firstDatumButton.append(addListingText);
 
     const secondDatumContainer = document.createElement("div");
     secondDatumContainer.classList.add(
