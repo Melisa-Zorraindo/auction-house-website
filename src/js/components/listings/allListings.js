@@ -1,7 +1,4 @@
 import { formatDate } from "../../tools/dateStyler.js";
-import { fetchListings } from "../../api/feed/read.js";
-
-const listings = await fetchListings();
 
 export function createListingsHTML(container, title, items) {
   const heading = document.createElement("h1");
