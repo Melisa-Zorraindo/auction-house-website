@@ -23,7 +23,7 @@ export async function fetchListings() {
     const {
       errors: [{ message }],
     } = result;
-    const USER_FEEDBACK = document.querySelector("#popular-listings-feedback");
+    const USER_FEEDBACK = document.querySelector("#listings-feedback");
     displayApiError(USER_FEEDBACK, message);
   }
 }
@@ -45,7 +45,7 @@ export async function fetchPaintings() {
     const {
       errors: [{ message }],
     } = result;
-    const USER_FEEDBACK = document.querySelector("#popular-listings-feedback");
+    const USER_FEEDBACK = document.querySelector("#listings-feedback");
     displayApiError(USER_FEEDBACK, message);
   }
 }
