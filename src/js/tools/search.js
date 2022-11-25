@@ -10,14 +10,18 @@ import { createListingsHTML } from "../components/listings/allListings.js";
  * @param {HTMLDivElement} container where to render the filtered elements
  */
 export function searchListings(arr, queryString, container) {
-  const filteredPosts = arr.filter(({ title, description }) => {
-    return (
-      title.toLowerCase().includes(queryString.toLowerCase()) ||
-      description.toLowerCase().includes(queryString.toLowerCase())
-    );
+  const filteredListings = arr.filter(({ title, description }) => {
+    if (description) {
+      return (
+        title.toLowerCase().includes(queryString.toLowerCase()) ||
+        description.toLowerCase().includes(queryString.toLowerCase())
+      );
+    } else {
+      return title.toLowerCase().includes(queryString.toLowerCase());
+    }
   });
 
   container.innerHTML = "";
 
-  createListingsHTML(container, "Your search results:", filteredPosts);
+  createListingsHTML(container, "Your search results:", filteredListings);
 }
