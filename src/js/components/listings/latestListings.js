@@ -58,17 +58,18 @@ export function createCardGroups(container, title, items) {
     let media = items[i].media[0];
 
     //shorten the description for nicer design
-    //FIX THIS
-    /*let userDescription = items[i].description;
+    let userDescription =
+      items[i].description || "This item lacks a description";
     let shorterDescription = userDescription.split(" ", 5);
-    let descriptionToDisplay = shorterDescription.join(" ");*/
+    let descriptionToDisplay = shorterDescription.join(" ");
+
     let description = document.createElement("p");
     if (!media) {
       description.classList.add("card-text", "col-12");
     } else {
       description.classList.add("card-text", "col", "col-sm-12", "col-md-6");
     }
-    description.innerHTML = `${items[i].description}`;
+    description.innerHTML = `${descriptionToDisplay}`;
     row.append(description);
 
     let image = document.createElement("img");

@@ -63,10 +63,9 @@ export function createListingsHTML(container, title, items) {
     let media = item.media[0];
 
     //shorten the description for nicer design
-    //FIX THIS!
-    /* let userDescription = item.description;
+    let userDescription = item.description || "This item lacks a description";
     let shorterDescription = userDescription.split(" ", 5);
-    let descriptionToDisplay = shorterDescription.join(" "); */
+    let descriptionToDisplay = shorterDescription.join(" ");
 
     let description = document.createElement("p");
     if (!media) {
@@ -74,7 +73,7 @@ export function createListingsHTML(container, title, items) {
     } else {
       description.classList.add("card-text", "col", "col-sm-12", "col-md-6");
     }
-    description.innerHTML = `${item.description}`;
+    description.innerHTML = `${descriptionToDisplay}`;
     row.append(description);
 
     let image = document.createElement("img");
