@@ -23,5 +23,16 @@ export function searchListings(arr, queryString, container) {
 
   container.innerHTML = "";
 
-  createListingsHTML(container, "Your search results:", filteredListings);
+  //discard finished bids (earlier than today)
+  const today = new Date();
+
+  let array = [];
+  filteredListings.map((item) => {
+    const newDate = new Date(item.endsAt);
+    if (newDate >= today) {
+      array.push(item);
+    }
+  });
+
+  createListingsHTML(container, "Your search results:", array);
 }
