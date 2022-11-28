@@ -27,7 +27,7 @@ export function renderNavbarDesktop() {
     const firstDatumButton = document.createElement("button");
     firstDatumButton.setAttribute("type", "button");
     firstDatumButton.setAttribute("data-bs-toggle", "modal");
-    firstDatumButton.setAttribute("data-bs-target", "#edit-profile-modal");
+    firstDatumButton.setAttribute("data-bs-target", "#new-listing-modal");
     firstDatumButton.classList.add(
       "d-flex",
       "flex-column",
