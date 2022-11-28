@@ -4,6 +4,7 @@ import { loadFromStorage } from "../storage/load.js";
 import { logout } from "./logout.js";
 import { fetchListings } from "../api/feed/read.js";
 import { createListingsHTML } from "../components/listings/allListings.js";
+import { selectAvatar } from "./selectAvatar.js";
 import { createFooterHTML } from "../components/footer/footer.js";
 
 const profile = loadFromStorage("profile");
@@ -22,6 +23,9 @@ export async function renderAllListingsPage() {
   const ALL_LISTINGS = await fetchListings();
   const ALL_LISTINGS_ITEMS = document.querySelector("#all-listings");
   createListingsHTML(ALL_LISTINGS_ITEMS, "Latest listings", ALL_LISTINGS);
+
+  //edit profile functionality
+  selectAvatar();
 
   //render footer
   createFooterHTML();

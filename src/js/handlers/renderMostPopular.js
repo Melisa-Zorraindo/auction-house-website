@@ -4,6 +4,7 @@ import { loadFromStorage } from "../storage/load.js";
 import { logout } from "./logout.js";
 import { sortByMostPopular } from "../components/listings/mostPopular.js";
 import { createListingsHTML } from "../components/listings/allListings.js";
+import { selectAvatar } from "./selectAvatar.js";
 import { createFooterHTML } from "../components/footer/footer.js";
 
 const profile = loadFromStorage("profile");
@@ -22,6 +23,9 @@ export async function renderMostPopularPage() {
   const MOST_POPULAR = await sortByMostPopular();
   const MOST_POPULAR_LISTINGS = document.querySelector("#most-popular");
   createListingsHTML(MOST_POPULAR_LISTINGS, "Most popular", MOST_POPULAR);
+
+  //edit profile funtionality
+  selectAvatar();
 
   //render footer
   createFooterHTML();

@@ -7,7 +7,7 @@ export function renderNavbarDesktop() {
   const NAVBAR_DESKTOP_CONTAINER = document.querySelector("#desktopNavbar");
 
   if (profile) {
-    //fetch profile picture from API, or set a default if there isn't
+    //fetch profile picture from storage, or set a default if there isn't
     const avatar =
       profile.avatar || "src/assets/compressed-flamingo-avatar.jpg";
     const anchorHome = document.createElement("a");

@@ -7,6 +7,7 @@ import { sortByMostPopular } from "../components/listings/mostPopular.js";
 import { createCardGroups } from "../components/listings/latestListings.js";
 import { getFinishSoonItems } from "../components/listings/finishSoon.js";
 import { searchListings } from "../tools/search.js";
+import { selectAvatar } from "./selectAvatar.js";
 import { createFooterHTML } from "../components/footer/footer.js";
 
 const profile = loadFromStorage("profile");
@@ -49,6 +50,9 @@ export async function renderHomepage() {
   CLEAR_SEARCH.addEventListener("click", () => {
     FOUND_ITEMS_CONTAINER.classList.add("d-none");
   });
+
+  //edit profile functionality
+  selectAvatar();
 
   //render footer
   createFooterHTML();

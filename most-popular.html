@@ -238,127 +238,147 @@
 
         <!--edit profile modal-->
         <div
-      class="modal fade"
-      id="edit-profile-modal"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-fullscreen-md-down">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Edit profile picture</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form action="">
-              <!--username-->
-              <div class="input-group mb-3">
-                <span class="input-group-text"> @ </span>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Username"
-                  aria-label="Username"
-                  aria-describedby="basic-addon1"
-                  disabled
-                />
-              </div>
+        class="modal fade"
+        id="edit-profile-modal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-fullscreen-md-down">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit profile picture</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form action="" id="edit-avatar">
+                <p
+                  class="my-4 d-none bg-danger text-white text-center py-3"
+                  id="edit-profile-feedback"
+                ></p>
+                <!--username-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text"> @ </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                    disabled
+                  />
+                </div>
 
-              <!--email-->
-              <div class="input-group mb-3">
-                <span class="input-group-text material-symbols-outlined">
-                  mail
-                </span>
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="Email"
-                  aria-label="Email"
-                  aria-describedby="basic-addon1"
-                  disabled
-                />
-              </div>
+                <!--email-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    mail
+                  </span>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                    aria-label="Email"
+                    aria-describedby="basic-addon1"
+                    disabled
+                  />
+                </div>
 
-              <!--media-->
-              <label for="avatar-url">Enter a url...</label>
-              <div class="input-group mb-3">
-                <span class="input-group-text material-symbols-outlined">
-                  link
-                </span>
-                <input
-                  type="url"
-                  class="form-control"
-                  id="avatar-url"
-                  aria-describedby="basic-addon3"
-                  placeholder="https://www.url.com/image.jpeg"
-                  required
-                />
-              </div>
+                <!--media-->
+                <label for="avatar-url">Enter a url...</label>
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    link
+                  </span>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="avatar-url"
+                    aria-describedby="basic-addon3"
+                    placeholder="https://www.url.com/image.jpeg"
+                    required
+                  />
+                </div>
 
-              <!--premade avatars-->
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col col-12">
-                    <p>... or select an avatar from below</p>
+                <!--premade avatars-->
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col col-12">
+                      <p>... or select an avatar from below</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button
+                      class="col border-0 bg-transparent"
+                      type="button"
+                      id="girl-avatar"
+                    >
+                      <img
+                        src="./src/assets/compressed-girl-avatar.jpg"
+                        alt="girl avatar"
+                        class="img-fluid rounded-circle clickable"
+                      />
+                    </button>
+                    <button
+                      class="col border-0 bg-transparent"
+                      type="button"
+                      id="guy-avatar"
+                    >
+                      <img
+                        src="./src/assets/compressed-guy-avatar.jpg"
+                        alt="guy avatar"
+                        class="img-fluid rounded-circle clickable"
+                      />
+                    </button>
+                    <button
+                      class="col border-0 bg-transparent"
+                      type="button"
+                      id="squirrel-avatar"
+                    >
+                      <img
+                        src="./src/assets/compressed-squirrel-avatar.jpg"
+                        alt="squirrel avatar"
+                        class="img-fluid rounded-circle clickable"
+                      />
+                    </button>
+                    <button
+                      class="col border-0 bg-transparent"
+                      type="button"
+                      id="flamingo-avatar"
+                    >
+                      <img
+                        src="./src/assets/compressed-flamingo-avatar.jpg"
+                        alt="flamingo avatar"
+                        class="img-fluid rounded-circle clickable"
+                      />
+                    </button>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col">
-                    <img
-                      src="./src/assets/compressed-girl-avatar.jpg"
-                      alt="girl avatar"
-                      class="img-fluid rounded-circle clickable"
-                    />
-                  </div>
-                  <div class="col">
-                    <img
-                      src="./src/assets/compressed-guy-avatar.jpg"
-                      alt="guy avatar"
-                      class="img-fluid rounded-circle clickable"
-                    />
-                  </div>
-                  <div class="col">
-                    <img
-                      src="./src/assets/compressed-squirrel-avatar.jpg"
-                      alt="squirrel avatar"
-                      class="img-fluid rounded-circle clickable"
-                    />
-                  </div>
-                  <div class="col">
-                    <img
-                      src="./src/assets/compressed-flamingo-avatar.jpg"
-                      alt="flamingo avatar"
-                      class="img-fluid rounded-circle clickable"
-                    />
-                  </div>
-                </div>
-              </div>
 
-              <div class="modal-footer mt-5">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="submit" class="btn btn-primary">
-                  Save changes
-                </button>
-              </div>
-            </form>
+                <div class="modal-footer mt-5">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-        </div>
 
         <!--feedback paragraph-->
         <div class="d-none text-center py-3 my-5" id="listings-feedback"></div>
