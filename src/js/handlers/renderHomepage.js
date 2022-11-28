@@ -8,6 +8,7 @@ import { createCardGroups } from "../components/listings/latestListings.js";
 import { getFinishSoonItems } from "../components/listings/finishSoon.js";
 import { searchListings } from "../tools/search.js";
 import { selectAvatar } from "./selectAvatar.js";
+import { createNewListing } from "./createNewListing.js";
 import { createFooterHTML } from "../components/footer/footer.js";
 
 const profile = loadFromStorage("profile");
@@ -53,6 +54,9 @@ export async function renderHomepage() {
 
   //edit profile functionality
   selectAvatar();
+
+  //create new listing functionality
+  createNewListing();
 
   //render footer
   createFooterHTML();

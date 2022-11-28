@@ -97,7 +97,11 @@
               ></button>
             </div>
             <div class="modal-body">
-              <form>
+              <form id="new-listing">
+                <p
+                  class="my-4 d-none bg-danger text-white text-center py-3"
+                  id="new-listing-feedback"
+                ></p>
                 <!--title-->
                 <div class="input-group mb-3">
                   <span class="input-group-text material-symbols-outlined">
@@ -109,6 +113,7 @@
                     placeholder="Title"
                     aria-label="Title"
                     aria-describedby="basic-addon1"
+                    id="listing-title"
                     required
                   />
                 </div>
@@ -122,11 +127,12 @@
                     class="form-control"
                     aria-label="With textarea"
                     placeholder="add a detailed description of the item for sale"
+                    id="listing-description"
                   ></textarea>
                 </div>
 
                 <!--tags-->
-                <div class="input-group mb-3">
+                <div class="input-group">
                   <span class="input-group-text material-symbols-outlined">
                     sell
                   </span>
@@ -139,32 +145,37 @@
                     data-bs-toggle="tooltip"
                     data-bs-placement="bottom"
                     title="Separated by commas if more than one"
+                    id="listing-tags"
                   />
                 </div>
+                <p class="fs-7 mb-3">Comma separated tags. Max 8</p>
 
                 <!--media-->
-                <div class="input-group mb-3">
+                <div class="input-group">
                   <span class="input-group-text material-symbols-outlined">
                     link
                   </span>
                   <input
                     type="url"
                     class="form-control"
-                    id="listing-url"
                     aria-describedby="basic-addon3"
                     placeholder="https://www.url.com/image.jpeg"
                     data-bs-toggle="tooltip"
                     data-bs-placement="bottom"
                     title="Separated by commas if more than one"
+                    id="listing-urls"
                   />
                 </div>
+                <p class="fs-7 mb-3">
+                  Comma separated fully formed urls. Max 8
+                </p>
 
                 <!--end date-->
                 <div class="input-group mb-3">
                   <span class="input-group-text material-symbols-outlined">
                     calendar_month
                   </span>
-                  <select class="form-select" required>
+                  <select class="form-select" required id="end-date">
                     <option value="">Date</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -199,7 +210,7 @@
                     <option value="31">31</option>
                   </select>
 
-                  <select class="form-select" required>
+                  <select class="form-select" required id="end-month">
                     <option value="">Month</option>
                     <option value="January">January</option>
                     <option value="February">February</option>
@@ -215,10 +226,10 @@
                     <option value="December">December</option>
                   </select>
 
-                  <select class="form-select" required>
+                  <select class="form-select" required id="end-year">
                     <option value="">Year</option>
-                    <option value="this-year">2022</option>
-                    <option value="next-year">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
                   </select>
                 </div>
                 <!--ends-->

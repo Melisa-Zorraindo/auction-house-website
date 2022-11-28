@@ -5,6 +5,7 @@ import { logout } from "./logout.js";
 import { sortByMostPopular } from "../components/listings/mostPopular.js";
 import { createListingsHTML } from "../components/listings/allListings.js";
 import { selectAvatar } from "./selectAvatar.js";
+import { createNewListing } from "./createNewListing.js";
 import { createFooterHTML } from "../components/footer/footer.js";
 
 const profile = loadFromStorage("profile");
@@ -26,6 +27,9 @@ export async function renderMostPopularPage() {
 
   //edit profile funtionality
   selectAvatar();
+
+  //create new listing functionality
+  createListingsHTML();
 
   //render footer
   createFooterHTML();

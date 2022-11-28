@@ -5,6 +5,7 @@ import { logout } from "./logout.js";
 import { fetchListings } from "../api/feed/read.js";
 import { createListingsHTML } from "../components/listings/allListings.js";
 import { selectAvatar } from "./selectAvatar.js";
+import { createNewListing } from "./createNewListing.js";
 import { createFooterHTML } from "../components/footer/footer.js";
 
 const profile = loadFromStorage("profile");
@@ -26,6 +27,9 @@ export async function renderAllListingsPage() {
 
   //edit profile functionality
   selectAvatar();
+
+  //create new listing functionality
+  createNewListing();
 
   //render footer
   createFooterHTML();
