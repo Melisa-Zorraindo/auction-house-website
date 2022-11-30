@@ -29,7 +29,7 @@ export async function renderMostPopularPage() {
   selectAvatar();
 
   //create new listing functionality
-  createListingsHTML();
+  createNewListing();
 
   //render footer
   createFooterHTML();
