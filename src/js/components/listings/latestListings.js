@@ -1,6 +1,8 @@
 import { formatDate } from "../../tools/dateStyler.js";
+import { loadFromStorage } from "../../storage/load.js";
 
 export function createCardGroups(container, title, items) {
+  const profile = loadFromStorage("profile");
   const cardGroup = document.createElement("div");
   cardGroup.classList.add(
     "row",
@@ -24,7 +26,14 @@ export function createCardGroups(container, title, items) {
 
     let cardAnchor = document.createElement("a");
     cardAnchor.classList.add("card", "border-primary", "text-decoration-none");
-    cardAnchor.setAttribute("href", "#");
+    //if user is logged out redirect to log in page
+    //if user is logged in redirect to item page
+    if (!profile) {
+      cardAnchor.setAttribute("href", "/profile-login.html");
+    } else {
+      cardAnchor.setAttribute("href", `/feed-item.html?id=${items[i].id}`);
+    }
+
     card.append(cardAnchor);
 
     let cardHeaderDiv = document.createElement("div");
@@ -36,9 +45,14 @@ export function createCardGroups(container, title, items) {
     );
     cardAnchor.append(cardHeaderDiv);
 
+    //shorten the title for nicer design
+    let userTitle = items[i].title;
+    let shorterTitle = userTitle.split(" ", 3);
+    let titleToDisplay = shorterTitle.join(" ");
+
     let cardTitle = document.createElement("h2");
     cardTitle.classList.add("h4");
-    cardTitle.innerHTML = `${items[i].title}`;
+    cardTitle.innerHTML = `${titleToDisplay}`;
     cardHeaderDiv.append(cardTitle);
 
     let bidsCount = document.createElement("span");

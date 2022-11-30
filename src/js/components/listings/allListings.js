@@ -1,6 +1,8 @@
 import { formatDate } from "../../tools/dateStyler.js";
+import { loadFromStorage } from "../../storage/load.js";
 
 export function createListingsHTML(container, title, items) {
+  const profile = loadFromStorage("profile");
   const heading = document.createElement("h1");
   heading.classList.add("my-5", "h3");
   heading.innerHTML = title;
@@ -24,7 +26,13 @@ export function createListingsHTML(container, title, items) {
 
     let cardAnchor = document.createElement("a");
     cardAnchor.classList.add("card", "border-primary", "text-decoration-none");
-    cardAnchor.setAttribute("href", "#");
+    //if user is logged out redirect to log in page
+    //if user is logged in redirect to item page
+    if (!profile) {
+      cardAnchor.setAttribute("href", "/profile-login.html");
+    } else {
+      cardAnchor.setAttribute("href", `/feed-item.html?id=${item.id}`);
+    }
     card.append(cardAnchor);
 
     let cardHeaderDiv = document.createElement("div");

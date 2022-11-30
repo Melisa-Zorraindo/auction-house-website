@@ -2,6 +2,7 @@ import { renderHomepage } from "./handlers/renderHomepage.js";
 import { renderAllListingsPage } from "./handlers/renderAllListingsPage.js";
 import { renderMostPopularPage } from "./handlers/renderMostPopular.js";
 import { renderEndSoonPage } from "./handlers/renderEndSoonPage.js";
+import { renderSingleListingPage } from "./handlers/renderSingleListing.js";
 
 //render different pages
 const path = location.pathname;
@@ -18,4 +19,7 @@ if (path === "/index.html") {
 } else if (path === "/hurry-up.html") {
   //render hurry up page
   renderEndSoonPage();
+} else if (path.includes("/feed-item.html")) {
+  //render single item page
+  renderSingleListingPage();
 }

@@ -76,178 +76,178 @@
     <main>
       <!--new listing modal-->
       <div
-      class="modal fade"
-      id="new-listing-modal"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-fullscreen-md-down">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">New listing</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="new-listing">
-              <p
-                class="my-4 d-none bg-danger text-white text-center py-3"
-                id="new-listing-feedback"
-              ></p>
-              <!--title-->
-              <div class="input-group mb-3">
-                <span class="input-group-text material-symbols-outlined">
-                  title
-                </span>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Title"
-                  aria-label="Title"
-                  aria-describedby="basic-addon1"
-                  id="listing-title"
-                  required
-                />
-              </div>
+        class="modal fade"
+        id="new-listing-modal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-fullscreen-md-down">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">New listing</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="new-listing">
+                <p
+                  class="my-4 d-none bg-danger text-white text-center py-3"
+                  id="new-listing-feedback"
+                ></p>
+                <!--title-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    title
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Title"
+                    aria-label="Title"
+                    aria-describedby="basic-addon1"
+                    id="listing-title"
+                    required
+                  />
+                </div>
 
-              <!--description-->
-              <div class="input-group mb-3">
-                <span class="input-group-text material-symbols-outlined">
-                  description
-                </span>
-                <textarea
-                  class="form-control"
-                  aria-label="With textarea"
-                  placeholder="add a detailed description of the item for sale"
-                  id="listing-description"
-                ></textarea>
-              </div>
+                <!--description-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    description
+                  </span>
+                  <textarea
+                    class="form-control"
+                    aria-label="With textarea"
+                    placeholder="add a detailed description of the item for sale"
+                    id="listing-description"
+                  ></textarea>
+                </div>
 
-              <!--tags-->
-              <div class="input-group">
-                <span class="input-group-text material-symbols-outlined">
-                  sell
-                </span>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Tags"
-                  aria-label="Tags"
-                  aria-describedby="basic-addon1"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="bottom"
-                  title="Separated by commas if more than one"
-                  id="listing-tags"
-                />
-              </div>
-              <p class="fs-7 mb-3">Comma separated tags. Max 8</p>
+                <!--tags-->
+                <div class="input-group">
+                  <span class="input-group-text material-symbols-outlined">
+                    sell
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Tags"
+                    aria-label="Tags"
+                    aria-describedby="basic-addon1"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    title="Separated by commas if more than one"
+                    id="listing-tags"
+                  />
+                </div>
+                <p class="fs-7 mb-3">Comma separated tags. Max 8</p>
 
-              <!--media-->
-              <div class="input-group">
-                <span class="input-group-text material-symbols-outlined">
-                  link
-                </span>
-                <input
-                  type="url"
-                  class="form-control"
-                  aria-describedby="basic-addon3"
-                  placeholder="https://www.url.com/image.jpeg"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="bottom"
-                  title="Separated by commas if more than one"
-                  id="listing-urls"
-                />
-              </div>
-              <p class="fs-7 mb-3">
-                Comma separated fully formed urls. Max 8
-              </p>
+                <!--media-->
+                <div class="input-group">
+                  <span class="input-group-text material-symbols-outlined">
+                    link
+                  </span>
+                  <input
+                    type="url"
+                    class="form-control"
+                    aria-describedby="basic-addon3"
+                    placeholder="https://www.url.com/image.jpeg"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    title="Separated by commas if more than one"
+                    id="listing-urls"
+                  />
+                </div>
+                <p class="fs-7 mb-3">
+                  Comma separated fully formed urls. Max 8
+                </p>
 
-              <!--end date-->
-              <div class="input-group mb-3">
-                <span class="input-group-text material-symbols-outlined">
-                  calendar_month
-                </span>
-                <select class="form-select" required id="end-date">
-                  <option value="">Date</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                  <option value="31">31</option>
-                </select>
+                <!--end date-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    calendar_month
+                  </span>
+                  <select class="form-select" required id="end-date">
+                    <option value="">Date</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                  </select>
 
-                <select class="form-select" required id="end-month">
-                  <option value="">Month</option>
-                  <option value="January">January</option>
-                  <option value="February">February</option>
-                  <option value="March">March</option>
-                  <option value="April">April</option>
-                  <option value="May">May</option>
-                  <option value="June">June</option>
-                  <option value="July">July</option>
-                  <option value="August">August</option>
-                  <option value="September">September</option>
-                  <option value="October">October</option>
-                  <option value="November">November</option>
-                  <option value="December">December</option>
-                </select>
+                  <select class="form-select" required id="end-month">
+                    <option value="">Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                  </select>
 
-                <select class="form-select" required id="end-year">
-                  <option value="">Year</option>
-                  <option value="2022">2022</option>
-                  <option value="2023">2023</option>
-                </select>
-              </div>
-              <!--ends-->
+                  <select class="form-select" required id="end-year">
+                    <option value="">Year</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                  </select>
+                </div>
+                <!--ends-->
 
-              <div class="modal-footer mt-5">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="submit" class="btn btn-primary">Create</button>
-              </div>
-            </form>
+                <div class="modal-footer mt-5">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
       <!--edit profile modal-->
       <div
@@ -394,168 +394,13 @@
       </div>
 
       <!--single item container-->
-      <div class="container-fluid my-5 bg-white py-5">
-        <div class="row">
-          <div class="col">
-            <div class="mb-3">
-              <div class="row">
-                <!--carousel-->
-                <div
-                  id="carouselExampleIndicators"
-                  class="carousel slide col-sm-4"
-                  data-bs-ride="carousel"
-                >
-                  <div class="carousel-indicators btn btn-primary">
-                    <button
-                      type="button"
-                      data-bs-target="#carouselExampleIndicators"
-                      data-bs-slide-to="0"
-                      class="active"
-                      aria-current="true"
-                      aria-label="Slide 1"
-                    ></button>
-                    <button
-                      type="button"
-                      data-bs-target="#carouselExampleIndicators"
-                      data-bs-slide-to="1"
-                      aria-label="Slide 2"
-                    ></button>
-                    <button
-                      type="button"
-                      data-bs-target="#carouselExampleIndicators"
-                      data-bs-slide-to="2"
-                      aria-label="Slide 3"
-                    ></button>
-                  </div>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img
-                        src="./src/assets/compressed-flamingo-avatar.jpg"
-                        class="img-fluid"
-                        alt="image uploaded by the user"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="./src/assets/compressed-squirrel-avatar.jpg"
-                        class="img-fluid"
-                        alt="image uploaded by the user"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="./src/assets/compressed-warhol-avatar.jpg"
-                        class="img-fluid"
-                        alt="image uploaded by the user"
-                      />
-                    </div>
-                  </div>
-                  <button
-                    class="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev"
-                  >
-                    <span
-                      class="carousel-control-prev-icon btn btn-primary"
-                      aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button
-                    class="carousel-control-next"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next"
-                  >
-                    <span
-                      class="carousel-control-next-icon btn btn-primary"
-                      aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>
-                <!--end carousel-->
-                <div class="col-sm-8 my-5 my-sm-0">
-                  <div class="">
-                    <div class="">
-                      <div
-                        class="d-flex flex-wrap gap-2 justify-content-between align-items-center border-bottom border-secondary pb-3 border-opacity-25"
-                      >
-                        <div class="d-flex flex-wrap align-items-center gap-2">
-                          <img
-                            src="./src/assets/compressed-girl-avatar.jpg"
-                            alt="profile picture"
-                            class="img-fluid profile-img-small rounded-circle"
-                          />
-                          <h2 class="h3">Sham_Q</h2>
-                        </div>
-                        <div class="d-flex gap-2">
-                          <span class="bg-info text-light p-2 rounded-3"
-                            ><small>3 bids</small></span
-                          >
-                          <span class="bg-info text-light p-2 rounded-3"
-                            ><small>2 hours left</small></span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <h3 class="h5 mt-4">Painting</h3>
-                    <p
-                      class="border-bottom border-secondary border-opacity-25 pb-3"
-                    >
-                      Cool painting in pop art style by Sham-Q. I'm buying her
-                      new collection and would like to sell the old one. Item is
-                      like new.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 class="h5 mt-4">Highest bid</h4>
-                    <p class="h5 fw-bold mt-3">$ 1500</p>
-                  </div>
-                  <form class="d-flex mt-4">
-                    <input
-                      class="form-control me-2 w-75"
-                      type="number"
-                      placeholder="Enter amount"
-                      min="0"
-                      aria-label="EnterAmount"
-                    />
-                    <button class="btn btn-primary" type="submit">
-                      Place bid
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer class="position-relative">
-      <div class="bg-primary py-5 d-flex justify-content-around">
-        <div class="d-flex flex-column text-light">
-          <span>Listings</span>
-          <span>2</span>
-        </div>
-        <div class="d-flex flex-column text-light">
-          <span>Profiles</span>
-          <span>2</span>
-        </div>
-        <div class="d-flex flex-column text-light">
-          <span>Bids</span>
-          <span>2</span>
-        </div>
-      </div>
       <div
-        class="d-flex justify-content-center position-absolute top-50 start-50 translate-middle"
-      >
-        <img src="../../src/assets/logo-footer.png" alt="logo" class="" />
-      </div>
-      <div class="bg-light py-5 d-flex justify-content-center">
-        <span>Copyright 2022</span>
-      </div>
-    </footer>
+        class="container-fluid my-5 bg-white py-5"
+        id="single-listing-container"
+      ></div>
+    </main>
+
+    <footer class="position-relative" id="footer"></footer>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./src/js/index.js" type="module"></script>
   </body>
