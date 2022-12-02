@@ -9,7 +9,7 @@ export function renderNavbarDesktop() {
   if (profile) {
     //fetch profile picture from storage, or set a default if there isn't
     const avatar =
-      profile.avatar || "src/assets/compressed-flamingo-avatar.jpg";
+      profile.avatar || "src/assets/compressed-avatar-placeholder.jpg";
     const anchorHome = document.createElement("a");
     anchorHome.setAttribute("href", "index.html");
     anchorHome.classList.add("navbar-brand");
