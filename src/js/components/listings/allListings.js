@@ -25,7 +25,7 @@ export function createListingsHTML(container, title, items) {
     cardGroup.append(card);
 
     let cardAnchor = document.createElement("a");
-    cardAnchor.classList.add("card", "border-primary", "text-decoration-none");
+    cardAnchor.classList.add("card", "h-100", "text-decoration-none");
     //if user is logged out redirect to log in page
     //if user is logged in redirect to item page
     if (!profile) {
