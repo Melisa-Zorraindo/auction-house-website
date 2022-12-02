@@ -38,11 +38,15 @@ export async function createSingleListingHTML(container, item) {
 
   if (item.media.length === 0) {
     let placeholderContainer = document.createElement("div");
-    placeholderContainer.classList.add("carousel-item", "active");
+    placeholderContainer.classList.add(
+      "carousel-item",
+      "active",
+      "text-center"
+    );
     carouselInner.append(placeholderContainer);
 
     let placeholderImage = document.createElement("img");
-    placeholderImage.setAttribute("alt", "image uploaded by the user");
+    placeholderImage.setAttribute("alt", "no image");
     placeholderImage.setAttribute(
       "src",
       "/src/assets/compressed-image-placeholder.jpg"
@@ -174,7 +178,7 @@ export async function createSingleListingHTML(container, item) {
 
   //set default profile picture if user's void
   let userAvatar =
-    item.seller.avatar || "/src/assets/compressed-flamingo-avatar.jpg";
+    item.seller.avatar || "/src/assets/compressed-avatar-placeholder.jpg";
   profilePicture.setAttribute("src", `${userAvatar}`);
   profilePicture.classList.add(
     "img-fluid",
