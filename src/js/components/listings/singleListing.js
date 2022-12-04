@@ -1,7 +1,12 @@
 import { loadFromStorage } from "../../storage/load.js";
+import { handlePlaceBidSubmission } from "../../handlers/placeBidSubmission.js";
 const profile = loadFromStorage("profile");
 
 export async function createSingleListingHTML(container, item) {
+  console.log(item);
+  const pageTitle = document.querySelector("title");
+  pageTitle.innerHTML = `Biddable | ${item.title}`;
+
   const firstRow = document.createElement("div");
   firstRow.classList.add("row");
   container.append(firstRow);
@@ -38,11 +43,7 @@ export async function createSingleListingHTML(container, item) {
 
   if (item.media.length === 0) {
     let placeholderContainer = document.createElement("div");
-    placeholderContainer.classList.add(
-      "carousel-item",
-      "active",
-      "text-center"
-    );
+    placeholderContainer.classList.add("text-center");
     carouselInner.append(placeholderContainer);
 
     let placeholderImage = document.createElement("img");
@@ -53,6 +54,8 @@ export async function createSingleListingHTML(container, item) {
     );
     placeholderImage.classList.add("img-fluid");
     placeholderContainer.append(placeholderImage);
+
+    carouselButtonsContainer.classList.add("d-none");
   } else {
     for (let i = 0; i < item.media.length; i++) {
       const carouselButton = document.createElement("button");
@@ -111,7 +114,6 @@ export async function createSingleListingHTML(container, item) {
     carouselControlPrevText.innerHTML = "Previous";
     carouselControlPrev.append(carouselControlPrevText);
 
-    //hasta acá
     const carouselControlNext = document.createElement("button");
     carouselControlNext.setAttribute("type", "button");
     carouselControlNext.setAttribute(
@@ -230,25 +232,27 @@ export async function createSingleListingHTML(container, item) {
   const interactionsContainer = document.createElement("div");
   outerDiv.append(interactionsContainer);
 
+  const highestBid = document.createElement("h4");
+  highestBid.classList.add("h5", "mt-4");
+  highestBid.innerHTML = "Highest bid";
+  interactionsContainer.append(highestBid);
+
+  const highestBidAmount = document.createElement("p");
+  highestBidAmount.classList.add("h5", "fw-bold", "mt-3");
+
+  //display highest bid by reversing bids array
+  let bidsArray = item.bids;
+  if (bidsArray.length > 0) {
+    let bidToDisplay = bidsArray.reverse();
+    highestBidAmount.innerHTML = `${bidToDisplay[0].amount} credits`;
+  } else {
+    highestBidAmount.innerHTML = "0";
+  }
+  interactionsContainer.append(highestBidAmount);
+
   if (profile.name === item.seller.name) {
     console.log("same");
   } else {
-    const highestBid = document.createElement("h4");
-    highestBid.classList.add("h5", "mt-4");
-    highestBid.innerHTML = "Highest bid";
-    interactionsContainer.append(highestBid);
-
-    const highestBidAmount = document.createElement("p");
-    highestBidAmount.classList.add("h5", "fw-bold", "mt-3");
-    //display highest bid by reversing bids array
-    let bidsArray = item.bids;
-    if (bidsArray.length > 0) {
-      let bidToDisplay = bidsArray.reverse();
-      highestBidAmount.innerHTML = `${bidToDisplay[0].amount} credits`;
-    } else {
-      highestBidAmount.innerHTML = "0";
-    }
-    interactionsContainer.append(highestBidAmount);
     const placeBidForm = document.createElement("form");
     placeBidForm.classList.add("d-flex", "mt-4");
     interactionsContainer.append(placeBidForm);
@@ -256,6 +260,7 @@ export async function createSingleListingHTML(container, item) {
     const placeBidInput = document.createElement("input");
     placeBidInput.setAttribute("type", "number");
     placeBidInput.setAttribute("placeholder", "Enter amount");
+
     //prevent user from bidding lower than highest bid
     if (bidsArray.length > 0) {
       placeBidInput.setAttribute("min", `${bidsArray[0].amount + 1}`);
@@ -272,5 +277,10 @@ export async function createSingleListingHTML(container, item) {
     submitBidButton.classList.add("btn", "btn-primary");
     submitBidButton.innerHTML = "Place bid";
     placeBidForm.append(submitBidButton);
+
+    placeBidForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      handlePlaceBidSubmission(placeBidInput.value, item.id);
+    });
   }
 }
