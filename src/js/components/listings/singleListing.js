@@ -3,7 +3,6 @@ import { handlePlaceBidSubmission } from "../../handlers/placeBidSubmission.js";
 const profile = loadFromStorage("profile");
 
 export async function createSingleListingHTML(container, item) {
-  console.log(item);
   const pageTitle = document.querySelector("title");
   pageTitle.innerHTML = `Biddable | ${item.title}`;
 
