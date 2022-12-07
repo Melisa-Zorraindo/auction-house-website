@@ -20,6 +20,11 @@ export async function createNewListing() {
     //convert string into array and limit amount of urls according to API restrictions
     let URLS_ARRAY = LISTING_URLS.value.split(",", "8");
 
+    //if empty url array, make it null for the API to accept it
+    if (URLS_ARRAY[0].length === 0) {
+      URLS_ARRAY = null;
+    }
+
     const today = new Date();
     const day = 1000 * 60 * 60 * 24;
 
