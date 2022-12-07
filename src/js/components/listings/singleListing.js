@@ -1,6 +1,7 @@
 import { loadFromStorage } from "../../storage/load.js";
 import { handlePlaceBidSubmission } from "../../handlers/placeBidSubmission.js";
 import { editListing } from "../../api/feed/update.js";
+import { removeListing } from "../../api/feed/delete.js";
 
 const profile = loadFromStorage("profile");
 const accessToken = loadFromStorage("accessToken");
@@ -216,7 +217,7 @@ export async function createSingleListingHTML(container, item) {
   timeSpan.append(timeText);
 
   const listingTitle = document.createElement("h3");
-  listingTitle.classList.add("h5", "mt-4");
+  listingTitle.classList.add("h5", "mt-4", "text-uppercase");
   listingTitle.innerHTML = `${item.title}`;
   outerDiv.append(listingTitle);
 
@@ -273,6 +274,8 @@ export async function createSingleListingHTML(container, item) {
 
     const deleteListingButton = document.createElement("button");
     deleteListingButton.setAttribute("type", "button");
+    deleteListingButton.setAttribute("data-bs-toggle", "modal");
+    deleteListingButton.setAttribute("data-bs-target", "#remove-listing-modal");
     deleteListingButton.classList.add("btn", "btn-outline-primary");
     deleteListingButton.innerHTML = "Delete listing";
     loggedUserInteractionsContainer.append(deleteListingButton);
@@ -310,6 +313,13 @@ export async function createSingleListingHTML(container, item) {
         newUrlsArray,
         item.id
       );
+    });
+
+    //delete listing
+    const REMOVE_LISTING_BUTTON = document.querySelector("#remove-listing");
+
+    REMOVE_LISTING_BUTTON.addEventListener("click", async () => {
+      await removeListing(accessToken, item.id);
     });
   }
   //when item doesn't belong to logged in user
