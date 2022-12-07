@@ -1,5 +1,5 @@
 import { loadFromStorage } from "../storage/load.js";
-import { placeBid } from "../api/feed/update.js";
+import { placeBid } from "../api/feed/create.js";
 
 const credits = loadFromStorage("credits");
 const accessToken = loadFromStorage("accessToken");
