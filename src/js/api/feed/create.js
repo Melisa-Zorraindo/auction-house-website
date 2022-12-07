@@ -44,7 +44,8 @@ export async function createListing(
   const USER_FEEDBACK = document.querySelector("#new-listing-feedback");
 
   if (response.ok) {
-    location.reload();
+    const { id } = result;
+    window.location.assign(`/feed-item.html?id=${id}`);
   } else {
     const {
       errors: [{ message }],
