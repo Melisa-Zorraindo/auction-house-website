@@ -1,6 +1,9 @@
 import { loadFromStorage } from "../../storage/load.js";
 import { handlePlaceBidSubmission } from "../../handlers/placeBidSubmission.js";
+import { editListing } from "../../api/feed/update.js";
+
 const profile = loadFromStorage("profile");
+const accessToken = loadFromStorage("accessToken");
 
 export async function createSingleListingHTML(container, item) {
   const pageTitle = document.querySelector("title");
@@ -138,7 +141,6 @@ export async function createSingleListingHTML(container, item) {
     carouselControlNext.append(carouselControlNextText);
   }
 
-  //empieza pegado
   const listingInfoContainer = document.createElement("div");
   listingInfoContainer.classList.add("col-sm-8", "my-5", "my-sm-0");
   secondRow.append(listingInfoContainer);
@@ -249,9 +251,69 @@ export async function createSingleListingHTML(container, item) {
   }
   interactionsContainer.append(highestBidAmount);
 
+  //render interaction buttons
+  //when item belongs to logged in user
   if (profile.name === item.seller.name) {
-    console.log("same");
-  } else {
+    const loggedUserInteractionsContainer = document.createElement("div");
+    loggedUserInteractionsContainer.classList.add(
+      "d-flex",
+      "gap-3",
+      "flex-wrap",
+      "mt-5"
+    );
+    interactionsContainer.append(loggedUserInteractionsContainer);
+
+    const updateListingButton = document.createElement("button");
+    updateListingButton.setAttribute("type", "button");
+    updateListingButton.setAttribute("data-bs-toggle", "modal");
+    updateListingButton.setAttribute("data-bs-target", "#update-listing-modal");
+    updateListingButton.classList.add("btn", "btn-primary");
+    updateListingButton.innerHTML = "Update listing";
+    loggedUserInteractionsContainer.append(updateListingButton);
+
+    const deleteListingButton = document.createElement("button");
+    deleteListingButton.setAttribute("type", "button");
+    deleteListingButton.classList.add("btn", "btn-outline-primary");
+    deleteListingButton.innerHTML = "Delete listing";
+    loggedUserInteractionsContainer.append(deleteListingButton);
+
+    //update listing
+    const updateListingForm = document.querySelector("form#update-listing");
+    const titleField = document.querySelector("#update-title");
+    const descriptionField = document.querySelector("#update-description");
+    const tagsField = document.querySelector("#update-tags");
+    const urlsField = document.querySelector("#update-urls");
+
+    updateListingForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const newTitle = titleField.value;
+      //when passing an empty description the old one will be removed
+      //to prevent it, pass the old one
+      const newDescription = descriptionField.value || item.description;
+      const newTags = tagsField.value;
+      const newUrls = urlsField.value;
+
+      //convert values to arrays
+      const newTagsArray = newTags.split(",", "8");
+      let newUrlsArray = newUrls.split(",", "8");
+
+      //if empty url array, make it null for the API to accept it
+      if (newUrlsArray[0].length === 0) {
+        newUrlsArray = null;
+      }
+
+      editListing(
+        accessToken,
+        newTitle,
+        newDescription,
+        newTagsArray,
+        newUrlsArray,
+        item.id
+      );
+    });
+  }
+  //when item doesn't belong to logged in user
+  else {
     const placeBidForm = document.createElement("form");
     placeBidForm.classList.add("d-flex", "mt-4");
     interactionsContainer.append(placeBidForm);

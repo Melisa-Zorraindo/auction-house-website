@@ -393,6 +393,120 @@
         </div>
       </div>
 
+      <!--update listing modal-->
+      <div
+        class="modal fade"
+        id="update-listing-modal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-fullscreen-md-down">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Update listing</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="update-listing">
+                <p
+                  class="my-4 d-none bg-danger text-white text-center py-3"
+                  id="update-listing-feedback"
+                ></p>
+                <!--title-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    title
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Title"
+                    placeholder="Update your title"
+                    aria-describedby="basic-addon1"
+                    id="update-title"
+                    value=""
+                  />
+                </div>
+
+                <!--description-->
+                <div class="input-group mb-3">
+                  <span class="input-group-text material-symbols-outlined">
+                    description
+                  </span>
+                  <textarea
+                    class="form-control"
+                    aria-label="With textarea"
+                    placeholder="Update your description"
+                    id="update-description"
+                  ></textarea>
+                </div>
+
+                <!--tags-->
+                <div class="input-group">
+                  <span class="input-group-text material-symbols-outlined">
+                    sell
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Tags"
+                    aria-describedby="basic-addon1"
+                    placeholder="Tags"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    title="Separated by commas if more than one"
+                    id="update-tags"
+                  />
+                </div>
+                <p class="fs-7 mt-1 mb-0 bg-warning">
+                  This will remove your current tags and add new ones
+                </p>
+                <p class="fs-7 mb-3">Comma separated tags. Max 8</p>
+
+                <!--media-->
+                <div class="input-group">
+                  <span class="input-group-text material-symbols-outlined">
+                    link
+                  </span>
+                  <input
+                    type="url"
+                    class="form-control"
+                    aria-describedby="basic-addon3"
+                    placeholder="https://www.url.com/image.jpeg"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    title="Separated by commas if more than one"
+                    id="update-urls"
+                  />
+                </div>
+                <p class="fs-7 mt-1 mb-0 bg-warning">
+                  This will remove your current images and add new ones
+                </p>
+                <p class="fs-7 mb-3">Comma separated urls. Max 8</p>
+
+                <div class="modal-footer mt-5">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
       <!--single item container-->
       <div
         class="container-fluid my-5 bg-white py-5"

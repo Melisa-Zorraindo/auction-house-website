@@ -2,39 +2,49 @@ import { API_AUCTION_URL } from "../constants.js";
 import { displayApiError } from "../../errorHandling/apiError.js";
 
 /**
- * Sends a POST request to the API
- * to bid on listing
+ * Sends a PUT request to the API
+ * to update listing's data
  * @param {string} accessToken that grants permissions to API
- * @param {number} quantity amount of credits user is bidding
- * @param {string} id single item's id
+ * @param {string} newTitle chosen by user, if no title chosen it won't be changed
+ * @param {string} newDescription chosen by the user
+ * @param {Array} newTags array of strings
+ * @param {Array} newUrls array of fully formed urls
+ * @param {string} id listing's id
+ * @returns listing with updated data
  */
-export async function placeBid(accessToken, quantity, id) {
+export async function editListing(
+  accessToken,
+  newTitle,
+  newDescription,
+  newTags,
+  newUrls,
+  id
+) {
   const options = {
-    method: "POST",
+    method: "PUT",
     headers: {
       "Content-Type": "application/json; charset=UTF-8",
       Authorization: `Bearer ${accessToken}`,
     },
     body: JSON.stringify({
-      amount: quantity,
+      title: newTitle,
+      description: newDescription,
+      tags: newTags,
+      media: newUrls,
     }),
   };
 
-  const response = await fetch(
-    `${API_AUCTION_URL}listings/${id}/bids`,
-    options
-  );
+  const response = await fetch(`${API_AUCTION_URL}listings/${id}`, options);
   const result = await response.json();
-  const USER_FEEDBACK = document.querySelector("#bid-feedback");
+
+  const USER_FEEDBACK = document.querySelector("#update-listing-feedback");
 
   if (response.ok) {
-    USER_FEEDBACK.classList.add("bg-success");
-    USER_FEEDBACK.innerHTML = "Your bid has been placed";
+    location.reload();
   } else {
     const {
       errors: [{ message }],
     } = result;
-    console.log(result);
     displayApiError(USER_FEEDBACK, message);
   }
 }
