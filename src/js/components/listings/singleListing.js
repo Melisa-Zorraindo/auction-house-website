@@ -81,7 +81,7 @@ export async function createSingleListingHTML(container, item) {
           `${item.media.length - 1}`
         );
       }
-      carouselItem.classList.add("carousel-item");
+      carouselItem.classList.add("carousel-item", "text-center");
       carouselInner.append(carouselItem);
 
       const carouselPicture = document.createElement("img");
