@@ -82,8 +82,8 @@ export async function placeBid(accessToken, quantity, id) {
   const USER_FEEDBACK = document.querySelector("#bid-feedback");
 
   if (response.ok) {
-    USER_FEEDBACK.classList.add("bg-success");
-    USER_FEEDBACK.innerHTML = "Your bid has been placed";
+    alert("Your bid has been placed");
+    location.reload();
   } else {
     const {
       errors: [{ message }],
