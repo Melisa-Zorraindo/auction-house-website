@@ -24,11 +24,11 @@ export function renderNavbarDesktop() {
     dataContainer.classList.add("d-flex", "gap-3");
     NAVBAR_DESKTOP_CONTAINER.append(dataContainer);
 
-    const firstDatumButton = document.createElement("button");
-    firstDatumButton.setAttribute("type", "button");
-    firstDatumButton.setAttribute("data-bs-toggle", "modal");
-    firstDatumButton.setAttribute("data-bs-target", "#new-listing-modal");
-    firstDatumButton.classList.add(
+    const NewListingButton = document.createElement("button");
+    NewListingButton.setAttribute("type", "button");
+    NewListingButton.setAttribute("data-bs-toggle", "modal");
+    NewListingButton.setAttribute("data-bs-target", "#new-listing-modal");
+    NewListingButton.classList.add(
       "d-flex",
       "flex-column",
       "align-items-center",
@@ -37,57 +37,57 @@ export function renderNavbarDesktop() {
       "border-0",
       "bg-transparent"
     );
-    dataContainer.append(firstDatumButton);
+    dataContainer.append(NewListingButton);
 
     const addListingIcon = document.createElement("span");
     addListingIcon.classList.add("material-symbols-outlined");
     addListingIcon.innerHTML = "add_box";
-    firstDatumButton.append(addListingIcon);
+    NewListingButton.append(addListingIcon);
 
     const addListingText = document.createElement("span");
     addListingText.classList.add("fs-7");
     addListingText.innerHTML = "New listing";
-    firstDatumButton.append(addListingText);
+    NewListingButton.append(addListingText);
 
-    const secondDatumContainer = document.createElement("div");
-    secondDatumContainer.classList.add(
+    const currencyContainer = document.createElement("div");
+    currencyContainer.classList.add(
       "d-flex",
       "flex-column",
       "align-items-center",
       "text-primary",
       "me-5"
     );
-    dataContainer.append(secondDatumContainer);
+    dataContainer.append(currencyContainer);
 
     const currencyIcon = document.createElement("span");
     currencyIcon.classList.add("material-symbols-outlined");
     currencyIcon.innerHTML = "currency_exchange";
-    secondDatumContainer.append(currencyIcon);
+    currencyContainer.append(currencyIcon);
 
     const currencyText = document.createElement("span");
     currencyText.classList.add("fs-7");
     currencyText.innerHTML = "NOK";
-    secondDatumContainer.append(currencyText);
+    currencyContainer.append(currencyText);
 
-    const thirdDatumContainer = document.createElement("div");
-    thirdDatumContainer.classList.add(
+    const creditsContainer = document.createElement("div");
+    creditsContainer.classList.add(
       "d-flex",
       "flex-column",
       "align-items-center",
       "text-primary",
       "me-5"
     );
-    dataContainer.append(thirdDatumContainer);
+    dataContainer.append(creditsContainer);
 
     const paymentsIcon = document.createElement("span");
     paymentsIcon.classList.add("material-symbols-outlined");
     paymentsIcon.innerHTML = "payments";
-    thirdDatumContainer.append(paymentsIcon);
+    creditsContainer.append(paymentsIcon);
 
     const paymentsText = document.createElement("span");
     paymentsText.classList.add("fs-7");
     paymentsText.innerHTML = `${credits} credits`;
-    thirdDatumContainer.append(paymentsText);
+    creditsContainer.append(paymentsText);
 
     /* source: https://stackoverflow.com/questions/67136313/how-to-create-button-with-text-under-icon-using-bootstrap-5-or-css */
 

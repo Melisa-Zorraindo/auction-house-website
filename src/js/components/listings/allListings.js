@@ -4,7 +4,15 @@ import { loadFromStorage } from "../../storage/load.js";
 export function createListingsHTML(container, title, items) {
   const profile = loadFromStorage("profile");
   const heading = document.createElement("h1");
-  heading.classList.add("my-5", "h3");
+  heading.classList.add(
+    "my-5",
+    "h2",
+    "popart-font",
+    "pt-3",
+    "border-top",
+    "border-5",
+    "border-primary"
+  );
   heading.innerHTML = title;
   container.append(heading);
 
@@ -50,12 +58,18 @@ export function createListingsHTML(container, title, items) {
     let titleToDisplay = shorterTitle.join(" ");
 
     let cardTitle = document.createElement("h2");
-    cardTitle.classList.add("h4");
+    cardTitle.classList.add("h5");
     cardTitle.innerHTML = `${titleToDisplay}`;
     cardHeaderDiv.append(cardTitle);
 
     let bidsCount = document.createElement("span");
-    bidsCount.classList.add("bg-info", "text-light", "p-2", "rounded-3");
+    bidsCount.classList.add(
+      "bg-info",
+      "text-light",
+      "p-2",
+      "rounded-3",
+      "fs-7"
+    );
     bidsCount.innerHTML = `${item._count.bids} bids`;
     cardHeaderDiv.append(bidsCount);
 

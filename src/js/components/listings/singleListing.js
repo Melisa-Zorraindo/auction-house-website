@@ -160,6 +160,7 @@ export async function createSingleListingHTML(container, item) {
     "justify-content-between",
     "align-items-center",
     "border-bottom",
+    "border-1",
     "border-secondary",
     "pb-3",
     "border-opacity-25"
@@ -224,6 +225,7 @@ export async function createSingleListingHTML(container, item) {
   const listingDescription = document.createElement("p");
   listingDescription.classList.add(
     "border-bottom",
+    "border-1",
     "border-secondary",
     "border-opacity-25",
     "pb-3"
