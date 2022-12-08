@@ -3,6 +3,7 @@ import { renderAllListingsPage } from "./handlers/renderAllListingsPage.js";
 import { renderMostPopularPage } from "./handlers/renderMostPopular.js";
 import { renderEndSoonPage } from "./handlers/renderEndSoonPage.js";
 import { renderSingleListingPage } from "./handlers/renderSingleListing.js";
+import { renderProfile } from "./handlers/renderProfilePage.js";
 
 //render different pages
 const path = location.pathname;
@@ -22,4 +23,7 @@ if (path === "/index.html") {
 } else if (path.includes("/feed-item.html")) {
   //render single item page
   renderSingleListingPage();
+} else if (path.includes("/profile.html")) {
+  //render profile page
+  renderProfile();
 }

@@ -50,3 +50,36 @@ export async function fetchSingleListing(accessToken, id) {
   );
   return await response.json();
 }
+
+/**
+ * Sends a GET request to the API
+ * to fetch user's existing listings
+ * @param {string} name user's name
+ * @retuns a list of listing items
+ */
+export async function fetchUserListings(accessToken, name) {
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8",
+      Authorization: `Bearer ${accessToken}`,
+    },
+  };
+
+  const response = await fetch(
+    `${API_AUCTION_URL}profiles/${name}/listings`,
+    options
+  );
+  const result = await response.json();
+
+  if (response.ok) {
+    return result;
+  } else {
+    const {
+      errors: [{ message }],
+    } = result;
+    console.log(message);
+    const USER_FEEDBACK = document.querySelector("#profile-feedback");
+    displayApiError(USER_FEEDBACK, message);
+  }
+}
