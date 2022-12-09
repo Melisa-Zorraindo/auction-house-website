@@ -2,8 +2,17 @@ import { editProfile } from "../api/profile/editProfile.js";
 import { loadFromStorage } from "../storage/load.js";
 
 export async function selectAvatar() {
+  const { name, email } = loadFromStorage("profile");
+  const accessToken = loadFromStorage("accessToken");
+
   const EDIT_AVATAR_FORM = document.querySelector("form#edit-avatar");
   const AVATAR_FIELD = document.querySelector("input#avatar-url");
+
+  const EMAIL_FIELD = document.querySelector("input#user-email");
+  const USERNAME_FIELD = document.querySelector("input#username");
+
+  EMAIL_FIELD.setAttribute("placeholder", `${email}`);
+  USERNAME_FIELD.setAttribute("placeholder", `${name}`);
 
   //premade avatar buttons
   const GIRL_AVATAR = document.querySelector("#girl-avatar");
@@ -32,8 +41,6 @@ export async function selectAvatar() {
   });
 
   EDIT_AVATAR_FORM.addEventListener("submit", (event) => {
-    const { name } = loadFromStorage("profile");
-    const accessToken = loadFromStorage("accessToken");
     event.preventDefault();
     editProfile(accessToken, AVATAR_FIELD.value, name);
   });
