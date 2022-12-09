@@ -25,37 +25,37 @@ export function createFooterHTML() {
   infoListingsDiv.classList.add("d-flex", "flex-column", "text-light");
   apiInfoDiv.append(infoListingsDiv);
 
-  const listingsSpan = document.createElement("span");
-  listingsSpan.innerHTML = "Listings";
-  infoListingsDiv.append(listingsSpan);
-
   const listingsAmountSpan = document.createElement("span");
   listingsAmountSpan.innerHTML = `${listings.length}`;
   infoListingsDiv.append(listingsAmountSpan);
+
+  const listingsSpan = document.createElement("span");
+  listingsSpan.innerHTML = "Listings";
+  infoListingsDiv.append(listingsSpan);
 
   const infoProfilesDiv = document.createElement("div");
   infoProfilesDiv.classList.add("d-flex", "flex-column", "text-light");
   apiInfoDiv.append(infoProfilesDiv);
 
+  const profilesAmountSpan = document.createElement("span");
+  profilesAmountSpan.innerHTML = "+100";
+  infoProfilesDiv.append(profilesAmountSpan);
+
   const profilesSpan = document.createElement("span");
   profilesSpan.innerHTML = "Profiles";
   infoProfilesDiv.append(profilesSpan);
-
-  const profilesAmountSpan = document.createElement("span");
-  profilesAmountSpan.innerHTML = "2";
-  infoProfilesDiv.append(profilesAmountSpan);
 
   const infoBidsDiv = document.createElement("div");
   infoBidsDiv.classList.add("d-flex", "flex-column", "text-light");
   apiInfoDiv.append(infoBidsDiv);
 
-  const bidsSpan = document.createElement("span");
-  bidsSpan.innerHTML = "Bids";
-  infoBidsDiv.append(bidsSpan);
-
   const bidsAmountSpan = document.createElement("span");
   bidsAmountSpan.innerHTML = `${sumOfBids}`;
   infoBidsDiv.append(bidsAmountSpan);
+
+  const bidsSpan = document.createElement("span");
+  bidsSpan.innerHTML = "Bids";
+  infoBidsDiv.append(bidsSpan);
 
   const logoDiv = document.createElement("div");
   logoDiv.classList.add(
