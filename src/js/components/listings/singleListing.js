@@ -44,7 +44,7 @@ export async function createSingleListingHTML(container, item) {
   carouselInner.classList.add("carousel-inner");
   carouselIndicators.append(carouselInner);
 
-  if (item.media.length === 0) {
+  if (item.media.length === 0 || !item.media) {
     let placeholderContainer = document.createElement("div");
     placeholderContainer.classList.add("text-center");
     carouselInner.append(placeholderContainer);

@@ -12,9 +12,10 @@ import { createFooterHTML } from "../components/footer/footer.js";
 
 const profile = loadFromStorage("profile");
 const accessToken = loadFromStorage("accessToken");
-const userName = profile.name;
 
 export async function renderProfile() {
+  const userName = profile.name;
+
   //render navigation bars
   renderNavbarDesktop();
   renderNavbarMobile();
