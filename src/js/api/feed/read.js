@@ -15,7 +15,6 @@ export async function fetchListings() {
 
   const response = await fetch(`${API_AUCTION_URL}${LISTINGS_PATH}`, options);
   const result = await response.json();
-  // console.log(result);
 
   if (response.ok) {
     return result;
