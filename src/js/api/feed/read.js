@@ -1,7 +1,7 @@
 import { API_AUCTION_URL } from "../constants.js";
 import { displayApiError } from "../../errorHandling/apiError.js";
 
-let LISTINGS_PATH = "listings?sort=created&sortOrder=desc";
+let LISTINGS_PATH = "listings?_active=true&sort=created&sortOrder=desc";
 
 /**
  * Sends a GET request to the API
