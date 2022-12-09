@@ -123,19 +123,35 @@ export function renderNavbarDesktop() {
     dropdownIcon.append(ul);
 
     const firstLi = document.createElement("li");
+    firstLi.classList.add("dropdown-item", "my-2");
     ul.append(firstLi);
 
-    //THIS LINK ISN'T WORKING AT THE MOMENT
-    const viewProfileAnchor = document.createElement("a");
-    viewProfileAnchor.setAttribute("href", "profile.html");
-    viewProfileAnchor.classList.add("dropdown-item", "d-flex", "my-2");
-    viewProfileAnchor.innerHTML = "View profile";
-    firstLi.append(viewProfileAnchor);
+    const viewProfileButton = document.createElement("button");
+    viewProfileButton.setAttribute("type", "button");
+    viewProfileButton.classList.add(
+      "nav-link",
+      "d-flex",
+      "justify-content-start",
+      "align-items-center",
+      "text-primary",
+      "border-0",
+      "bg-transparent"
+    );
+    firstLi.append(viewProfileButton);
 
     const viewProfileIcon = document.createElement("span");
-    viewProfileIcon.classList.add("material-symbols-outlined", "me-2");
+    viewProfileIcon.classList.add("material-symbols-outlined");
     viewProfileIcon.innerHTML = "account_circle";
-    viewProfileAnchor.prepend(viewProfileIcon);
+    viewProfileButton.prepend(viewProfileIcon);
+
+    const viewProfileText = document.createElement("span");
+    viewProfileText.classList.add("ms-2");
+    viewProfileText.innerHTML = "View profile";
+    viewProfileButton.append(viewProfileText);
+
+    viewProfileButton.addEventListener("click", () => {
+      window.location.assign("profile.html");
+    });
 
     const secondLi = document.createElement("li");
     secondLi.classList.add("dropdown-item", "my-2");
