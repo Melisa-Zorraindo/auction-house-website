@@ -49,11 +49,6 @@ export async function createNewListing() {
         URLS_ARRAY,
         BIDS_END_DATE
       );
-      /*     console.log(LISTING_TITLE.value);
-      console.log(LISTING_DESCRIPTION.value);
-      console.log(TAGS_ARRAY);
-      console.log(URLS_ARRAY);
-      console.log(BIDS_END_DATE); */
     }
   });
 }
