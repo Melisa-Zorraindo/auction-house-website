@@ -7,8 +7,17 @@ const profile = loadFromStorage("profile");
 const accessToken = loadFromStorage("accessToken");
 
 export async function createSingleListingHTML(container, item) {
+  const {
+    title,
+    media,
+    seller: { avatar, name },
+    _count: { bids: bidsQuantity },
+    description,
+    bids,
+    id,
+  } = item;
   const pageTitle = document.querySelector("title");
-  pageTitle.innerHTML = `Biddable | ${item.title}`;
+  pageTitle.innerHTML = `Biddable | ${title}`;
 
   const firstRow = document.createElement("div");
   firstRow.classList.add("row");
@@ -44,7 +53,7 @@ export async function createSingleListingHTML(container, item) {
   carouselInner.classList.add("carousel-inner");
   carouselIndicators.append(carouselInner);
 
-  if (item.media.length === 0 || !item.media) {
+  if (media.length === 0 || !media) {
     let placeholderContainer = document.createElement("div");
     placeholderContainer.classList.add("text-center");
     carouselInner.append(placeholderContainer);
@@ -60,7 +69,7 @@ export async function createSingleListingHTML(container, item) {
 
     carouselButtonsContainer.classList.add("d-none");
   } else {
-    for (let i = 0; i < item.media.length; i++) {
+    for (let i = 0; i < media.length; i++) {
       const carouselButton = document.createElement("button");
       carouselButton.setAttribute("type", "button");
       carouselButton.setAttribute(
@@ -76,23 +85,20 @@ export async function createSingleListingHTML(container, item) {
         carouselButton.classList.add("active");
         carouselButton.setAttribute("aria-current", "true");
         carouselItem.classList.add("active");
-        carouselButton.setAttribute(
-          "data-bs-slide-to",
-          `${item.media.length - 1}`
-        );
+        carouselButton.setAttribute("data-bs-slide-to", `${media.length - 1}`);
       }
       carouselItem.classList.add("carousel-item", "text-center");
       carouselInner.append(carouselItem);
 
       const carouselPicture = document.createElement("img");
       carouselPicture.setAttribute("alt", "image uploaded by the user");
-      carouselPicture.setAttribute("src", item.media[i]);
+      carouselPicture.setAttribute("src", media[i]);
       carouselPicture.classList.add("img-fluid");
       carouselItem.append(carouselPicture);
     }
   }
 
-  if (item.media.length > 0) {
+  if (media.length > 0) {
     const carouselControlPrev = document.createElement("button");
     carouselControlPrev.setAttribute("type", "button");
     carouselControlPrev.setAttribute(
@@ -182,8 +188,7 @@ export async function createSingleListingHTML(container, item) {
   profilePicture.setAttribute("alt", "profile picture");
 
   //set default profile picture if user's void
-  let userAvatar =
-    item.seller.avatar || "/src/assets/compressed-avatar-placeholder.jpg";
+  let userAvatar = avatar || "/src/assets/compressed-avatar-placeholder.jpg";
   profilePicture.setAttribute("src", `${userAvatar}`);
   profilePicture.classList.add(
     "img-fluid",
@@ -194,7 +199,7 @@ export async function createSingleListingHTML(container, item) {
 
   const sellerName = document.createElement("h2");
   sellerName.classList.add("h3");
-  sellerName.innerHTML = `${item.seller.name}`;
+  sellerName.innerHTML = `${name}`;
   profilePictureContainer.append(sellerName);
 
   const listingBidsAndTimeContainer = document.createElement("div");
@@ -206,7 +211,7 @@ export async function createSingleListingHTML(container, item) {
   listingBidsAndTimeContainer.append(bidsSpan);
 
   const bidsAmount = document.createElement("small");
-  bidsAmount.innerHTML = `${item._count.bids} bids`;
+  bidsAmount.innerHTML = `${bidsQuantity} bids`;
   bidsSpan.append(bidsAmount);
 
   const timeSpan = document.createElement("span");
@@ -219,7 +224,7 @@ export async function createSingleListingHTML(container, item) {
 
   const listingTitle = document.createElement("h3");
   listingTitle.classList.add("h5", "mt-4", "text-uppercase");
-  listingTitle.innerHTML = `${item.title}`;
+  listingTitle.innerHTML = `${title}`;
   outerDiv.append(listingTitle);
 
   const listingDescription = document.createElement("p");
@@ -230,7 +235,7 @@ export async function createSingleListingHTML(container, item) {
     "border-opacity-25",
     "pb-3"
   );
-  listingDescription.innerHTML = `${item.description}`;
+  listingDescription.innerHTML = `${description}`;
   outerDiv.append(listingDescription);
 
   const interactionsContainer = document.createElement("div");
@@ -245,7 +250,7 @@ export async function createSingleListingHTML(container, item) {
   highestBidAmount.classList.add("h5", "fw-bold", "mt-3");
 
   //display highest bid by reversing bids array
-  let bidsArray = item.bids;
+  let bidsArray = bids;
   if (bidsArray.length > 0) {
     let bidToDisplay = bidsArray.reverse();
     highestBidAmount.innerHTML = `${bidToDisplay[0].amount} credits`;
@@ -256,7 +261,7 @@ export async function createSingleListingHTML(container, item) {
 
   //render interaction buttons
   //when item belongs to logged in user
-  if (profile.name === item.seller.name) {
+  if (profile.name === name) {
     const loggedUserInteractionsContainer = document.createElement("div");
     loggedUserInteractionsContainer.classList.add(
       "d-flex",
@@ -294,7 +299,7 @@ export async function createSingleListingHTML(container, item) {
       const newTitle = titleField.value;
       //when passing an empty description the old one will be removed
       //to prevent it, pass the old one
-      const newDescription = descriptionField.value || item.description;
+      const newDescription = descriptionField.value || description;
       const newTags = tagsField.value;
       const newUrls = urlsField.value;
 
@@ -313,7 +318,7 @@ export async function createSingleListingHTML(container, item) {
         newDescription,
         newTagsArray,
         newUrlsArray,
-        item.id
+        id
       );
     });
 
@@ -321,7 +326,7 @@ export async function createSingleListingHTML(container, item) {
     const REMOVE_LISTING_BUTTON = document.querySelector("#remove-listing");
 
     REMOVE_LISTING_BUTTON.addEventListener("click", async () => {
-      await removeListing(accessToken, item.id);
+      await removeListing(accessToken, id);
     });
   }
   //when item doesn't belong to logged in user
@@ -353,7 +358,7 @@ export async function createSingleListingHTML(container, item) {
 
     placeBidForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      handlePlaceBidSubmission(placeBidInput.value, item.id);
+      handlePlaceBidSubmission(placeBidInput.value, id);
     });
   }
 }

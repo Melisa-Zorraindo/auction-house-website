@@ -3,8 +3,8 @@ import { fetchListings } from "../../api/feed/read.js";
 //get number of listings, profiles, and bids to print in footer
 const listings = await fetchListings();
 
-const sumOfBids = listings.reduce((total, currentObject) => {
-  total += currentObject._count.bids;
+const sumOfBids = listings.reduce((total, { _count: { bids } }) => {
+  total += bids;
   return total;
 }, 0);
 
