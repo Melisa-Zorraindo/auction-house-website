@@ -1,6 +1,6 @@
 import { fetchListings } from "../../api/feed/read.js";
 
-//get number of listings, profiles, and bids to print in footer
+//get number of listings and bids to print in footer
 const listings = await fetchListings();
 
 const sumOfBids = listings.reduce((total, { _count: { bids } }) => {
@@ -14,18 +14,27 @@ export function createFooterHTML() {
 
   const apiInfoDiv = document.createElement("div");
   apiInfoDiv.classList.add(
-    "bg-primary",
-    "py-5",
+    "bg-secondary",
+    "py-3",
     "d-flex",
+    "flex-wrap",
     "justify-content-around"
   );
   footerContainer.append(apiInfoDiv);
 
   const infoListingsDiv = document.createElement("div");
-  infoListingsDiv.classList.add("d-flex", "flex-column", "text-light");
+  infoListingsDiv.classList.add(
+    "d-flex",
+    "flex-column",
+    "align-items-center",
+    "text-white",
+    "popart-font",
+    "h4"
+  );
   apiInfoDiv.append(infoListingsDiv);
 
   const listingsAmountSpan = document.createElement("span");
+  listingsAmountSpan.classList.add("popart-font");
   listingsAmountSpan.innerHTML = `${listings.length}`;
   infoListingsDiv.append(listingsAmountSpan);
 
@@ -34,7 +43,14 @@ export function createFooterHTML() {
   infoListingsDiv.append(listingsSpan);
 
   const infoProfilesDiv = document.createElement("div");
-  infoProfilesDiv.classList.add("d-flex", "flex-column", "text-light");
+  infoProfilesDiv.classList.add(
+    "d-flex",
+    "flex-column",
+    "align-items-center",
+    "text-white",
+    "popart-font",
+    "h4"
+  );
   apiInfoDiv.append(infoProfilesDiv);
 
   const profilesAmountSpan = document.createElement("span");
@@ -46,7 +62,14 @@ export function createFooterHTML() {
   infoProfilesDiv.append(profilesSpan);
 
   const infoBidsDiv = document.createElement("div");
-  infoBidsDiv.classList.add("d-flex", "flex-column", "text-light");
+  infoBidsDiv.classList.add(
+    "d-flex",
+    "flex-column",
+    "align-items-center",
+    "text-white",
+    "popart-font",
+    "h4"
+  );
   apiInfoDiv.append(infoBidsDiv);
 
   const bidsAmountSpan = document.createElement("span");
@@ -57,32 +80,18 @@ export function createFooterHTML() {
   bidsSpan.innerHTML = "Bids";
   infoBidsDiv.append(bidsSpan);
 
-  const logoDiv = document.createElement("div");
-  logoDiv.classList.add(
-    "d-flex",
-    "justify-content-center",
-    "position-absolute",
-    "top-50",
-    "start-50",
-    "translate-middle"
-  );
-  footerContainer.append(logoDiv);
-
-  const logoImage = document.createElement("img");
-  logoImage.setAttribute("src", "src/assets/logo-footer.png");
-  logoImage.setAttribute("alt", "logo");
-  logoDiv.append(logoImage);
-
   const copyrightDiv = document.createElement("div");
   copyrightDiv.classList.add(
-    "bg-light",
-    "py-5",
+    "bg-primary",
+    "py-3",
+    "mb-2",
     "d-flex",
-    "justify-content-center"
+    "justify-content-center",
+    "text-white"
   );
   footerContainer.append(copyrightDiv);
 
   const copyrightSpan = document.createElement("span");
-  copyrightSpan.innerHTML = "Copyright 2022";
+  copyrightSpan.innerHTML = "Biddable Copyright 2022";
   copyrightDiv.append(copyrightSpan);
 }

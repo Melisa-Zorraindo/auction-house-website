@@ -21,53 +21,36 @@ export function renderNavbarDesktop() {
     anchorHome.append(logoImage);
 
     const dataContainer = document.createElement("div");
-    dataContainer.classList.add("d-flex", "gap-3");
+    dataContainer.classList.add("d-flex", "gap-3", "align-items-start");
     NAVBAR_DESKTOP_CONTAINER.append(dataContainer);
 
     const NewListingButton = document.createElement("button");
     NewListingButton.setAttribute("type", "button");
     NewListingButton.setAttribute("data-bs-toggle", "modal");
     NewListingButton.setAttribute("data-bs-target", "#new-listing-modal");
-    NewListingButton.classList.add(
-      "d-flex",
-      "flex-column",
-      "align-items-center",
-      "text-primary",
-      "me-5",
-      "border-0",
-      "bg-transparent"
-    );
+    NewListingButton.classList.add("btn", "btn-primary", "me-5");
+    NewListingButton.innerHTML = "New listing";
     dataContainer.append(NewListingButton);
 
-    const addListingIcon = document.createElement("span");
-    addListingIcon.classList.add("material-symbols-outlined");
-    addListingIcon.innerHTML = "add_box";
-    NewListingButton.append(addListingIcon);
-
-    const addListingText = document.createElement("span");
-    addListingText.classList.add("fs-7");
-    addListingText.innerHTML = "New listing";
-    NewListingButton.append(addListingText);
-
-    const currencyContainer = document.createElement("div");
-    currencyContainer.classList.add(
+    const languageContainer = document.createElement("div");
+    languageContainer.classList.add(
       "d-flex",
       "flex-column",
       "align-items-center",
       "text-primary",
       "me-5"
     );
-    dataContainer.append(currencyContainer);
+    dataContainer.append(languageContainer);
 
-    const currencyIcon = document.createElement("span");
-    currencyIcon.classList.add("material-symbols-outlined");
-    currencyIcon.innerHTML = "currency_exchange";
-    currencyContainer.append(currencyIcon);
+    const languageIcon = document.createElement("span");
+    languageIcon.classList.add("material-symbols-outlined");
+    languageIcon.innerHTML = "language";
+    languageContainer.append(languageIcon);
 
-    const currencyText = document.createElement("span");
-    currencyText.classList.add("fs-7");
-    currencyText.innerHTML = "NOK";
-    currencyContainer.append(currencyText);
+    const languageText = document.createElement("span");
+    languageText.classList.add("fs-7");
+    languageText.innerHTML = "English";
+    languageContainer.append(languageText);
 
     const creditsContainer = document.createElement("div");
     creditsContainer.classList.add(

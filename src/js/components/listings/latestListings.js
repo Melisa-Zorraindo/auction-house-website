@@ -21,7 +21,7 @@ export function createCardGroups(container, title, items) {
     "popart-font",
     "pt-3",
     "border-top",
-    "border-5",
+    "border-4",
     "border-primary"
   );
   heading.innerHTML = title;
@@ -49,7 +49,8 @@ export function createCardGroups(container, title, items) {
       "card-header",
       "bg-transparent",
       "d-flex",
-      "justify-content-between"
+      "justify-content-between",
+      "align-items-start"
     );
     cardAnchor.append(cardHeaderDiv);
 
@@ -59,7 +60,7 @@ export function createCardGroups(container, title, items) {
     let titleToDisplay = shorterTitle.join(" ");
 
     let cardTitle = document.createElement("h2");
-    cardTitle.classList.add("h5");
+    cardTitle.classList.add("h5", "text-wrap", "title-max-width");
     cardTitle.innerHTML = `${titleToDisplay}`;
     cardHeaderDiv.append(cardTitle);
 

@@ -44,11 +44,22 @@
   border: none;
 }
 
+//hover effect on secondary navbar links
+.sec-navbar-links:hover {
+  background-color: $light;
+}
+
 //cursor pointer on avatars
 .clickable {
   cursor: pointer;
 }
 
+//headings font
 .popart-font {
   font-family: "Bangers", cursive;
+}
+
+//max width set to titles to wrap text
+.title-max-width {
+  max-width: 8rem;
 }

@@ -7,6 +7,9 @@ export function createUserInfoContainer(container, userProfile) {
     _count: { listings },
   } = userProfile;
 
+  const pageTitle = document.querySelector("title");
+  pageTitle.innerHTML = `Biddable | ${name}`;
+
   const firstRow = document.createElement("div");
   firstRow.classList.add("row");
   container.append(firstRow);
@@ -43,7 +46,7 @@ export function createUserInfoContainer(container, userProfile) {
   firstInnerRow.append(firstInnerCol);
 
   const userName = document.createElement("h1");
-  userName.classList.add("h4");
+  userName.classList.add("h3", "popart-font");
   userName.innerHTML = name;
   firstInnerCol.append(userName);
 

@@ -16,6 +16,7 @@ export async function createSingleListingHTML(container, item) {
     bids,
     id,
   } = item;
+
   const pageTitle = document.querySelector("title");
   pageTitle.innerHTML = `Biddable | ${title}`;
 
@@ -198,7 +199,7 @@ export async function createSingleListingHTML(container, item) {
   profilePictureContainer.append(profilePicture);
 
   const sellerName = document.createElement("h2");
-  sellerName.classList.add("h3");
+  sellerName.classList.add("h3", "popart-font");
   sellerName.innerHTML = `${name}`;
   profilePictureContainer.append(sellerName);
 

@@ -26,7 +26,7 @@
     />
     <link rel="stylesheet" href="./dist/css/styles.css" />
   </head>
-  <body class="container-xxl bg-light">
+  <body class="container-xxl bg-light min-vh-100 d-flex flex-column">
     <header>
       <!--navbar mobile-->
       <nav class="navbar d-sm-block d-md-none" id="mobileNavbar"></nav>
@@ -553,14 +553,14 @@
 
       <!--single item container-->
       <div
-        class="container-fluid my-5 bg-white py-5 border-top border-5 border-primary"
+        class="container-fluid my-5 bg-white py-5 border-top border-4 border-primary"
         id="single-listing-container"
       >
         <p id="bid-feedback" class="text-center text-white"></p>
       </div>
     </main>
 
-    <footer class="position-relative" id="footer"></footer>
+    <footer id="footer"></footer>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./src/js/index.js" type="module"></script>
   </body>
