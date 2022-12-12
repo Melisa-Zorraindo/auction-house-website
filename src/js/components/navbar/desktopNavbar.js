@@ -62,15 +62,15 @@ export function renderNavbarDesktop() {
     );
     dataContainer.append(creditsContainer);
 
-    const paymentsIcon = document.createElement("span");
-    paymentsIcon.classList.add("material-symbols-outlined");
-    paymentsIcon.innerHTML = "payments";
-    creditsContainer.append(paymentsIcon);
+    const creditsIcon = document.createElement("span");
+    creditsIcon.classList.add("material-symbols-outlined");
+    creditsIcon.innerHTML = "payments";
+    creditsContainer.append(creditsIcon);
 
-    const paymentsText = document.createElement("span");
-    paymentsText.classList.add("fs-7");
-    paymentsText.innerHTML = `${credits} credits`;
-    creditsContainer.append(paymentsText);
+    const creditsText = document.createElement("span");
+    creditsText.classList.add("fs-7");
+    creditsText.innerHTML = "biddable credits";
+    creditsContainer.append(creditsText);
 
     /* source: https://stackoverflow.com/questions/67136313/how-to-create-button-with-text-under-icon-using-bootstrap-5-or-css */
 
