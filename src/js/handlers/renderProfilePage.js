@@ -13,8 +13,13 @@ import { createFooterHTML } from "../components/footer/footer.js";
 const profile = loadFromStorage("profile");
 const accessToken = loadFromStorage("accessToken");
 
+//get string param to display profile
+const parameterString = window.location.search;
+const searchParams = new URLSearchParams(parameterString);
+const userName = searchParams.get("userName");
+
 export async function renderProfile() {
-  const userName = profile.name;
+  // const userName = profile.name;
 
   //render navigation bars
   await renderNavbarDesktop();

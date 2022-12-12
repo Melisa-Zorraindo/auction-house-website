@@ -175,7 +175,10 @@ export async function createSingleListingHTML(container, item) {
   innerDiv.append(listingInfoSellerContainer);
 
   const profilePictureContainer = document.createElement("a");
-  profilePictureContainer.setAttribute("href", "#");
+  profilePictureContainer.setAttribute(
+    "href",
+    `/profile.html?userName=${name}`
+  );
   profilePictureContainer.classList.add(
     "d-flex",
     "flex-wrap",

@@ -17,7 +17,10 @@ export async function fetchSingleProfile(accessToken, name) {
   };
 
   try {
-    const response = await fetch(`${API_AUCTION_URL}profiles/${name}`, options);
+    const response = await fetch(
+      `${API_AUCTION_URL}profiles/${name}?_listings=true`,
+      options
+    );
     return await response.json();
   } catch (error) {
     console.log(error);

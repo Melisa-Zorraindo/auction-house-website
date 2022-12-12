@@ -53,26 +53,6 @@ export async function renderNavbarDesktop() {
     languageText.innerHTML = "English";
     languageContainer.append(languageText);
 
-    /* const creditsContainer = document.createElement("div");
-    creditsContainer.classList.add(
-      "d-flex",
-      "flex-column",
-      "align-items-center",
-      "text-primary",
-      "me-5"
-    );
-    dataContainer.append(creditsContainer);
-
-    const creditsIcon = document.createElement("span");
-    creditsIcon.classList.add("material-symbols-outlined");
-    creditsIcon.innerHTML = "payments";
-    creditsContainer.append(creditsIcon);
-
-    const creditsText = document.createElement("span");
-    creditsText.classList.add("fs-7");
-    creditsText.innerHTML = `${credits} credits`;
-    creditsContainer.append(creditsText); */
-
     /* source: https://stackoverflow.com/questions/67136313/how-to-create-button-with-text-under-icon-using-bootstrap-5-or-css */
 
     const profileContainer = document.createElement("div");
@@ -134,7 +114,7 @@ export async function renderNavbarDesktop() {
     viewProfileButton.append(viewProfileText);
 
     viewProfileButton.addEventListener("click", () => {
-      window.location.assign("profile.html");
+      window.location.assign(`/profile.html?userName=${profile.name}`);
     });
 
     const secondLi = document.createElement("li");

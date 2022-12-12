@@ -1,3 +1,7 @@
+import { loadFromStorage } from "../../storage/load.js";
+
+const profile = loadFromStorage("profile");
+
 export function createUserInfoContainer(container, userProfile) {
   const {
     avatar,
@@ -90,40 +94,43 @@ export function createUserInfoContainer(container, userProfile) {
   creditsAmount.innerHTML = credits;
   creditsContainer.append(creditsAmount);
 
-  const interactionsContainer = document.createElement("div");
-  interactionsContainer.classList.add(
-    "col",
-    "col-12",
-    "col-sm-3",
-    "col-md-2",
-    "d-flex",
-    "flex-column",
-    "gap-3",
-    "order-1",
-    "order-sm-3",
-    "align-items-end"
-  );
+  //render edit and remove listing buttons only if profile matches logged in user profile
+  if (profile.name === name) {
+    const interactionsContainer = document.createElement("div");
+    interactionsContainer.classList.add(
+      "col",
+      "col-12",
+      "col-sm-3",
+      "col-md-2",
+      "d-flex",
+      "flex-column",
+      "gap-3",
+      "order-1",
+      "order-sm-3",
+      "align-items-end"
+    );
 
-  firstRow.append(interactionsContainer);
+    firstRow.append(interactionsContainer);
 
-  const newListingButtonContainer = document.createElement("div");
-  interactionsContainer.append(newListingButtonContainer);
+    const newListingButtonContainer = document.createElement("div");
+    interactionsContainer.append(newListingButtonContainer);
 
-  const newListingButton = document.createElement("button");
-  newListingButton.setAttribute("type", "button");
-  newListingButton.setAttribute("data-bs-toggle", "modal");
-  newListingButton.setAttribute("data-bs-target", "#new-listing-modal");
-  newListingButton.classList.add("btn", "btn-primary");
-  newListingButton.innerHTML = "New listing";
-  newListingButtonContainer.append(newListingButton);
+    const newListingButton = document.createElement("button");
+    newListingButton.setAttribute("type", "button");
+    newListingButton.setAttribute("data-bs-toggle", "modal");
+    newListingButton.setAttribute("data-bs-target", "#new-listing-modal");
+    newListingButton.classList.add("btn", "btn-primary");
+    newListingButton.innerHTML = "New listing";
+    newListingButtonContainer.append(newListingButton);
 
-  const editProfileButtonContainer = document.createElement("div");
-  interactionsContainer.append(editProfileButtonContainer);
+    const editProfileButtonContainer = document.createElement("div");
+    interactionsContainer.append(editProfileButtonContainer);
 
-  const editProfileButton = document.createElement("button");
-  editProfileButton.setAttribute("data-bs-toggle", "modal");
-  editProfileButton.setAttribute("data-bs-target", "#edit-profile-modal");
-  editProfileButton.classList.add("btn", "btn-outline-primary");
-  editProfileButton.innerHTML = "Edit profile";
-  editProfileButtonContainer.append(editProfileButton);
+    const editProfileButton = document.createElement("button");
+    editProfileButton.setAttribute("data-bs-toggle", "modal");
+    editProfileButton.setAttribute("data-bs-target", "#edit-profile-modal");
+    editProfileButton.classList.add("btn", "btn-outline-primary");
+    editProfileButton.innerHTML = "Edit profile";
+    editProfileButtonContainer.append(editProfileButton);
+  }
 }
