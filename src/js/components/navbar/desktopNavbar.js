@@ -1,9 +1,10 @@
 import { loadFromStorage } from "../../storage/load.js";
+import { fetchSingleProfile } from "../../api/profile/read.js";
 
 const profile = loadFromStorage("profile");
-const credits = loadFromStorage("credits");
+const accessToken = loadFromStorage("accessToken");
 
-export function renderNavbarDesktop() {
+export async function renderNavbarDesktop() {
   const NAVBAR_DESKTOP_CONTAINER = document.querySelector("#desktopNavbar");
 
   if (profile) {
@@ -52,7 +53,7 @@ export function renderNavbarDesktop() {
     languageText.innerHTML = "English";
     languageContainer.append(languageText);
 
-    const creditsContainer = document.createElement("div");
+    /* const creditsContainer = document.createElement("div");
     creditsContainer.classList.add(
       "d-flex",
       "flex-column",
@@ -69,8 +70,8 @@ export function renderNavbarDesktop() {
 
     const creditsText = document.createElement("span");
     creditsText.classList.add("fs-7");
-    creditsText.innerHTML = "biddable credits";
-    creditsContainer.append(creditsText);
+    creditsText.innerHTML = `${credits} credits`;
+    creditsContainer.append(creditsText); */
 
     /* source: https://stackoverflow.com/questions/67136313/how-to-create-button-with-text-under-icon-using-bootstrap-5-or-css */
 
@@ -225,6 +226,30 @@ export function renderNavbarDesktop() {
     logoutText.classList.add("ms-2");
     logoutText.innerHTML = "Log out";
     logoutButton.append(logoutText);
+
+    //credits container is coded after logout button because the async call breaks
+    //the page if made before the logout button is loaded
+    const creditsContainer = document.createElement("div");
+    creditsContainer.classList.add(
+      "d-flex",
+      "flex-column",
+      "align-items-center",
+      "text-primary",
+      "me-5"
+    );
+    dataContainer.insertBefore(creditsContainer, profileContainer);
+
+    const creditsIcon = document.createElement("span");
+    creditsIcon.classList.add("material-symbols-outlined");
+    creditsIcon.innerHTML = "payments";
+    creditsContainer.append(creditsIcon);
+
+    const { credits } = await fetchSingleProfile(accessToken, profile.name);
+
+    const creditsText = document.createElement("span");
+    creditsText.classList.add("fs-7");
+    creditsText.innerHTML = `${credits} credits`;
+    creditsContainer.append(creditsText);
   } else {
     NAVBAR_DESKTOP_CONTAINER.innerHTML = `<a class="navbar-brand" href="./index.html">
                                         <img src="./src/assets/logo.png" alt="logo"/>
