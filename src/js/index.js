@@ -10,20 +10,20 @@ const path = location.pathname;
 
 if (path === "/index.html") {
   //render homepage
-  renderHomepage();
+  await renderHomepage();
 } else if (path === "/all-listings.html") {
   //render all listings page
-  renderAllListingsPage();
+  await renderAllListingsPage();
 } else if (path === "/most-popular.html") {
   //render most popular page
-  renderMostPopularPage();
+  await renderMostPopularPage();
 } else if (path === "/hurry-up.html") {
   //render hurry up page
-  renderEndSoonPage();
+  await renderEndSoonPage();
 } else if (path.includes("/feed-item.html")) {
   //render single item page
-  renderSingleListingPage();
+  await renderSingleListingPage();
 } else if (path.includes("/profile.html")) {
   //render profile page
-  renderProfile();
+  await renderProfile();
 }

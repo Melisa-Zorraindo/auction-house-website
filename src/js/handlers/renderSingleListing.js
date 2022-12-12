@@ -18,7 +18,7 @@ const listingId = searchParams.get("id");
 
 export async function renderSingleListingPage() {
   //render navigation bars
-  renderNavbarDesktop();
+  await renderNavbarDesktop();
   renderNavbarMobile();
 
   //make log out functionality available if there's a profile saved in storage

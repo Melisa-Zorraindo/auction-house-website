@@ -12,7 +12,7 @@ const profile = loadFromStorage("profile");
 
 export async function renderMostPopularPage() {
   //render navigation bars
-  renderNavbarDesktop();
+  await renderNavbarDesktop();
   renderNavbarMobile();
 
   //make log out funcionality available only if there's a profile saved in storage

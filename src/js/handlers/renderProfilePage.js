@@ -17,7 +17,7 @@ export async function renderProfile() {
   const userName = profile.name;
 
   //render navigation bars
-  renderNavbarDesktop();
+  await renderNavbarDesktop();
   renderNavbarMobile();
 
   //make log out functionality available if there's a profile saved in storage

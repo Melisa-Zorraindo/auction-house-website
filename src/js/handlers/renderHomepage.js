@@ -15,7 +15,7 @@ const profile = loadFromStorage("profile");
 
 export async function renderHomepage() {
   //render navigation bars
-  renderNavbarDesktop();
+  await renderNavbarDesktop();
   renderNavbarMobile();
 
   //make log out functionaliy available only if there's a profile saved in storage
