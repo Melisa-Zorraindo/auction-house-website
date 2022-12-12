@@ -15,6 +15,7 @@ export async function createSingleListingHTML(container, item) {
     description,
     bids,
     id,
+    endsAt,
   } = item;
 
   const pageTitle = document.querySelector("title");
@@ -218,13 +219,35 @@ export async function createSingleListingHTML(container, item) {
   bidsAmount.innerHTML = `${bidsQuantity} bids`;
   bidsSpan.append(bidsAmount);
 
-  const timeSpan = document.createElement("span");
-  timeSpan.classList.add("bg-info", "text-light", "p-2", "rounded-3");
-  listingBidsAndTimeContainer.append(timeSpan);
+  //calculate time left to bid on item
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+
+  const day = hour * 24;
+  let today = new Date();
+  let timeSpan = new Date(endsAt) - today;
+
+  const daysLeft = Math.floor(timeSpan / day);
+  const hoursLeft = Math.floor((timeSpan % day) / hour);
+
+  let timeLeft;
+
+  if (daysLeft < 0) {
+    timeLeft = "Ended";
+  } else if (daysLeft === 0) {
+    timeLeft = `${hoursLeft} hours left`;
+  } else if (daysLeft > 0) {
+    timeLeft = `${daysLeft} days left`;
+  }
+
+  const timeSpanEl = document.createElement("span");
+  timeSpanEl.classList.add("bg-info", "text-light", "p-2", "rounded-3");
+  listingBidsAndTimeContainer.append(timeSpanEl);
 
   const timeText = document.createElement("small");
-  timeText.innerHTML = "1 hour left";
-  timeSpan.append(timeText);
+  timeText.innerHTML = timeLeft;
+  timeSpanEl.append(timeText);
 
   const listingTitle = document.createElement("h3");
   listingTitle.classList.add("h5", "mt-4", "text-uppercase");
