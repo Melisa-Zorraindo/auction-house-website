@@ -256,8 +256,8 @@ export async function renderNavbarDesktop() {
                                     </a>
                                     <div class="d-flex gap-3">
                                         <div class="d-flex flex-column align-items-center text-primary me-5">
-                                            <span class="material-symbols-outlined"> currency_exchange </span>
-                                            <span class="fs-7">NOK</span>
+                                            <span class="material-symbols-outlined"> language </span>
+                                            <span class="fs-7">English</span>
                                         </div>
                                         <div>
                                             <a href="./profile-login.html" class="btn btn-primary">Log in</a>
