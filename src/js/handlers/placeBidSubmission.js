@@ -1,10 +1,14 @@
 import { loadFromStorage } from "../storage/load.js";
+import { fetchSingleProfile } from "../api/profile/read.js";
 import { placeBid } from "../api/feed/create.js";
 
-const credits = loadFromStorage("credits");
+// const credits = loadFromStorage("credits");
 const accessToken = loadFromStorage("accessToken");
+const profile = loadFromStorage("profile");
 
-export function handlePlaceBidSubmission(amount, id) {
+export async function handlePlaceBidSubmission(amount, id) {
+  const { credits } = await fetchSingleProfile(accessToken, profile.name);
+
   const quantity = parseInt(amount);
   //send amount to API only if user has filled in the amount field and if the amount of credits to be sent is less than the amount of credits the user has
   //alert user if errors
