@@ -250,7 +250,7 @@ export async function createSingleListingHTML(container, item) {
   timeSpanEl.append(timeText);
 
   const listingTitle = document.createElement("h3");
-  listingTitle.classList.add("h5", "mt-4", "text-uppercase");
+  listingTitle.classList.add("h5", "mt-4");
   listingTitle.innerHTML = `${title}`;
   outerDiv.append(listingTitle);
 
@@ -273,14 +273,15 @@ export async function createSingleListingHTML(container, item) {
   highestBid.innerHTML = "Highest bid";
   interactionsContainer.append(highestBid);
 
-  const highestBidAmount = document.createElement("p");
-  highestBidAmount.classList.add("h5", "fw-bold", "mt-3");
+  const highestBidAmount = document.createElement("div");
+  highestBidAmount.classList.add("mt-4");
 
-  //display highest bid by reversing bids array
+  //display highest bid by sorting the bids array
   let bidsArray = bids;
   if (bidsArray.length > 0) {
-    let bidToDisplay = bidsArray.reverse();
-    highestBidAmount.innerHTML = `${bidToDisplay[0].amount} credits`;
+    let bidToDisplay = bidsArray.sort((a, b) => b.amount - a.amount);
+    highestBidAmount.innerHTML = `<h4 class="fw-bold mb-0">${bidToDisplay[0].amount} credits</h4>
+                                  <p class="fst-italic">placed by ${bidToDisplay[0].bidderName}</p>`;
   } else {
     highestBidAmount.innerHTML = "0";
   }
