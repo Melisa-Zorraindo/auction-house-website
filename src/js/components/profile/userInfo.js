@@ -33,6 +33,9 @@ export function createUserInfoContainer(container, userProfile) {
 
   const profileImage = document.createElement("img");
   profileImage.setAttribute("src", avatar);
+  if (avatar.length === 0) {
+    profileImage.src = "/src/assets/compressed-avatar-placeholder.jpg";
+  }
   profileImage.setAttribute("alt", "user profile picture");
   profileImage.classList.add("img-fluid", "rounded-circle");
   imageContainer.append(profileImage);
