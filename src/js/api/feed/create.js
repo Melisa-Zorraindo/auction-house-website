@@ -1,5 +1,5 @@
 import { API_AUCTION_URL } from "../constants.js";
-import { displayApiError } from "../../errorHandling/apiError.js";
+import { displayFeedback } from "../feedbackMessage/feedback.js";
 
 const NEW_LISTING_PATH = "listings";
 
@@ -41,7 +41,7 @@ export async function createListing(
     options
   );
   const result = await response.json();
-  const USER_FEEDBACK = document.querySelector("#new-listing-feedback");
+  const USER_FEEDBACK = document.querySelector("#feedback");
 
   if (response.ok) {
     const { id } = result;
@@ -51,7 +51,7 @@ export async function createListing(
       errors: [{ message }],
     } = result;
     console.log(result);
-    displayApiError(USER_FEEDBACK, message);
+    displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
   }
 }
 
@@ -79,16 +79,22 @@ export async function placeBid(accessToken, quantity, id) {
     options
   );
   const result = await response.json();
-  const USER_FEEDBACK = document.querySelector("#bid-feedback");
+  const USER_FEEDBACK = document.querySelector("#feedback");
 
   if (response.ok) {
-    alert("Your bid has been placed");
+    displayFeedback(
+      USER_FEEDBACK,
+      "Good luck!",
+      "Your bid was successfully placed",
+      "success"
+    );
     location.reload();
+    return result;
   } else {
     const {
       errors: [{ message }],
     } = result;
     console.log(result);
-    displayApiError(USER_FEEDBACK, message);
+    displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
   }
 }

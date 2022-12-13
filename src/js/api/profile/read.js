@@ -1,4 +1,5 @@
 import { API_AUCTION_URL } from "../constants.js";
+import { displayFeedback } from "../feedbackMessage/feedback.js";
 
 /**
  * Sends a GET request to API
@@ -15,14 +16,19 @@ export async function fetchSingleProfile(accessToken, name) {
       Authorization: `Bearer ${accessToken}`,
     },
   };
+  const response = await fetch(
+    `${API_AUCTION_URL}profiles/${name}?_listings=true`,
+    options
+  );
+  const result = await response.json();
+  const USER_FEEDBACK = document.querySelector("#feedback");
 
-  try {
-    const response = await fetch(
-      `${API_AUCTION_URL}profiles/${name}?_listings=true`,
-      options
-    );
-    return await response.json();
-  } catch (error) {
-    console.log(error);
+  if (response.ok) {
+    return result;
+  } else {
+    const {
+      errors: [{ message }],
+    } = result;
+    displayFeedback(USER_FEEDBACK, "An error ocurred", message, "danger");
   }
 }

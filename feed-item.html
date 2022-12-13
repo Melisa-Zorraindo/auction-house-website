@@ -73,7 +73,7 @@
         </li>
       </ul>
     </header>
-    <main>
+    <main class="container-fluid">
       <!--new listing modal-->
       <div
         class="modal fade"
@@ -97,10 +97,6 @@
             </div>
             <div class="modal-body">
               <form id="new-listing">
-                <p
-                  class="my-4 d-none bg-danger text-white text-center py-3"
-                  id="new-listing-feedback"
-                ></p>
                 <!--title-->
                 <div class="input-group mb-3">
                   <span class="input-group-text material-symbols-outlined">
@@ -271,11 +267,22 @@
               ></button>
             </div>
             <div class="modal-body">
+              <!--feedback to user-->
+              <div
+                class="d-none my-3 alert alert-dismissible fade show"
+                role="alert"
+                id="update-avatar-feedback"
+              >
+                <h6 class="alert-heading fw-bold"></h6>
+                <div></div>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
               <form action="" id="edit-avatar">
-                <p
-                  class="my-4 d-none bg-danger text-white text-center py-3"
-                  id="edit-profile-feedback"
-                ></p>
                 <!--username-->
                 <div class="input-group mb-3">
                   <span class="input-group-text"> @ </span>
@@ -418,10 +425,21 @@
             </div>
             <div class="modal-body">
               <form id="update-listing">
-                <p
-                  class="my-4 d-none bg-danger text-white text-center py-3"
+                <!--feedback to user-->
+                <div
+                  class="d-none my-3 alert alert-dismissible fade show"
+                  role="alert"
                   id="update-listing-feedback"
-                ></p>
+                >
+                  <h6 class="alert-heading fw-bold"></h6>
+                  <div></div>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close"
+                  ></button>
+                </div>
                 <!--title-->
                 <div class="input-group mb-3">
                   <span class="input-group-text material-symbols-outlined">
@@ -534,6 +552,21 @@
             <div class="modal-body">
               <p>Are you sure you want to remove this listing?</p>
               <p>This action cannot be undone</p>
+              <!--feedback to user-->
+              <div
+                class="d-none my-3 alert alert-dismissible fade show"
+                role="alert"
+                id="remove-listing-feedback"
+              >
+                <h6 class="alert-heading fw-bold"></h6>
+                <div></div>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
             </div>
             <div class="modal-footer mt-5">
               <button
@@ -551,13 +584,27 @@
         </div>
       </div>
 
+      <!--feedback message container-->
+      <div
+        class="d-none my-3 alert alert-dismissible fade show"
+        role="alert"
+        id="feedback"
+      >
+        <h6 class="alert-heading fw-bold"></h6>
+        <div></div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+
       <!--single item container-->
       <div
-        class="container-fluid my-5 bg-white py-5 border-top border-4 border-primary"
+        class="my-5 bg-white py-5 border-top border-4 border-primary"
         id="single-listing-container"
-      >
-        <p id="bid-feedback" class="text-center text-white"></p>
-      </div>
+      ></div>
     </main>
 
     <footer id="footer"></footer>

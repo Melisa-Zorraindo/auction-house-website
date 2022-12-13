@@ -1,5 +1,5 @@
 import { API_AUCTION_URL } from "../constants.js";
-import { displayApiError } from "../../errorHandling/apiError.js";
+import { displayFeedback } from "../feedbackMessage/feedback.js";
 
 const REMOVE_LISTING_PATH = "listings/";
 
@@ -23,10 +23,15 @@ export async function removeListing(accessToken, id) {
     options
   );
 
-  const USER_FEEDBACK = document.querySelector("#delete-feedback");
+  const USER_FEEDBACK = document.querySelector("#remove-listing-feedback");
 
   if (response.ok) {
-    alert("Your listing has been removed");
+    displayFeedback(
+      USER_FEEDBACK,
+      "Awesome",
+      "Your listing has been removed",
+      "success"
+    );
     window.location.assign("index.html");
   } else {
     const result = await response.json();
@@ -34,6 +39,6 @@ export async function removeListing(accessToken, id) {
       errors: [{ message }],
     } = result;
     console.log(result);
-    displayApiError(USER_FEEDBACK, message);
+    displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
   }
 }

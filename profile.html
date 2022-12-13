@@ -70,7 +70,7 @@
         </li>
       </ul>
     </header>
-    <main>
+    <main class="container-fluid">
       <!--new listing modal-->
       <div
         class="modal fade"
@@ -94,10 +94,6 @@
             </div>
             <div class="modal-body">
               <form id="new-listing">
-                <p
-                  class="my-4 d-none bg-danger text-white text-center py-3"
-                  id="new-listing-feedback"
-                ></p>
                 <!--title-->
                 <div class="input-group mb-3">
                   <span class="input-group-text material-symbols-outlined">
@@ -268,11 +264,22 @@
               ></button>
             </div>
             <div class="modal-body">
+              <!--feedback to user-->
+              <div
+                class="d-none my-3 alert alert-dismissible fade show"
+                role="alert"
+                id="update-avatar-feedback"
+              >
+                <h6 class="alert-heading fw-bold"></h6>
+                <div></div>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
               <form action="" id="edit-avatar">
-                <p
-                  class="my-4 d-none bg-danger text-white text-center py-3"
-                  id="edit-profile-feedback"
-                ></p>
                 <!--username-->
                 <div class="input-group mb-3">
                   <span class="input-group-text"> @ </span>
@@ -392,18 +399,32 @@
         </div>
       </div>
 
+      <!--feedback message container-->
+      <div
+        class="d-none my-3 alert alert-dismissible fade show"
+        role="alert"
+        id="feedback"
+      >
+        <h6 class="alert-heading fw-bold"></h6>
+        <div></div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+
       <!--user info-->
       <div
-        class="container-fluid bg-dark py-5 border-top border-4 border-primary"
+        class="bg-dark py-5 border-top border-4 border-primary"
         id="user-info"
       ></div>
 
       <!--user's listings-->
-      <div class="container-fluid my-5" id="user-listings">
-        <div class="d-none" id="profile-feedback"></div>
-      </div>
+      <div class="my-5" id="user-listings"></div>
     </main>
-    <footer class="position-relative" id="footer"></footer>
+    <footer id="footer"></footer>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./src/js/index.js" type="module"></script>
   </body>

@@ -1,5 +1,5 @@
 import { API_AUCTION_URL } from "../constants.js";
-import { displayApiError } from "../../errorHandling/apiError.js";
+import { displayFeedback } from "../feedbackMessage/feedback.js";
 import * as storage from "../../storage/index.js";
 
 const LOGIN_PATH = "auth/login";
@@ -37,6 +37,6 @@ export async function login(email, password) {
     const {
       errors: [{ message }],
     } = result;
-    displayApiError(USER_FEEDBACK, message);
+    displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
   }
 }

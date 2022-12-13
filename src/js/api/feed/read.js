@@ -1,5 +1,5 @@
 import { API_AUCTION_URL } from "../constants.js";
-import { displayApiError } from "../../errorHandling/apiError.js";
+import { displayFeedback } from "../feedbackMessage/feedback.js";
 
 let LISTINGS_PATH = "listings?_active=true&sort=created&sortOrder=desc";
 
@@ -22,8 +22,8 @@ export async function fetchListings() {
     const {
       errors: [{ message }],
     } = result;
-    const USER_FEEDBACK = document.querySelector("#listings-feedback");
-    displayApiError(USER_FEEDBACK, message);
+    const USER_FEEDBACK = document.querySelector("#feedback");
+    displayFeedback(USER_FEEDBACK, "An error ocurred", message, "danger");
   }
 }
 
@@ -47,7 +47,17 @@ export async function fetchSingleListing(accessToken, id) {
     `${API_AUCTION_URL}listings/${id}?_seller=true&_bids=true`,
     options
   );
-  return await response.json();
+  const result = await response.json();
+
+  if (response.ok) {
+    return result;
+  } else {
+    const {
+      errors: [{ message }],
+    } = result;
+    const USER_FEEDBACK = document.querySelector("#feedback");
+    displayFeedback(USER_FEEDBACK, "An error ocurred", message, "danger");
+  }
 }
 
 /**
@@ -78,7 +88,7 @@ export async function fetchUserListings(accessToken, name) {
       errors: [{ message }],
     } = result;
     console.log(message);
-    const USER_FEEDBACK = document.querySelector("#profile-feedback");
-    displayApiError(USER_FEEDBACK, message);
+    const USER_FEEDBACK = document.querySelector("#feedback");
+    displayFeedback(USER_FEEDBACK, "An error ocurred", message, "danger");
   }
 }

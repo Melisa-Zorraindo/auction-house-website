@@ -1,6 +1,6 @@
 import { API_AUCTION_URL } from "../constants.js";
 import { handleSubmission } from "../../handlers/submission.js";
-import { displayApiError } from "../../errorHandling/apiError.js";
+import { displayFeedback } from "../feedbackMessage/feedback.js";
 
 const REGISTER_PATH = "auth/register";
 
@@ -29,12 +29,14 @@ export async function registerProfile(name, email, password, avatar) {
   const response = await fetch(`${API_AUCTION_URL}${REGISTER_PATH}`, options);
   const result = await response.json();
 
+  const USER_FEEDBACK = document.querySelector("#feedback");
+
   if (response.ok) {
     handleSubmission();
   } else {
     const {
       errors: [{ message }],
     } = result;
-    displayApiError(message);
+    displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
   }
 }

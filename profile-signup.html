@@ -37,11 +37,25 @@
       </nav>
     </header>
     <main>
-      <div class="container">
+      <div class="container-fluid">
         <h1 class="text-center my-5">Register a new user</h1>
         <div class="container">
           <div class="row">
-            <p class="col-12 text-center d-none" id="user-feedback"></p>
+            <!--feedback to user-->
+            <div
+              class="d-none my-3 alert alert-dismissible fade show"
+              role="alert"
+              id="feedback"
+            >
+              <h6 class="alert-heading fw-bold"></h6>
+              <div></div>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
             <form id="registration-form" class="col mb-5">
               <div class="container-md">
                 <!--name-->

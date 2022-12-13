@@ -1,6 +1,6 @@
 import { API_AUCTION_URL } from "../constants.js";
-import { displayApiError } from "../../errorHandling/apiError.js";
 import { saveToStorage } from "../../storage/save.js";
+import { displayFeedback } from "../feedbackMessage/feedback.js";
 
 /**
  * Sends a PUT request to the API
@@ -28,16 +28,22 @@ export async function editProfile(accessToken, media, name) {
   );
   const result = await response.json();
 
-  const USER_FEEDBACK = document.querySelector("#edit-profile-feedback");
+  const USER_FEEDBACK = document.querySelector("#update-avatar-feedback");
 
   if (response.ok) {
     const { accessToken, credits, ...profile } = result;
     saveToStorage("profile", profile);
+    displayFeedback(
+      USER_FEEDBACK,
+      "Awesome",
+      "Your profile picture was successfully updated",
+      "success"
+    );
     location.reload();
   } else {
     const {
       errors: [{ message }],
     } = result;
-    displayApiError(USER_FEEDBACK, message);
+    displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
   }
 }

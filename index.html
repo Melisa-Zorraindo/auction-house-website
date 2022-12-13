@@ -78,7 +78,7 @@
       </ul>
     </header>
 
-    <main>
+    <main class="container-fluid">
       <!--new listing modal-->
       <div
         class="modal fade"
@@ -102,10 +102,6 @@
             </div>
             <div class="modal-body">
               <form id="new-listing">
-                <p
-                  class="my-4 d-none bg-danger text-white text-center py-3"
-                  id="new-listing-feedback"
-                ></p>
                 <!--title-->
                 <div class="input-group mb-3">
                   <span class="input-group-text material-symbols-outlined">
@@ -276,11 +272,22 @@
               ></button>
             </div>
             <div class="modal-body">
+              <!--feedback to user-->
+              <div
+                class="d-none my-3 alert alert-dismissible fade show"
+                role="alert"
+                id="update-avatar-feedback"
+              >
+                <h6 class="alert-heading fw-bold"></h6>
+                <div></div>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
               <form action="" id="edit-avatar">
-                <p
-                  class="my-4 d-none bg-danger text-white text-center py-3"
-                  id="edit-profile-feedback"
-                ></p>
                 <!--username-->
                 <div class="input-group mb-3">
                   <span class="input-group-text"> @ </span>
@@ -400,8 +407,24 @@
         </div>
       </div>
 
+      <!--feedback message container-->
+      <div
+        class="d-none my-3 alert alert-dismissible fade show"
+        role="alert"
+        id="feedback"
+      >
+        <h6 class="alert-heading fw-bold"></h6>
+        <div></div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+
       <!--banner and search bar-->
-      <div class="container-fluid position-relative">
+      <div class="position-relative">
         <img
           src="./src/assets/compressed-hero-banner.jpg"
           class="card-img"
@@ -431,13 +454,10 @@
       </div>
 
       <!--found items container-->
-      <div class="container-fluid d-none" id="found-items"></div>
-
-      <!--feedback paragraph-->
-      <div class="d-none text-center py-3 my-5" id="listings-feedback"></div>
+      <div class="d-none" id="found-items"></div>
 
       <!--popular listings-->
-      <div class="container-fluid mb-5" id="popular-listings">
+      <div class="mb-5" id="popular-listings">
         <div class="my-5 d-flex justify-content-center">
           <a href="./most-popular.html" class="btn btn-primary">View all</a>
         </div>
@@ -445,7 +465,7 @@
       <!--ends popular listings-->
 
       <!--latest listings-->
-      <div class="container-fluid bg-dark mb-5 py-4" id="latest-listings">
+      <div class="bg-dark mb-5 py-4" id="latest-listings">
         <div class="my-5 d-flex justify-content-center">
           <a href="./all-listings.html" class="btn btn-primary">View all</a>
         </div>
@@ -453,7 +473,7 @@
       <!--ends latest listings-->
 
       <!--finish soon-->
-      <div class="container-fluid mb-5" id="finish-soon">
+      <div class="mb-5" id="finish-soon">
         <div class="my-5 d-flex justify-content-center">
           <a href="./hurry-up.html" class="btn btn-primary">View all</a>
         </div>
@@ -461,7 +481,7 @@
       <!--ends finish soon-->
     </main>
 
-    <footer class="position-relative" id="footer"></footer>
+    <footer id="footer"></footer>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./src/js/index.js" type="module"></script>
   </body>

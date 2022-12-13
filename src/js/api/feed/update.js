@@ -1,5 +1,5 @@
 import { API_AUCTION_URL } from "../constants.js";
-import { displayApiError } from "../../errorHandling/apiError.js";
+import { displayFeedback } from "../feedbackMessage/feedback.js";
 
 /**
  * Sends a PUT request to the API
@@ -37,14 +37,28 @@ export async function editListing(
   const response = await fetch(`${API_AUCTION_URL}listings/${id}`, options);
   const result = await response.json();
 
-  const USER_FEEDBACK = document.querySelector("#update-listing-feedback");
+  const USER_FEEDBACK = document.querySelector("#feedback");
+  const USER_ERROR_FEEDBACK = document.querySelector(
+    "#update-listing-feedback"
+  );
 
   if (response.ok) {
+    displayFeedback(
+      USER_FEEDBACK,
+      "Awesome",
+      "Your listing was successfully updated",
+      "success"
+    );
     location.reload();
   } else {
     const {
       errors: [{ message }],
     } = result;
-    displayApiError(USER_FEEDBACK, message);
+    displayFeedback(
+      USER_ERROR_FEEDBACK,
+      "An error occurred",
+      message,
+      "danger"
+    );
   }
 }
