@@ -8,7 +8,13 @@ import { renderProfile } from "./handlers/renderProfilePage.js";
 //render different pages
 const path = location.pathname;
 
-if (path === "/index.html") {
+if (
+  path !== "/all-listings.html" &&
+  path !== "/most-popular.html" &&
+  path !== "/hurry-up.html" &&
+  !path.includes("/feed-item.html") &&
+  !path.includes("/profile.html")
+) {
   //render homepage
   await renderHomepage();
 } else if (path === "/all-listings.html") {
