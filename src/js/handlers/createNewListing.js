@@ -1,4 +1,5 @@
 import { createListing } from "../api/feed/create.js";
+import { displayFeedback } from "../api/feedbackMessage/feedback.js";
 import { loadFromStorage } from "../storage/load.js";
 
 export async function createNewListing() {
@@ -38,7 +39,13 @@ export async function createNewListing() {
 
     //prevent user from setting a past date for bids deadline
     if (BIDS_END_DATE < today - day) {
-      alert("Choose a future date");
+      const USER_FEEDBACK = document.querySelector("#new-listing-feedback");
+      displayFeedback(
+        USER_FEEDBACK,
+        "An error occurred",
+        "Please choose a future date",
+        "danger"
+      );
     } else {
       const accessToken = loadFromStorage("accessToken");
       createListing(
