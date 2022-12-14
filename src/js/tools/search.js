@@ -23,16 +23,21 @@ export function searchListings(arr, queryString, container) {
 
   container.innerHTML = "";
 
-  //discard finished bids (earlier than today)
-  const today = new Date();
-
-  let array = [];
-  filteredListings.map((item) => {
-    const newDate = new Date(item.endsAt);
-    if (newDate >= today) {
-      array.push(item);
-    }
-  });
-
-  createListingsHTML(container, "Your search results:", array);
+  if (filteredListings.length === 0) {
+    container.innerHTML = `<div
+                            class="my-3 alert alert-info alert-dismissible fade show"
+                            role="alert"
+                          >
+                            <h6 class="alert-heading fw-bold">Oops</h6>
+                            <div>There are no listings that match your search terms</div>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="alert"
+                              aria-label="Close"
+                            ></button>
+                          </div>`;
+  } else {
+    createListingsHTML(container, "Your search results:", filteredListings);
+  }
 }
