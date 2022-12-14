@@ -52,7 +52,7 @@ export function renderNavbarMobile() {
                                                 <li class="nav-item">
                                                     <a
                                                         class="nav-link d-flex align-items-center text-primary"
-                                                        href="#"
+                                                        href="./hurry-up.html"
                                                         ><span class="material-symbols-outlined ms-1"> timer </span
                                                         ><span class="ms-2">Hurry up! </span></a
                                                     >
@@ -61,7 +61,7 @@ export function renderNavbarMobile() {
                                                 <li class="nav-item">
                                                     <a
                                                         class="nav-link d-flex align-items-center text-primary"
-                                                        href="./profile.html"
+                                                        href="./profile.html?userName=${profile.name}"
                                                         ><span class="material-symbols-outlined ms-1">
                                                         account_circle </span
                                                         ><span class="ms-2">View profile </span></a
