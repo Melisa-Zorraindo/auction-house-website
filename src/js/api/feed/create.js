@@ -41,7 +41,7 @@ export async function createListing(
     options
   );
   const result = await response.json();
-  const USER_FEEDBACK = document.querySelector("#feedback");
+  const USER_FEEDBACK = document.querySelector("#new-listing-feedback");
 
   if (response.ok) {
     const { id } = result;
