@@ -2,7 +2,6 @@ import { loadFromStorage } from "../storage/load.js";
 import { fetchSingleProfile } from "../api/profile/read.js";
 import { placeBid } from "../api/feed/create.js";
 
-// const credits = loadFromStorage("credits");
 const accessToken = loadFromStorage("accessToken");
 const profile = loadFromStorage("profile");
 
