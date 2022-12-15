@@ -15,6 +15,7 @@ export async function createSingleListingHTML(container, item) {
     description,
     bids,
     id,
+    tags,
     endsAt,
   } = item;
 
@@ -322,12 +323,16 @@ export async function createSingleListingHTML(container, item) {
     const tagsField = document.querySelector("#update-tags");
     const urlsField = document.querySelector("#update-urls");
 
+    //prefill fields
+    titleField.setAttribute("value", title);
+    descriptionField.innerHTML = description;
+    tagsField.setAttribute("value", tags);
+    urlsField.setAttribute("value", media);
+
     updateListingForm.addEventListener("submit", (event) => {
       event.preventDefault();
       const newTitle = titleField.value;
-      //when passing an empty description the old one will be removed
-      //to prevent it, pass the old one
-      const newDescription = descriptionField.value || description;
+      const newDescription = descriptionField.value;
       const newTags = tagsField.value;
       const newUrls = urlsField.value;
 
