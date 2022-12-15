@@ -32,7 +32,9 @@ export async function removeListing(accessToken, id) {
       "Your listing has been removed",
       "success"
     );
-    window.location.assign("index.html");
+    setTimeout(() => {
+      window.location.assign("index.html");
+    }, 1500);
   } else {
     const result = await response.json();
     const {
