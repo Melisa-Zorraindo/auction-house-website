@@ -37,19 +37,21 @@ export async function editListing(
   const response = await fetch(`${API_AUCTION_URL}listings/${id}`, options);
   const result = await response.json();
 
-  const USER_FEEDBACK = document.querySelector("#feedback");
-  const USER_ERROR_FEEDBACK = document.querySelector(
-    "#update-listing-feedback"
+  const USER_SUCCESS_FEEDBACK = document.querySelector(
+    "#update-listing-success"
   );
+  const USER_ERROR_FEEDBACK = document.querySelector("#update-listing-error");
 
   if (response.ok) {
     displayFeedback(
-      USER_FEEDBACK,
+      USER_SUCCESS_FEEDBACK,
       "Awesome",
       "Your listing was successfully updated",
       "success"
     );
-    location.reload();
+    setTimeout(() => {
+      location.reload();
+    }, 1500);
   } else {
     const {
       errors: [{ message }],
