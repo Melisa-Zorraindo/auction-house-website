@@ -371,6 +371,7 @@ export async function createSingleListingHTML(container, item) {
     const placeBidInput = document.createElement("input");
     placeBidInput.setAttribute("type", "number");
     placeBidInput.setAttribute("placeholder", "Enter amount");
+    placeBidInput.classList.add("bid-field-max-width");
 
     //prevent user from bidding lower than highest bid
     if (bidsArray.length > 0) {

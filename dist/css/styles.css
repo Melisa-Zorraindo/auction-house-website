@@ -10811,4 +10811,8 @@ textarea.form-control-lg {
   max-width: 8rem;
 }
 
+.bid-field-max-width {
+  max-width: 10rem;
+}
+
 /*# sourceMappingURL=styles.css.map */
