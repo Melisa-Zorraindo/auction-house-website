@@ -38,18 +38,17 @@ export async function renderHomepage() {
 
   //add search functionality
   const FOUND_ITEMS_CONTAINER = document.querySelector("#found-items");
-  const SEARCH_BAR = document.querySelector("#search-bar");
+  const SEARCH_BAR = document.querySelector("input#search-bar");
 
-  SEARCH_BAR.addEventListener("keyup", () => {
+  SEARCH_BAR.addEventListener("input", () => {
     FOUND_ITEMS_CONTAINER.classList.remove("d-none");
     let query = SEARCH_BAR.value;
     searchListings(LATEST_ITEMS, query, FOUND_ITEMS_CONTAINER);
-  });
 
-  //clear container when clear search button clicked
-  const CLEAR_SEARCH = document.querySelector("#clear-search");
-  CLEAR_SEARCH.addEventListener("click", () => {
-    FOUND_ITEMS_CONTAINER.classList.add("d-none");
+    //clean container if no term in search bar
+    if (SEARCH_BAR.value.length === 0) {
+      FOUND_ITEMS_CONTAINER.classList.add("d-none");
+    }
   });
 
   //edit profile functionality
