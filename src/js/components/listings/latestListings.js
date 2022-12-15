@@ -99,6 +99,9 @@ export function createCardGroups(container, title, items) {
       description.classList.add("card-text", "col", "col-sm-12", "col-md-6");
     }
     description.innerHTML = `${descriptionToDisplay}`;
+    if (descriptionToDisplay === "This item lacks a description") {
+      listingDescription.classList.add("fst-italic");
+    }
     row.append(description);
 
     let image = document.createElement("img");

@@ -103,6 +103,9 @@ export function createListingsHTML(container, title, items) {
         );
       }
       listingDescription.innerHTML = `${descriptionToDisplay}`;
+      if (descriptionToDisplay === "This item lacks a description") {
+        listingDescription.classList.add("fst-italic");
+      }
       row.append(listingDescription);
 
       let image = document.createElement("img");
