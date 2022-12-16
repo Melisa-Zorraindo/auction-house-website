@@ -19,8 +19,13 @@ export async function createSingleListingHTML(container, item) {
     endsAt,
   } = item;
 
+  const spinner = document.querySelector("#spinner");
+  spinner.classList.add("d-none");
+
   const pageTitle = document.querySelector("title");
   pageTitle.innerHTML = `Biddable | ${title}`;
+
+  container.classList.add("border-top", "border-4", "border-primary", "py-5");
 
   const firstRow = document.createElement("div");
   firstRow.classList.add("row");
@@ -234,12 +239,14 @@ export async function createSingleListingHTML(container, item) {
 
   let timeLeft;
 
-  if (daysLeft < 0) {
+  if (hoursLeft < 0) {
     timeLeft = "Ended";
-  } else if (daysLeft === 0) {
-    timeLeft = `${hoursLeft} hours left`;
+  } else if (daysLeft === 0 && hoursLeft === 0) {
+    timeLeft = "A few minutes left";
   } else if (daysLeft > 0) {
     timeLeft = `${daysLeft} days left`;
+  } else if (daysLeft === 0) {
+    timeLeft = `${hoursLeft} hours left`;
   }
 
   const timeSpanEl = document.createElement("span");
@@ -251,7 +258,7 @@ export async function createSingleListingHTML(container, item) {
   timeSpanEl.append(timeText);
 
   const listingTitle = document.createElement("h3");
-  listingTitle.classList.add("h5", "mt-4");
+  listingTitle.classList.add("h4", "mt-4");
   listingTitle.innerHTML = `${title}`;
   outerDiv.append(listingTitle);
 
@@ -270,7 +277,7 @@ export async function createSingleListingHTML(container, item) {
   outerDiv.append(interactionsContainer);
 
   const highestBid = document.createElement("h4");
-  highestBid.classList.add("h5", "mt-4");
+  highestBid.classList.add("mt-4");
   highestBid.innerHTML = "Highest bid";
   interactionsContainer.append(highestBid);
 
@@ -281,8 +288,17 @@ export async function createSingleListingHTML(container, item) {
   let bidsArray = bids;
   if (bidsArray.length > 0) {
     let bidToDisplay = bidsArray.sort((a, b) => b.amount - a.amount);
-    highestBidAmount.innerHTML = `<h4 class="fw-bold mb-0">${bidToDisplay[0].amount} credits</h4>
-                                  <p class="fst-italic">placed by ${bidToDisplay[0].bidderName}</p>`;
+    const highestBidQuantity = document.createElement("p");
+    highestBidQuantity.classList.add("fw-bold", "mb-0");
+    highestBidQuantity.innerHTML = `${bidToDisplay[0].amount} credits`;
+    interactionsContainer.append(highestBidQuantity);
+
+    const highestBidderName = document.createElement("p");
+    highestBidderName.classList.add("fst-italic");
+    highestBidderName.innerHTML = `placed by ${bidToDisplay[0].bidderName}`;
+    interactionsContainer.append(highestBidderName);
+    /*  highestBidQuantity.innerHTML = `<p class="fw-bold mb-0">${bidToDisplay[0].amount} credits</p>
+                                  <p class="fst-italic">placed by ${bidToDisplay[0].bidderName}</p>`; */
   } else {
     highestBidAmount.innerHTML = "0";
   }
