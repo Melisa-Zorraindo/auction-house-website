@@ -34,7 +34,7 @@ export async function renderHomepage() {
 
   const FINISH_SOON = await getFinishSoonItems();
   const FINISH_SOON_ITEMS = document.querySelector("#finish-soon");
-  createCardGroups(FINISH_SOON_ITEMS, "Finish soon", FINISH_SOON);
+  createCardGroups(FINISH_SOON_ITEMS, "Finishing soon", FINISH_SOON);
 
   //add search functionality
   const FOUND_ITEMS_CONTAINER = document.querySelector("#found-items");

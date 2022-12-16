@@ -23,7 +23,7 @@ export async function renderEndSoonPage() {
   //render listings
   const END_SOON = await getFinishSoonItems();
   const END_SOON_LISTINGS = document.querySelector("#hurry-up");
-  createListingsHTML(END_SOON_LISTINGS, "Short time bids", END_SOON);
+  createListingsHTML(END_SOON_LISTINGS, "Finishing soon", END_SOON);
 
   //edit profile functionality
   selectAvatar();
