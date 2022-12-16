@@ -130,7 +130,7 @@ export function createListingsHTML(container, title, items) {
       const formattedDate = formatDate(newDate);
 
       let endDate = document.createElement("p");
-      endDate.classList.add("fst-italic", "fw-bold");
+      endDate.classList.add("fw-bold");
       endDate.innerHTML = `Ends ${formattedDate}`;
       cardFooter.append(endDate);
     }
