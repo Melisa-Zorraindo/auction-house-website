@@ -36,22 +36,32 @@ export async function createListing(
     }),
   };
 
-  const response = await fetch(
-    `${API_AUCTION_URL}${NEW_LISTING_PATH}`,
-    options
-  );
-  const result = await response.json();
   const USER_FEEDBACK = document.querySelector("#new-listing-feedback");
 
-  if (response.ok) {
-    const { id } = result;
-    window.location.assign(`/feed-item.html?id=${id}`);
-  } else {
-    const {
-      errors: [{ message }],
-    } = result;
-    console.log(result);
-    displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
+  try {
+    const response = await fetch(
+      `${API_AUCTION_URL}${NEW_LISTING_PATH}`,
+      options
+    );
+    const result = await response.json();
+
+    if (response.ok) {
+      const { id } = result;
+      window.location.assign(`/feed-item.html?id=${id}`);
+    } else {
+      const {
+        errors: [{ message }],
+      } = result;
+      displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
+    }
+  } catch (error) {
+    console.log(error);
+    displayFeedback(
+      USER_FEEDBACK,
+      "An error occurred",
+      "Please try again later",
+      "danger"
+    );
   }
 }
 
@@ -74,28 +84,40 @@ export async function placeBid(accessToken, quantity, id) {
     }),
   };
 
-  const response = await fetch(
-    `${API_AUCTION_URL}listings/${id}/bids`,
-    options
-  );
-  const result = await response.json();
   const USER_FEEDBACK = document.querySelector("#feedback");
   const USER_BID_FEEDBACK = document.querySelector("#bid-feedback");
 
-  if (response.ok) {
-    displayFeedback(
-      USER_BID_FEEDBACK,
-      "Good luck!",
-      "Your bid was successfully placed",
-      "success"
+  try {
+    const response = await fetch(
+      `${API_AUCTION_URL}listings/${id}/bids`,
+      options
     );
-    location.reload();
-    return result;
-  } else {
-    const {
-      errors: [{ message }],
-    } = result;
-    console.log(result);
-    displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
+    const result = await response.json();
+
+    if (response.ok) {
+      displayFeedback(
+        USER_BID_FEEDBACK,
+        "Good luck!",
+        "Your bid was successfully placed",
+        "success"
+      );
+      setTimeout(() => {
+        location.reload();
+      }, 1500);
+      return result;
+    } else {
+      const {
+        errors: [{ message }],
+      } = result;
+      displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
+    }
+  } catch (error) {
+    console.log(error);
+    displayFeedback(
+      USER_FEEDBACK,
+      "An error occurred",
+      "Please try again later",
+      "danger"
+    );
   }
 }

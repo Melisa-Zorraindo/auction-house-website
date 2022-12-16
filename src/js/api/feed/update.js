@@ -34,32 +34,41 @@ export async function editListing(
     }),
   };
 
-  const response = await fetch(`${API_AUCTION_URL}listings/${id}`, options);
-  const result = await response.json();
-
   const USER_SUCCESS_FEEDBACK = document.querySelector(
     "#update-listing-success"
   );
   const USER_ERROR_FEEDBACK = document.querySelector("#update-listing-error");
 
-  if (response.ok) {
+  try {
+    const response = await fetch(`${API_AUCTION_URL}listings/${id}`, options);
+    const result = await response.json();
+    if (response.ok) {
+      displayFeedback(
+        USER_SUCCESS_FEEDBACK,
+        "Awesome",
+        "Your listing was successfully updated",
+        "success"
+      );
+      setTimeout(() => {
+        location.reload();
+      }, 1500);
+    } else {
+      const {
+        errors: [{ message }],
+      } = result;
+      displayFeedback(
+        USER_ERROR_FEEDBACK,
+        "An error occurred",
+        message,
+        "danger"
+      );
+    }
+  } catch (error) {
+    console.log(error);
     displayFeedback(
-      USER_SUCCESS_FEEDBACK,
-      "Awesome",
-      "Your listing was successfully updated",
-      "success"
-    );
-    setTimeout(() => {
-      location.reload();
-    }, 1500);
-  } else {
-    const {
-      errors: [{ message }],
-    } = result;
-    displayFeedback(
-      USER_ERROR_FEEDBACK,
+      USER_FEEDBACK,
       "An error occurred",
-      message,
+      "Please try again later",
       "danger"
     );
   }

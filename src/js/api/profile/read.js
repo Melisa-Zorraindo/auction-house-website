@@ -16,19 +16,31 @@ export async function fetchSingleProfile(accessToken, name) {
       Authorization: `Bearer ${accessToken}`,
     },
   };
-  const response = await fetch(
-    `${API_AUCTION_URL}profiles/${name}?_listings=true`,
-    options
-  );
-  const result = await response.json();
+
   const USER_FEEDBACK = document.querySelector("#feedback");
 
-  if (response.ok) {
-    return result;
-  } else {
-    const {
-      errors: [{ message }],
-    } = result;
-    displayFeedback(USER_FEEDBACK, "An error ocurred", message, "danger");
+  try {
+    const response = await fetch(
+      `${API_AUCTION_URL}profiles/${name}?_listings=true`,
+      options
+    );
+    const result = await response.json();
+
+    if (response.ok) {
+      return result;
+    } else {
+      const {
+        errors: [{ message }],
+      } = result;
+      displayFeedback(USER_FEEDBACK, "An error ocurred", message, "danger");
+    }
+  } catch (error) {
+    console.log(error);
+    displayFeedback(
+      USER_FEEDBACK,
+      "An error occurred",
+      "Please try again later",
+      "danger"
+    );
   }
 }

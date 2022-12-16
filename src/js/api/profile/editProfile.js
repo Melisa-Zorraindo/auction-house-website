@@ -22,28 +22,38 @@ export async function editProfile(accessToken, media, name) {
     }),
   };
 
-  const response = await fetch(
-    `${API_AUCTION_URL}profiles/${name}/media`,
-    options
-  );
-  const result = await response.json();
-
   const USER_FEEDBACK = document.querySelector("#update-avatar-feedback");
 
-  if (response.ok) {
-    const { accessToken, credits, ...profile } = result;
-    saveToStorage("profile", profile);
+  try {
+    const response = await fetch(
+      `${API_AUCTION_URL}profiles/${name}/media`,
+      options
+    );
+    const result = await response.json();
+
+    if (response.ok) {
+      const { accessToken, credits, ...profile } = result;
+      saveToStorage("profile", profile);
+      displayFeedback(
+        USER_FEEDBACK,
+        "Awesome",
+        "Your profile picture was successfully updated",
+        "success"
+      );
+      location.reload();
+    } else {
+      const {
+        errors: [{ message }],
+      } = result;
+      displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
+    }
+  } catch (error) {
+    console.log(error);
     displayFeedback(
       USER_FEEDBACK,
-      "Awesome",
-      "Your profile picture was successfully updated",
-      "success"
+      "An error occurred",
+      "Please try again later",
+      "danger"
     );
-    location.reload();
-  } else {
-    const {
-      errors: [{ message }],
-    } = result;
-    displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
   }
 }

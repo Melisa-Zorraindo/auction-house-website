@@ -18,29 +18,38 @@ export async function removeListing(accessToken, id) {
     },
   };
 
-  const response = await fetch(
-    `${API_AUCTION_URL}${REMOVE_LISTING_PATH}${id}`,
-    options
-  );
-
   const USER_FEEDBACK = document.querySelector("#remove-listing-feedback");
 
-  if (response.ok) {
+  try {
+    const response = await fetch(
+      `${API_AUCTION_URL}${REMOVE_LISTING_PATH}${id}`,
+      options
+    );
+
+    if (response.ok) {
+      displayFeedback(
+        USER_FEEDBACK,
+        "Awesome",
+        "Your listing has been removed",
+        "success"
+      );
+      setTimeout(() => {
+        window.location.assign("index.html");
+      }, 1500);
+    } else {
+      const result = await response.json();
+      const {
+        errors: [{ message }],
+      } = result;
+      displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
+    }
+  } catch (error) {
+    console.log(error);
     displayFeedback(
       USER_FEEDBACK,
-      "Awesome",
-      "Your listing has been removed",
-      "success"
+      "An error occurred",
+      "Please try again later",
+      "danger"
     );
-    setTimeout(() => {
-      window.location.assign("index.html");
-    }, 1500);
-  } else {
-    const result = await response.json();
-    const {
-      errors: [{ message }],
-    } = result;
-    console.log(result);
-    displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
   }
 }

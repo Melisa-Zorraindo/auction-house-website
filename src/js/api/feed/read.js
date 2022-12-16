@@ -13,17 +13,28 @@ export async function fetchListings() {
     method: "GET",
   };
 
-  const response = await fetch(`${API_AUCTION_URL}${LISTINGS_PATH}`, options);
-  const result = await response.json();
+  const USER_FEEDBACK = document.querySelector("#feedback");
 
-  if (response.ok) {
-    return result;
-  } else {
-    const {
-      errors: [{ message }],
-    } = result;
-    const USER_FEEDBACK = document.querySelector("#feedback");
-    displayFeedback(USER_FEEDBACK, "An error ocurred", message, "danger");
+  try {
+    const response = await fetch(`${API_AUCTION_URL}${LISTINGS_PATH}`, options);
+    const result = await response.json();
+
+    if (response.ok) {
+      return result;
+    } else {
+      const {
+        errors: [{ message }],
+      } = result;
+      displayFeedback(USER_FEEDBACK, "An error ocurred", message, "danger");
+    }
+  } catch (error) {
+    console.log(error);
+    displayFeedback(
+      USER_FEEDBACK,
+      "An error occurred",
+      "Please try again later",
+      "danger"
+    );
   }
 }
 
@@ -43,20 +54,32 @@ export async function fetchSingleListing(accessToken, id) {
     },
   };
 
-  const response = await fetch(
-    `${API_AUCTION_URL}listings/${id}?_seller=true&_bids=true`,
-    options
-  );
-  const result = await response.json();
+  const USER_FEEDBACK = document.querySelector("#feedback");
 
-  if (response.ok) {
-    return result;
-  } else {
-    const {
-      errors: [{ message }],
-    } = result;
-    const USER_FEEDBACK = document.querySelector("#feedback");
-    displayFeedback(USER_FEEDBACK, "An error ocurred", message, "danger");
+  try {
+    const response = await fetch(
+      `${API_AUCTION_URL}listings/${id}?_seller=true&_bids=true`,
+      options
+    );
+    const result = await response.json();
+
+    if (response.ok) {
+      return result;
+    } else {
+      const {
+        errors: [{ message }],
+      } = result;
+
+      displayFeedback(USER_FEEDBACK, "An error ocurred", message, "danger");
+    }
+  } catch (error) {
+    console.log(error);
+    displayFeedback(
+      USER_FEEDBACK,
+      "An error occurred",
+      "Please try again later",
+      "danger"
+    );
   }
 }
 
@@ -75,20 +98,30 @@ export async function fetchUserListings(accessToken, name) {
     },
   };
 
-  const response = await fetch(
-    `${API_AUCTION_URL}profiles/${name}/listings`,
-    options
-  );
-  const result = await response.json();
+  const USER_FEEDBACK = document.querySelector("#feedback");
 
-  if (response.ok) {
-    return result;
-  } else {
-    const {
-      errors: [{ message }],
-    } = result;
-    console.log(message);
-    const USER_FEEDBACK = document.querySelector("#feedback");
-    displayFeedback(USER_FEEDBACK, "An error ocurred", message, "danger");
+  try {
+    const response = await fetch(
+      `${API_AUCTION_URL}profiles/${name}/listings`,
+      options
+    );
+    const result = await response.json();
+
+    if (response.ok) {
+      return result;
+    } else {
+      const {
+        errors: [{ message }],
+      } = result;
+      displayFeedback(USER_FEEDBACK, "An error ocurred", message, "danger");
+    }
+  } catch (error) {
+    console.log(error);
+    displayFeedback(
+      USER_FEEDBACK,
+      "An error occurred",
+      "Please try again later",
+      "danger"
+    );
   }
 }

@@ -26,17 +26,27 @@ export async function registerProfile(name, email, password, avatar) {
     }),
   };
 
-  const response = await fetch(`${API_AUCTION_URL}${REGISTER_PATH}`, options);
-  const result = await response.json();
-
   const USER_FEEDBACK = document.querySelector("#feedback");
 
-  if (response.ok) {
-    handleSubmission();
-  } else {
-    const {
-      errors: [{ message }],
-    } = result;
-    displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
+  try {
+    const response = await fetch(`${API_AUCTION_URL}${REGISTER_PATH}`, options);
+    const result = await response.json();
+
+    if (response.ok) {
+      handleSubmission();
+    } else {
+      const {
+        errors: [{ message }],
+      } = result;
+      displayFeedback(USER_FEEDBACK, "An error occurred", message, "danger");
+    }
+  } catch (error) {
+    console.log(error);
+    displayFeedback(
+      USER_FEEDBACK,
+      "An error occurred",
+      "Please try again later",
+      "danger"
+    );
   }
 }

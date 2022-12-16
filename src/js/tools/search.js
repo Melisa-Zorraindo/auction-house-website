@@ -25,7 +25,7 @@ export function searchListings(arr, queryString, container) {
 
   if (filteredListings.length === 0) {
     container.innerHTML = `<div
-                            class="my-3 alert alert-info alert-dismissible fade show"
+                            class="my-3 alert alert-warning alert-dismissible fade show"
                             role="alert"
                           >
                             <h6 class="alert-heading fw-bold">Oops</h6>
