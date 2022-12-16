@@ -11,6 +11,14 @@ export function createUserInfoContainer(container, userProfile) {
     _count: { listings },
   } = userProfile;
 
+  container.classList.add(
+    "bg-dark",
+    "py-5",
+    "border-top",
+    "border-4",
+    "border-primary"
+  );
+
   const pageTitle = document.querySelector("title");
   pageTitle.innerHTML = `Biddable | ${name}`;
 

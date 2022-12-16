@@ -2,6 +2,9 @@ import { formatDate } from "../../tools/dateStyler.js";
 import { loadFromStorage } from "../../storage/load.js";
 
 export function createCardGroups(container, title, items) {
+  const spinner = document.querySelector("#spinner");
+  spinner.classList.add("d-none");
+
   const profile = loadFromStorage("profile");
   const cardGroup = document.createElement("div");
   cardGroup.classList.add(
@@ -100,7 +103,7 @@ export function createCardGroups(container, title, items) {
     }
     description.innerHTML = `${descriptionToDisplay}`;
     if (descriptionToDisplay === "This item lacks a description") {
-      listingDescription.classList.add("fst-italic");
+      description.classList.add("fst-italic");
     }
     row.append(description);
 

@@ -2,6 +2,9 @@ import { formatDate } from "../../tools/dateStyler.js";
 import { loadFromStorage } from "../../storage/load.js";
 
 export function createListingsHTML(container, title, items) {
+  const spinner = document.querySelector("#spinner");
+  spinner.classList.add("d-none");
+
   const profile = loadFromStorage("profile");
   const heading = document.createElement("h1");
   heading.classList.add(
