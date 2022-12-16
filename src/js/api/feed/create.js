@@ -80,10 +80,11 @@ export async function placeBid(accessToken, quantity, id) {
   );
   const result = await response.json();
   const USER_FEEDBACK = document.querySelector("#feedback");
+  const USER_BID_FEEDBACK = document.querySelector("#bid-feedback");
 
   if (response.ok) {
     displayFeedback(
-      USER_FEEDBACK,
+      USER_BID_FEEDBACK,
       "Good luck!",
       "Your bid was successfully placed",
       "success"

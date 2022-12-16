@@ -380,6 +380,27 @@ export async function createSingleListingHTML(container, item) {
   }
   //when item doesn't belong to logged in user
   else {
+    //feedback message container
+    const wrapper = document.createElement("div");
+    wrapper.setAttribute("role", "alert");
+    wrapper.setAttribute("id", "bid-feedback");
+    wrapper.classList.add(
+      "d-none",
+      "my-3",
+      "alert",
+      "alert-dismissible",
+      "fade",
+      "show"
+    );
+    interactionsContainer.append(wrapper);
+
+    const feedbackHeading = document.createElement("h6");
+    feedbackHeading.classList.add("alert-heading", "fw-bold");
+    wrapper.append(feedbackHeading);
+
+    const feedbackMessage = document.createElement("div");
+    wrapper.append(feedbackMessage);
+
     const placeBidForm = document.createElement("form");
     placeBidForm.classList.add("d-flex", "mt-4");
     interactionsContainer.append(placeBidForm);
