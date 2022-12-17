@@ -90,7 +90,7 @@
         data-bs-backdrop="static"
         data-bs-keyboard="false"
         tabindex="-1"
-        aria-labelledby="staticBackdropLabel"
+        aria-labelledby="new-listing-modal"
         aria-hidden="true"
       >
         <div class="modal-dialog modal-fullscreen-md-down">
@@ -131,7 +131,7 @@
                     class="form-control"
                     placeholder="Title"
                     aria-label="Title"
-                    aria-describedby="basic-addon1"
+                    aria-describedby="listing-title"
                     id="listing-title"
                     maxlength="30"
                     required
@@ -162,7 +162,7 @@
                     class="form-control"
                     placeholder="Tags"
                     aria-label="Tags"
-                    aria-describedby="basic-addon1"
+                    aria-describedby="listing-tags"
                     data-bs-toggle="tooltip"
                     data-bs-placement="bottom"
                     title="Separated by commas if more than one"
@@ -179,7 +179,7 @@
                   <input
                     type="url"
                     class="form-control"
-                    aria-describedby="basic-addon3"
+                    aria-describedby="listing-urls"
                     placeholder="https://www.url.com/image.jpeg"
                     data-bs-toggle="tooltip"
                     data-bs-placement="bottom"
@@ -276,7 +276,7 @@
         data-bs-backdrop="static"
         data-bs-keyboard="false"
         tabindex="-1"
-        aria-labelledby="staticBackdropLabel"
+        aria-labelledby="edit-profile-modal"
         aria-hidden="true"
       >
         <div class="modal-dialog modal-fullscreen-md-down">
@@ -306,7 +306,7 @@
                   aria-label="Close"
                 ></button>
               </div>
-              <form action="" id="edit-avatar">
+              <form id="edit-avatar">
                 <!--username-->
                 <div class="input-group mb-3">
                   <span class="input-group-text"> @ </span>
@@ -315,7 +315,7 @@
                     class="form-control"
                     placeholder="Username"
                     aria-label="Username"
-                    aria-describedby="basic-addon1"
+                    aria-describedby="username"
                     id="username"
                     disabled
                   />
@@ -331,7 +331,7 @@
                     class="form-control"
                     placeholder="Email"
                     aria-label="Email"
-                    aria-describedby="basic-addon1"
+                    aria-describedby="user-email"
                     id="user-email"
                     disabled
                   />
@@ -347,7 +347,7 @@
                     type="url"
                     class="form-control"
                     id="avatar-url"
-                    aria-describedby="basic-addon3"
+                    aria-describedby="avatar-url"
                     placeholder="https://www.url.com/image.jpeg"
                     required
                   />
