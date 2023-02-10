@@ -28,7 +28,7 @@ export function renderNavbarMobile() {
                                                     <a
                                                         class="nav-link d-flex align-items-center text-primary"
                                                         href="./index.html"
-                                                        ><span class="material-symbols-outlined ms-1"> home </span
+                                                        ><span class="material-symbols-outlined ms-1"> house </span
                                                         ><span class="ms-2">Home</span></a
                                                     >
                                                 </li>
