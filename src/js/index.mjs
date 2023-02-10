@@ -6,24 +6,28 @@ import { renderSingleListingPage } from "./handlers/renderSingleListing.mjs";
 import { renderProfile } from "./handlers/renderProfilePage.mjs";
 
 //render different pages
+
 const path = location.pathname;
 
-if (path === "/all-listings.html") {
-  //render all listings page
-  await renderAllListingsPage();
-} else if (path === "/most-popular.html") {
-  //render most popular page
-  await renderMostPopularPage();
-} else if (path === "/hurry-up.html") {
-  //render hurry up page
-  await renderEndSoonPage();
-} else if (path.includes("/feed-item.html")) {
-  //render single item page
-  await renderSingleListingPage();
-} else if (path.includes("/profile.html")) {
-  //render profile page
-  await renderProfile();
-} else {
-  //render homepage
-  await renderHomepage();
+switch (path) {
+  case "/all-listings.html":
+    await renderAllListingsPage();
+    break;
+  case "/most-popular.html":
+    await renderMostPopularPage();
+    break;
+  case "/hurry-up.html":
+    await renderEndSoonPage();
+    break;
+  default:
+    if (path.includes("/feed-item.html")) {
+      await renderSingleListingPage();
+      break;
+    } else if (path.includes("/profile.html")) {
+      await renderProfile();
+      break;
+    } else {
+      await renderHomepage();
+      break;
+    }
 }
