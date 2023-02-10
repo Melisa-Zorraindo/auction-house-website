@@ -1,6 +1,8 @@
-//an array of objects containing the links
-//function takes the array as an arg, iterates over the array, and renders the html
-
+/**
+ * Returns styled <li> tags containing styled <a> tags
+ * @param {HTMLUListElement} ul <ul> where the <li>s will be appended
+ * @param {Array} array An array of objects containing the data to feed the <a> tags
+ */
 export function renderSecondaryNavbar(ul, array) {
   array.map(({ href, iconName, linkName }) => {
     const li = document.createElement("li");
