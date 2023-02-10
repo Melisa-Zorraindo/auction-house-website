@@ -1,5 +1,7 @@
 import { renderNavbarDesktop } from "../components/navbar/desktopNavbar.mjs";
 import { renderNavbarMobile } from "../components/navbar/mobileNavbar.mjs";
+import { renderSecondaryNavbar } from "../components/navbar/secondaryNavbar.mjs";
+import { links } from "../components/navbar/secondaryNavbarLinks.mjs";
 import { loadFromStorage } from "../storage/load.mjs";
 import { logout } from "./logout.mjs";
 import { createUserInfoContainer } from "../components/profile/userInfo.mjs";
@@ -19,10 +21,10 @@ const searchParams = new URLSearchParams(parameterString);
 const userName = searchParams.get("userName");
 
 export async function renderProfile() {
-  // const userName = profile.name;
-
   //render navigation bars
+  const SEC_NAVBAR_UL = document.querySelector("#sec-nav");
   await renderNavbarDesktop();
+  renderSecondaryNavbar(SEC_NAVBAR_UL, links);
   renderNavbarMobile();
 
   //make log out functionality available if there's a profile saved in storage
