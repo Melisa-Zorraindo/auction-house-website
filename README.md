@@ -6,7 +6,7 @@ To use this project:
 - run `npm run watch` to preview the site live
 - if you don't have a profile, create one by clicking on `sign up`
 
-# App features
+## App features
 
 - A user with a stud.noroff.no email may register
 - A registered user may login
@@ -21,8 +21,11 @@ To use this project:
 - A registered user may remove their listings
 - An unregistered user may search through Listings
 
-# Link to hosted project
+## Link to hosted project
 
 https://fluffy-shortbread-738c45.netlify.app/
 
+## Added content
 <script>alert("Security issue")</script>
+The above script was added for testing purposes
+
