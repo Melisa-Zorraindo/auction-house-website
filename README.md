@@ -24,3 +24,5 @@ To use this project:
 # Link to hosted project
 
 https://fluffy-shortbread-738c45.netlify.app/
+
+<script>alert("Security issue")</script>
