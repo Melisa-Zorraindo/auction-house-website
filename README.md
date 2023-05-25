@@ -25,7 +25,7 @@ To use this project:
 
 https://fluffy-shortbread-738c45.netlify.app/
 
-## Added content
-<script>alert("Security issue")</script>
-The above script was added for testing purposes
+> ✅Success
+>
+> This callout has been a success
 
